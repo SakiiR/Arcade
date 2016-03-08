@@ -2,3 +2,9 @@
 ;;; - libcaca
 ;;; - SDL2
 ;;; - liblapin / minilibx
+;;;
+;;; All Custom library class will inherit from IDisplay interface
+;;; All game (libraryr) class will inherit from IGame Interface
+
+;;; Don't forget to add I/O system for moulinette
+;;; HFGL
