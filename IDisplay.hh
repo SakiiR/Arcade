@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:36:09 2016 Erwan Dupard
-// Last update Wed Mar  9 12:42:36 2016 Erwan Dupard
+// Last update Wed Mar  9 13:57:50 2016 Barthelemy Gouby
 //
 
 #ifndef IDISPLAY_HH_
