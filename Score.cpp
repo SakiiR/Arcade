@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 12:00:46 2016 Erwan Dupard
-// Last update Wed Mar  9 12:31:15 2016 Erwan Dupard
+// Last update Wed Mar  9 12:36:35 2016 Erwan Dupard
 //
 
 #include "Score.hh"
@@ -47,7 +47,7 @@ void					Score::_retreive()
 
 void								Score::_sync()
 {
-  std::map<std::string, int>::iterator	it = this->_scores.begin();
+  std::map<std::string, unsigned int>::iterator	it = this->_scores.begin();
 
   if (this->_file.is_open())
     {
@@ -59,4 +59,14 @@ void								Score::_sync()
 	  it++;
 	}
     }
+}
+
+unsigned int							Score::get(const std::string &name) const
+{
+  std::map<std::string, unsigned int>::const_iterator		it;
+
+  it = this->_scores.find(name);
+  if (it != this->_scores.end())
+    return (it->second);
+  return (0);
 }

@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 12:00:17 2016 Erwan Dupard
-// Last update Wed Mar  9 12:25:41 2016 Erwan Dupard
+// Last update Wed Mar  9 12:36:43 2016 Erwan Dupard
 //
 
 #ifndef SCORE_HH_
@@ -24,8 +24,9 @@ public:
   Score();
   ~Score();
   void							add(std::string name, unsigned int score);
+  unsigned int						get(const std::string &name) const;
 private:
-  std::map<std::string, int>				_scores;
+  std::map<std::string, unsigned int>				_scores;
   std::fstream						_file;
   void							_retreive();
   void							_sync();
