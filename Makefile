@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:37:11 2016 Erwan Dupard
-## Last update Tue Mar  8 14:40:46 2016 Erwan Dupard
+## Last update Wed Mar  9 12:18:50 2016 Erwan Dupard
 ##
 
 CC		= g++
@@ -18,7 +18,8 @@ CXXFLAGS	+= -Wall -Werror -W -Wextra
 
 LDXXFLAGS	+= 
 
-SRCS		= main.cpp
+SRCS		= main.cpp		\
+		  Score.cpp		\
 
 OBJS		= $(SRCS:.cpp=.o)
 
