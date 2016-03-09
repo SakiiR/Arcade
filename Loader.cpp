@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Wed Mar  9 16:43:35 2016 Erwan Dupard
+// Last update Wed Mar  9 16:50:44 2016 Erwan Dupard
 //
 
 #include "Loader.hh"
@@ -60,4 +60,14 @@ bool				Loader::loadGameLibrary(const char *fileName)
   this->_game = create_game();
   dlclose(handle);
   return (true);
+}
+
+IGame				*Loader::getGame() const
+{
+  return (this->_game);
+}
+
+IDisplay			*Loader::getDisplay() const
+{
+  return (this->_gLibrary);
 }
