@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 12:00:46 2016 Erwan Dupard
-// Last update Wed Mar  9 12:37:46 2016 Erwan Dupard
+// Last update Wed Mar  9 16:53:45 2016 Erwan Dupard
 //
 
 #include "Score.hh"
@@ -25,15 +25,15 @@ Score::~Score()
   this->_file.close();
 }
 
-void					Score::add(std::string name, unsigned int score)
+void								Score::add(std::string name, unsigned int score)
 {
   this->_scores[name] = score;
 }
 
-void					Score::_retreive()
+void								Score::_retreive()
 {
-  std::string				line;
-  std::string				score;
+  std::string							line;
+  std::string							score;
 
   if (this->_file.is_open())
     {
@@ -47,7 +47,7 @@ void					Score::_retreive()
 
 void								Score::_sync()
 {
-  std::map<std::string, unsigned int>::iterator	it = this->_scores.begin();
+  std::map<std::string, unsigned int>::iterator			it = this->_scores.begin();
   
   if (this->_file.is_open())
     {

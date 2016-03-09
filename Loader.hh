@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:36:22 2016 Erwan Dupard
-// Last update Wed Mar  9 16:04:56 2016 Erwan Dupard
+// Last update Wed Mar  9 16:49:43 2016 Erwan Dupard
 //
 
 #ifndef LOADER_HH_
@@ -20,6 +20,8 @@ public:
   ~Loader();
   bool			loadGraphicLibrary(const char *);
   bool			loadGameLibrary(const char *);
+  IGame			*getGame() const;
+  IDisplay		*getDisplay() const;
 private:
   IGame			*_game;
   IDisplay		*_gLibrary;
