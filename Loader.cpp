@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Wed Mar  9 16:22:03 2016 Erwan Dupard
+// Last update Wed Mar  9 16:30:28 2016 Erwan Dupard
 //
 
 #include "Loader.hh"
@@ -21,7 +21,7 @@ Loader::~Loader()
 bool				Loader::loadGraphicLibrary(const char *fileName)
 {
   void				*handle;
-  void				*display;
+  display_create_t		*create_display;
 
   std::cout << "[^] Loading Graphic Library.." << std::endl;
   if ((handle = dlopen(fileName, RTLD_NOW)) == NULL)
@@ -29,19 +29,20 @@ bool				Loader::loadGraphicLibrary(const char *fileName)
       std::cerr << dlerror() << std::endl;
       return (false);
     }
-  if ((display = dlsym(handle, "display")) == NULL)
+  if ((create_display = (display_create_t *)dlsym(handle, "create")) == NULL)
     {
       std::cerr << dlerror() << std::endl;
       return (false);
     }
-  this->_game = static_cast<IDisplay *()>(display)();
+  this->_gLibrary = create_display();
   return (true);
 }
 
 bool				Loader::loadGameLibrary(const char *fileName)
 {
+
   void				*handle;
-  void				*game;
+  game_create_t			*create_game;
 
   std::cout << "[^] Loading Game Library.." << std::endl;
   if ((handle = dlopen(fileName, RTLD_NOW)) == NULL)
@@ -49,11 +50,11 @@ bool				Loader::loadGameLibrary(const char *fileName)
       std::cerr << dlerror() << std::endl;
       return (false);
     }
-  if ((game = dlsym(handle, "game")) == NULL)
+  if ((create_game = (game_create_t *)dlsym(handle, "create")) == NULL)
     {
       std::cerr << dlerror() << std::endl;
       return (false);
     }
-  this->_game = static_cast<IGame *()>(game)();
+  this->_game = create_game();
   return (true);
 }

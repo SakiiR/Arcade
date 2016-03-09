@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:37:11 2016 Erwan Dupard
-## Last update Wed Mar  9 16:07:30 2016 Erwan Dupard
+## Last update Wed Mar  9 16:30:50 2016 Erwan Dupard
 ##
 
 CC		= g++
@@ -16,7 +16,7 @@ NAME		= arcade
 
 CXXFLAGS	+= -Wall -Werror -W -Wextra -std=c++11
 
-LDXXFLAGS	+= 
+LDXXFLAGS	+= -ldl
 
 SRCS		= main.cpp		\
 		  Score.cpp		\
