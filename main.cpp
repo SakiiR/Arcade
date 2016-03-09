@@ -5,9 +5,8 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Wed Mar  9 15:30:10 2016 Erwan Dupard
+// Last update Wed Mar  9 16:37:59 2016 Erwan Dupard
 //
-
 
 #include "ressources.hh"
 
@@ -29,10 +28,13 @@ void			usage(const char *execName)
 
 int			main(int argc, char **argv)
 {
+  Loader		loader;
+
   if (argc < 2)
     {
       usage(argv[0]);
       return (RETURN_SUCCESS);
     }
+  loader.loadGraphicLibrary(argv[1]);
   return (RETURN_SUCCESS);
 }
