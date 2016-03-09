@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 15:08:07 2016 Erwan Dupard
-// Last update Wed Mar  9 12:27:20 2016 Erwan Dupard
+// Last update Wed Mar  9 16:09:48 2016 Erwan Dupard
 //
 
 #ifndef RESSOURCES_HH_
@@ -13,7 +13,10 @@
 
 # include <iostream>
 # include <string>
+# include <dlfcn.h>
 # include "Score.hh"
+# include "IDisplay.hh"
+# include "IGame.hh"
 
 # define RETURN_SUCCESS		(0)
 # define RETURN_FAILURE		(1)
