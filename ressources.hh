@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 15:08:07 2016 Erwan Dupard
-// Last update Wed Mar  9 16:53:23 2016 Erwan Dupard
+// Last update Wed Mar  9 17:38:26 2016 Barthelemy Gouby
 //
 
 #ifndef RESSOURCES_HH_
@@ -27,7 +27,6 @@ struct					MenuState
 {
   const std::vector<std::string>	games;
   const std::vector<std::string>	displays;
-  const int				&cursorPosition;
 };
 
 typedef IGame				*game_create_t();

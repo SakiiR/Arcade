@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:36:09 2016 Erwan Dupard
-// Last update Wed Mar  9 17:07:32 2016 Erwan Dupard
+// Last update Wed Mar  9 17:38:44 2016 Barthelemy Gouby
 //
 
 #ifndef IDISPLAY_HH_
@@ -25,6 +25,7 @@ public:
   virtual void			closeDisplay() = 0;
   virtual void			renderMap(const arcade::GetMap &map) = 0;
   virtual void			renderMenu(MenuState menuState) = 0;
+  virtual char			getLastInput() = 0;
 };
 
 #endif /* ! IDISPLAY_HH_ */
