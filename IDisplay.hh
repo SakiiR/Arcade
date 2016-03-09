@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:36:09 2016 Erwan Dupard
-// Last update Wed Mar  9 16:40:27 2016 Barthelemy Gouby
+// Last update Wed Mar  9 16:52:33 2016 Erwan Dupard
 //
 
 #ifndef IDISPLAY_HH_
@@ -15,9 +15,9 @@
 # include "Protocol.hpp"
 # include "ressources.hh"
 
-struct			MenuState;
+struct				MenuState;
 
-class			IDisplay
+class				IDisplay
 {
 public:
   virtual const std::string	&getName() const = 0;
