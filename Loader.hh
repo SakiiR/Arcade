@@ -5,13 +5,15 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:36:22 2016 Erwan Dupard
-// Last update Wed Mar  9 16:49:43 2016 Erwan Dupard
+// Last update Wed Mar  9 18:32:07 2016 Erwan Dupard
 //
 
 #ifndef LOADER_HH_
 # define LOADER_HH_
 
 # include "ressources.hh"
+
+class			IDisplay;
 
 class			Loader
 {

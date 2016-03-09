@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Wed Mar  9 16:37:59 2016 Erwan Dupard
+// Last update Wed Mar  9 17:39:03 2016 Erwan Dupard
 //
 
 #include "ressources.hh"
@@ -35,6 +35,7 @@ int			main(int argc, char **argv)
       usage(argv[0]);
       return (RETURN_SUCCESS);
     }
-  loader.loadGraphicLibrary(argv[1]);
+  if (loader.loadGraphicLibrary(argv[1]) == false)
+    return (RETURN_FAILURE);
   return (RETURN_SUCCESS);
 }
