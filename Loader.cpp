@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Wed Mar  9 16:41:28 2016 Erwan Dupard
+// Last update Wed Mar  9 16:43:35 2016 Erwan Dupard
 //
 
 #include "Loader.hh"
@@ -37,6 +37,7 @@ bool				Loader::loadGraphicLibrary(const char *fileName)
       return (false);
     }
   this->_gLibrary = create_display();
+  dlclose(handle);
   return (true);
 }
 
@@ -57,5 +58,6 @@ bool				Loader::loadGameLibrary(const char *fileName)
       return (false);
     }
   this->_game = create_game();
+  dlclose(handle);
   return (true);
 }
