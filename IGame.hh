@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Wed Mar  9 11:50:12 2016 Erwan Dupard
+// Last update Wed Mar  9 11:51:53 2016 Erwan Dupard
 //
 
 #ifndef IGAME_HH_
@@ -16,7 +16,7 @@
 class			IGame
 {
 public:
-  virtual std::string const	getName() const = 0;
+  virtual const std::string	&getName() const = 0;
   virtual void			startGame() = 0;
   virtual void			closeGame() = 0;
   virtual void			executeCommand(const CommandType &command) = 0;
