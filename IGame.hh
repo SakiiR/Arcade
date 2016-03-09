@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Wed Mar  9 11:51:53 2016 Erwan Dupard
+// Last update Wed Mar  9 12:42:41 2016 Erwan Dupard
 //
 
 #ifndef IGAME_HH_
@@ -21,7 +21,6 @@ public:
   virtual void			closeGame() = 0;
   virtual void			executeCommand(const CommandType &command) = 0;
   virtual void			display(); // pour la moulinette seulement
-  // etc etc
 };
 
 #endif /* ! IGAME_HH_ */
