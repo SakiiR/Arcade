@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Thu Mar 10 13:20:24 2016 Erwan Dupard
+// Last update Thu Mar 10 17:44:36 2016 Erwan Dupard
 //
 
 #include "ressources.hh"
@@ -21,7 +21,7 @@ void			usage(const char *execName)
   std::cout << "//   \\/            \\/     \\/      \\/    \\/ " << std::endl;
   std::cout << "//" << std::endl;
   std::cout << "// [*] Usage : " << execName << " <libraryName>" << std::endl; 
-  std::cout << "// [*] You can find libraries in ./lib/ directory." << std::endl;
+  std::cout << "// [*] You can find graphic libraries in ./lib/ directory." << std::endl;
   std::cout << "// [*] Arcade by dupard_e && barthe_g" << std::endl;
   std::cout << "//" << std::endl;
 }
@@ -31,6 +31,7 @@ void			usage(const char *execName)
 int			main(int argc, char **argv)
 {
   Loader		loader;
+  IDisplay		*display;
 
   if (argc < 2)
     {
@@ -42,5 +43,8 @@ int			main(int argc, char **argv)
       std::cerr << "[-] Errors occured ! Maybe the library is imcompatible !" << std::endl;
       return (RETURN_FAILURE);
     }
+  display = loader.getDisplay();
+  display->initDisplay();
+  (void)display;
   return (RETURN_SUCCESS);
 }

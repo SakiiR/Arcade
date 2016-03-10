@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:36:22 2016 Erwan Dupard
-// Last update Wed Mar  9 18:32:07 2016 Erwan Dupard
+// Last update Thu Mar 10 17:40:38 2016 Erwan Dupard
 //
 
 #ifndef LOADER_HH_
@@ -26,7 +26,7 @@ public:
   IDisplay		*getDisplay() const;
 private:
   IGame			*_game;
-  IDisplay		*_gLibrary;
+  IDisplay		*_display;
 };
 
 #endif /* ! LOADER_HH_ */

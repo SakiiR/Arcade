@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:36:09 2016 Erwan Dupard
-// Last update Thu Mar 10 15:02:31 2016 Erwan Dupard
+// Last update Thu Mar 10 17:00:32 2016 Erwan Dupard
 //
 
 #ifndef IDISPLAY_HH_
@@ -20,6 +20,7 @@ struct				MenuState;
 class				IDisplay
 {
 public:
+  virtual ~IDisplay() {  };
   virtual const std::string	&getName() const = 0;
   virtual void			initDisplay() = 0;
   virtual void			closeDisplay() = 0;

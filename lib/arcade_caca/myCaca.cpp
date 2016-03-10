@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:20:17 2016 Erwan Dupard
-// Last update Thu Mar 10 13:05:05 2016 Erwan Dupard
+// Last update Thu Mar 10 16:18:16 2016 Erwan Dupard
 //
 
 #include "myCaca.hh"
@@ -21,7 +21,9 @@ const std::string	&myCaca::getName() const
 }
 
 void		myCaca::initDisplay()
-{}
+{
+
+}
 
 void		myCaca::closeDisplay()
 {}
@@ -41,6 +43,7 @@ char		myCaca::getLastInput()
   return ('\\');
 }
 
-extern "C" myCaca	*create() {
+extern "C" myCaca	*create()
+{
   return (new myCaca);
 }

@@ -5,12 +5,12 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Wed Mar  9 16:50:44 2016 Erwan Dupard
+// Last update Thu Mar 10 17:44:23 2016 Erwan Dupard
 //
 
 #include "Loader.hh"
 
-Loader::Loader() : _game(0), _gLibrary(0)
+Loader::Loader() : _game(0), _display(0)
 {
   std::cout << "[^] Loader initialisation .." << std::endl;
 }
@@ -36,8 +36,8 @@ bool				Loader::loadGraphicLibrary(const char *fileName)
       std::cerr << "[-] Failed To Load Symbol : " << dlerror() << std::endl;
       return (false);
     }
-  this->_gLibrary = create_display();
-  dlclose(handle);
+  this->_display = create_display();
+  std::cout << "[+] Graphic library loaded : " << this->_display << " !" << std::endl;
   return (true);
 }
 
@@ -58,7 +58,7 @@ bool				Loader::loadGameLibrary(const char *fileName)
       return (false);
     }
   this->_game = create_game();
-  dlclose(handle);
+  std::cout << "[+] Game library loaded : " << this->_game << " !" << std::endl;
   return (true);
 }
 
@@ -69,5 +69,5 @@ IGame				*Loader::getGame() const
 
 IDisplay			*Loader::getDisplay() const
 {
-  return (this->_gLibrary);
+  return (this->_display);
 }

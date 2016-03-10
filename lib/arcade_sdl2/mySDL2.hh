@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:17:38 2016 Erwan Dupard
-// Last update Thu Mar 10 13:13:04 2016 Erwan Dupard
+// Last update Thu Mar 10 17:45:11 2016 Erwan Dupard
 //
 
 #ifndef MYSDL_HH_
@@ -28,6 +28,7 @@ public:
   virtual char			getLastInput();
 private:
   std::string			_name;
+  SDL_Window			*_window;
 };
 
 #endif /* ! MYSDL_HH_ */
