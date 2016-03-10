@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:59 2016 Erwan Dupard
-// Last update Thu Mar 10 13:10:04 2016 Erwan Dupard
+// Last update Thu Mar 10 14:56:01 2016 Erwan Dupard
 //
 
 #include "myLapin.hh"
@@ -41,6 +41,7 @@ char			myLapin::getLastInput()
   return ('\\');
 }
 
-extern "C" myLapin	*create() {
+extern "C" myLapin	*create()
+{
   return (new myLapin);
 }

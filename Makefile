@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:37:11 2016 Erwan Dupard
-## Last update Wed Mar  9 18:34:08 2016 Erwan Dupard
+## Last update Thu Mar 10 16:27:45 2016 Erwan Dupard
 ##
 
 CC		= g++
@@ -14,7 +14,7 @@ RM		= rm -f
 
 NAME		= arcade
 
-CXXFLAGS	+= -Wall -Werror -W -Wextra -std=c++11
+CXXFLAGS	+= -g3 -Wall -Werror -W -Wextra -std=c++11
 
 LDXXFLAGS	+= -ldl
 
@@ -25,7 +25,7 @@ SRCS		= main.cpp		\
 OBJS		= $(SRCS:.cpp=.o)
 
 
-all: $(NAME) libraries
+all: libraries $(NAME)
 
 libraries:
 	make -C ./lib
