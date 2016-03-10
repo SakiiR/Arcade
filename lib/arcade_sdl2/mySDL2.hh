@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:17:38 2016 Erwan Dupard
-// Last update Wed Mar  9 18:23:53 2016 Erwan Dupard
+// Last update Thu Mar 10 13:13:04 2016 Erwan Dupard
 //
 
 #ifndef MYSDL_HH_
@@ -19,7 +19,15 @@ class			        mySDL2 : public IDisplay
 {
 public:
   mySDL2();
-  ~mySDL2();
+  virtual ~mySDL2() {  };
+  virtual const std::string	&getName() const;
+  virtual void			initDisplay();
+  virtual void			closeDisplay();
+  virtual void			renderMap(const arcade::GetMap &map);
+  virtual void			renderMenu(MenuState menuState);
+  virtual char			getLastInput();
+private:
+  std::string			_name;
 };
 
 #endif /* ! MYSDL_HH_ */

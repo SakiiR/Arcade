@@ -5,14 +5,14 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:19:58 2016 Erwan Dupard
-## Last update Wed Mar  9 18:20:02 2016 Erwan Dupard
+## Last update Thu Mar 10 12:42:38 2016 Erwan Dupard
 ##
 
 CC			= g++
 
 RM			= rm -f
 
-CXXFLAGS		= -fPIC -shared -W -Wall -Werror -Wextra -std=c++11
+CXXFLAGS		= -fPIC -W -Wall -Werror -Wextra -std=c++11
 
 LDXXFLAGS		= -L../../deps/caca/ -lcaca++
 
@@ -25,7 +25,7 @@ OBJS			= $(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) $(CXXFLAGS) $(LDXXFLAGS)
+	$(CC) -o $(NAME) -shared $(OBJS) $(CXXFLAGS) $(LDXXFLAGS)
 
 clean:
 	$(RM) $(OBJS)

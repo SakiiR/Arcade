@@ -5,13 +5,42 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:59 2016 Erwan Dupard
-// Last update Wed Mar  9 18:21:59 2016 Erwan Dupard
+// Last update Thu Mar 10 13:10:04 2016 Erwan Dupard
 //
 
 #include "myLapin.hh"
 
 myLapin::myLapin()
+{
+  this->_name = "liblapin";
+}
+
+const std::string	&myLapin::getName() const
+{
+  return (this->_name);
+}
+
+void			myLapin::initDisplay()
 {}
 
-myLapin::~myLapin()
+void			myLapin::closeDisplay()
 {}
+
+void			myLapin::renderMap(const arcade::GetMap &map)
+{
+  (void)map;
+}
+
+void			myLapin::renderMenu(MenuState menuState)
+{
+  (void)menuState;
+}
+
+char			myLapin::getLastInput()
+{
+  return ('\\');
+}
+
+extern "C" myLapin	*create() {
+  return (new myLapin);
+}
