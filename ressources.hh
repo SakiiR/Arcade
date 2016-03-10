@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 15:08:07 2016 Erwan Dupard
-// Last update Wed Mar  9 17:38:26 2016 Barthelemy Gouby
+// Last update Thu Mar 10 12:21:45 2016 Erwan Dupard
 //
 
 #ifndef RESSOURCES_HH_
