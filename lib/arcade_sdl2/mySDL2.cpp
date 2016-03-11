@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Fri Mar 11 11:00:34 2016 Erwan Dupard
+// Last update Fri Mar 11 11:01:23 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -28,7 +28,7 @@ void			mySDL2::initDisplay()
   
   if( SDL_Init( SDL_INIT_VIDEO ) >= 0 )
     {
-      this->_window = SDL_CreateWindow("SakiiR", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
+      this->_window = SDL_CreateWindow("SDLWindow", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
       if (this->_window)
   	{
   	  screenSurface = SDL_GetWindowSurface(this->_window);
