@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 15:08:07 2016 Erwan Dupard
-// Last update Thu Mar 10 12:21:45 2016 Erwan Dupard
+// Last update Thu Mar 10 18:25:26 2016 Barthelemy Gouby
 //
 
 #ifndef RESSOURCES_HH_
@@ -15,6 +15,7 @@
 # include <string>
 # include <dlfcn.h>
 # include <vector>
+# include <utility>
 # include "Score.hh"
 # include "IDisplay.hh"
 # include "IGame.hh"

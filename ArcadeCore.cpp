@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Thu Mar 10 17:48:23 2016 Barthelemy Gouby
+// Last update Thu Mar 10 19:18:15 2016 Barthelemy Gouby
 //
 
 #include "ArcadeCore.hh"
@@ -38,21 +38,38 @@ void			ArcadeCore::startArcade(const char *displayName);
   startMenu();
 }
 
-void			ArcadeCore::executeInput(char input)
+void			ArcadeCore::startMenu()
 {
   
 }
 
+void			ArcadeCore::executeInput(char input, bool gameIsOn)
+{
+  /*
+    if (input == '2')
+    {
+    load previous graphic library
+    }
+    else if (...)
+    etc...
+  */
+  if (input == '9')
+    gameIsOn = false;
+  else if (input != NUL)
+    _game->sendLastInput(input);
+}
+
 void			ArcadeCore::startGame()
 {
-  bool			gameIsSelected = true;
-  CommandType		lastInput = NUL;
-
+  bool			gameIsOn = true;
+  CommandType		lastInput;
+  
   _game->initGame();
-  while (gameIsSelected)
+  while (gameIsOn)
     {
-      executeInput(_display->getLastInput());
-      
+      executeInput(_display->getLastInput(), gameIsOn);
+      _display->renderMap(_game->getMap());
     }
+  delete _game;
 }
 
