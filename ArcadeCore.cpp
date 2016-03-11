@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Fri Mar 11 09:51:52 2016 Erwan Dupard
+// Last update Fri Mar 11 11:45:48 2016 Erwan Dupard
 //
 
 #include "ArcadeCore.hh"
@@ -34,7 +34,7 @@ void			ArcadeCore::setGame(IGame *game)
 void			ArcadeCore::startArcade(const char *displayName);
 {
   this->_loader->loadGraphicLibrary(displayName);
-  setDisplay(this->_loader->getDisplay());
+  this->setDisplay(this->_loader->getDisplay());
   startMenu();
 }
 
@@ -48,6 +48,6 @@ void			ArcadeCore::startGame()
 
   this->_game->initGame();
   while (gameIsSelected) 
-    executeInput(this->_display->getLastInput());
+    this->executeInput(this->_display->getLastInput());
 }
 
