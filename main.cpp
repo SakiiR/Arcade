@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Fri Mar 11 11:18:16 2016 Erwan Dupard
+// Last update Fri Mar 11 11:30:13 2016 Erwan Dupard
 //
 
 #include "ressources.hh"
@@ -51,7 +51,7 @@ int			main(int argc, char **argv)
     {
       e = display->getLastInput();
       quit = (e == 0 ? true : false);
-      if (e != 0x1)
+      if (e != UNDEFINED_KEY_INPUT)
 	printf("KEY : 0x%x\n", e);      
     }
   return (RETURN_SUCCESS);
