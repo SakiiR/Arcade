@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Thu Mar 10 17:44:36 2016 Erwan Dupard
+// Last update Fri Mar 11 09:54:58 2016 Erwan Dupard
 //
 
 #include "ressources.hh"
@@ -45,6 +45,5 @@ int			main(int argc, char **argv)
     }
   display = loader.getDisplay();
   display->initDisplay();
-  (void)display;
   return (RETURN_SUCCESS);
 }

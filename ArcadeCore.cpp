@@ -5,54 +5,49 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Thu Mar 10 17:48:23 2016 Barthelemy Gouby
+// Last update Fri Mar 11 09:51:52 2016 Erwan Dupard
 //
 
 #include "ArcadeCore.hh"
 
 ArcadeCore::ArcadeCore()
 {
-  _loader = new Loader;
+  this->_loader = new Loader;
 }
 
 ArcadeCore::~ArcadeCore()
 {
-  delete _loader;
+  delete this->_loader;
 }
 
 void			ArcadeCore::setDisplay(IDisplay *display);
 {
-  _display = display;
-  _display->initDisplay();
+  this->_display = display;
+  this->_display->initDisplay();
 }
 
 void			ArcadeCore::setGame(IGame *game)
 {
-  _game = game;
+  this->_game = game;
 }
 
 void			ArcadeCore::startArcade(const char *displayName);
 {
-  _loader->loadGraphicLibrary(displayName);
-  setDisplay(_loader->getDisplay());
+  this->_loader->loadGraphicLibrary(displayName);
+  setDisplay(this->_loader->getDisplay());
   startMenu();
 }
 
 void			ArcadeCore::executeInput(char input)
-{
-  
-}
+{}
 
 void			ArcadeCore::startGame()
 {
   bool			gameIsSelected = true;
   CommandType		lastInput = NUL;
 
-  _game->initGame();
-  while (gameIsSelected)
-    {
-      executeInput(_display->getLastInput());
-      
-    }
+  this->_game->initGame();
+  while (gameIsSelected) 
+    executeInput(this->_display->getLastInput());
 }
 
