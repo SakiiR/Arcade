@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Fri Mar 11 11:00:28 2016 Erwan Dupard
+// Last update Fri Mar 11 11:11:26 2016 Erwan Dupard
 //
 
 #include "ressources.hh"
@@ -32,7 +32,8 @@ int			main(int argc, char **argv)
 {
   Loader		loader;
   IDisplay		*display;
-  
+  unsigned char		e;
+
   if (argc < 2)
     {
       usage(argv[0]);
@@ -45,6 +46,7 @@ int			main(int argc, char **argv)
     }
   display = loader.getDisplay();
   display->initDisplay();
-  display->getLastInput();
+  while ((e = display->getLastInput()) != 0 && e != 27)
+    printf("KEY : %d\n", e);
   return (RETURN_SUCCESS);
 }
