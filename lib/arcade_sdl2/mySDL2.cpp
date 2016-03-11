@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Fri Mar 11 11:12:11 2016 Erwan Dupard
+// Last update Fri Mar 11 11:16:51 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -58,17 +58,14 @@ char			mySDL2::getLastInput()
 {
   SDL_Event	        e;
 
-  while (1)
+  while (SDL_PollEvent(&e))
     {
-      while (SDL_PollEvent(&e))
-	{
-	  if (e.type == SDL_QUIT)
-	    return (0);
-	  if (e.type == SDL_KEYDOWN)
-	    return (e.key.keysym.sym);
-	}
+      if (e.type == SDL_QUIT)
+	return (0);
+      if (e.type == SDL_KEYDOWN)
+	return (e.key.keysym.sym);
     }
-  return (0);
+  return (1);
 }
 
 extern "C" IDisplay	*create()
