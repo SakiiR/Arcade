@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Fri Mar 11 09:54:58 2016 Erwan Dupard
+// Last update Fri Mar 11 11:00:28 2016 Erwan Dupard
 //
 
 #include "ressources.hh"
@@ -32,7 +32,7 @@ int			main(int argc, char **argv)
 {
   Loader		loader;
   IDisplay		*display;
-
+  
   if (argc < 2)
     {
       usage(argv[0]);
@@ -45,5 +45,6 @@ int			main(int argc, char **argv)
     }
   display = loader.getDisplay();
   display->initDisplay();
+  display->getLastInput();
   return (RETURN_SUCCESS);
 }

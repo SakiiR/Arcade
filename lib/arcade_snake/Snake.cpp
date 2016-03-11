@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:27:46 2016 Erwan Dupard
-// Last update Thu Mar 10 14:56:33 2016 Erwan Dupard
+// Last update Fri Mar 11 10:19:36 2016 Erwan Dupard
 //
 
 #include "Snake.hh"
@@ -26,7 +26,7 @@ void				Snake::startGame()
 void				Snake::closeGame()
 {}
 
-void				Snake::executeCommand(const arcade::CommandType &command)
+void				Snake::setLastCommand(const arcade::CommandType &command)
 {
   (void)command;
 }
