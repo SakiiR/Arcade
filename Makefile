@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:37:11 2016 Erwan Dupard
-## Last update Tue Mar 15 11:41:44 2016 Barthelemy Gouby
+## Last update Tue Mar 15 17:41:09 2016 Erwan Dupard
 ##
 
 CC		= g++
@@ -36,14 +36,11 @@ $(NAME): $(OBJS)
 
 clean:
 	$(RM) $(OBJS)
-	make -C ./lib clean
 
 fclean: clean
 	$(RM) $(NAME)
-	make -C ./lib fclean
 
 re: fclean all
-	make -C ./lib re
 
 .PHONY: all clean clean re
 
