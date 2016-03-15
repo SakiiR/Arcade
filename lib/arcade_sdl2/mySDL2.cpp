@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Tue Mar 15 18:33:18 2016 Erwan Dupard
+// Last update Tue Mar 15 18:51:00 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -49,7 +49,7 @@ void			mySDL2::renderTitleScreen(const std::string &gameTitle, const std::string
   (void)Instructions;
 }
 
-void			mySDL2::renderMap(const arcade::GetMap &map)
+void			mySDL2::renderMap(const game::Map &map)
 {
   (void)map;
 }
