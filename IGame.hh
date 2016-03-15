@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Tue Mar 15 17:47:49 2016 Barthelemy Gouby
+// Last update Tue Mar 15 17:50:41 2016 Erwan Dupard
 //
 
 #ifndef IGAME_HH_
@@ -23,16 +23,16 @@ namespace			game
       GO_LEFT,
       GO_RIGHT,
       GO_FORWARD,
-      SHOOT,
-      };
-
-  enum class			Direction: int
-  {
-    UP,
+      SHOOT
+    };
+  
+  enum				Direction
+    {
+      UP,
       DOWN,
       LEFT,
       RIGHT
-      };
+    };
   
   enum				Tile
     {
@@ -49,14 +49,15 @@ namespace			game
       PACMAN
     };
   
-  struct			Position
+  class				Position
   {
+  public:
     Position();
-    Position(int initX, int initY) : x(initX), y(initY) {}
+    Position(int initX, int initY) : x(initX), y(initY) {  }
     int				x;
     int				y;
   };
-
+  
   class				Map
   {
   public:
