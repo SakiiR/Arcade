@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Tue Mar 15 11:34:19 2016 Barthelemy Gouby
+// Last update Tue Mar 15 11:48:40 2016 Barthelemy Gouby
 //
 
 #include "ArcadeCore.hh"
@@ -20,19 +20,19 @@ ArcadeCore::~ArcadeCore()
   delete this->_loader;
 }
 
-void			ArcadeCore::startArcade(const char *displayName);
-{
-  this->_loader->loadGraphicLibrary(displayName);
-  this->_loader->getDisplay()->initDisplay();
-  this->startMenu();
-}
+// void			ArcadeCore::startArcade(const char *displayName);
+// {
+//   this->_loader->loadGraphicLibrary(displayName);
+//   this->_loader->getDisplay()->initDisplay();
+//   this->startMenu();
+// }
 
 void			ArcadeCore::startMenu()
 {
   
 }
 
-void			ArcadeCore::executeInput(char input, bool &gameIsOn)
+void			ArcadeCore::executeInput(char &input, bool &gameIsOn)
 {
   if (input == '2')
     this->_loader->loadPreviousGraphicLibrary();
@@ -45,8 +45,8 @@ void			ArcadeCore::executeInput(char input, bool &gameIsOn)
   else if (input == '8')
     this->_loader->getGame()->resetGame();
   else if (input == '9')
-    gameIsOn = false
-  else if (input != NUL)
+    gameIsOn = false;
+  else if (input != 0)
     this->_loader->getGame()->sendLastInput(input);
 }
 
@@ -54,11 +54,10 @@ void			ArcadeCore::startGame()
 {
   bool			gameIsOn = true;
   
-  this->_loader->getGame()->initGame();
+  this->_loader->getGame()->startGame();
   while (gameIsOn)
     {
       this->executeInput(this->_loader->getDisplay()->getLastInput(), gameIsOn);
       this->_loader->getDisplay()->renderMap(this->_loader->getGame()->getMap());
     }
-  delete this->_game;
 }
