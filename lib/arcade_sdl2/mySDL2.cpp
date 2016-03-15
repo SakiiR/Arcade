@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Fri Mar 11 11:30:32 2016 Erwan Dupard
+// Last update Fri Mar 11 14:06:35 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -25,7 +25,7 @@ void			mySDL2::initDisplay()
 {
   SDL_Surface		*screenSurface = NULL;
   
-  if(SDL_Init( SDL_INIT_VIDEO ) >= 0)
+  if (SDL_Init( SDL_INIT_VIDEO ) >= 0)
     {
       this->_window = SDL_CreateWindow("SDLWindow", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
       if (this->_window)
