@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Wed Mar  9 16:23:56 2016 Barthelemy Gouby
-// Last update Thu Mar 10 17:37:31 2016 Barthelemy Gouby
+// Last update Tue Mar 15 11:47:48 2016 Barthelemy Gouby
 //
 
 #ifndef __ARCADECORE_HH__
@@ -21,16 +21,12 @@ class					ArcadeCore
 public:
   ArcadeCore();
   ~ArcadeCore();
-  void					startArcade(const char *displayName);
-  void					setGame(IGame *game);
-  void					setDisplay(IDisplay *display);
+  // void					startArcade(const char *displayName);
   void					startMenu();
   void					startGame();
-  void					executeInput(char input);
+  void					executeInput(char &input, bool &gameIsOn);
 private:
-  IGame					*_game;
-  IDisplay				*_display;
   Loader				*_loader;
-}
+};
 
-#ENDIF /* !__ARCADECORE_HH__ */
+#endif /* !__ARCADECORE_HH__ */

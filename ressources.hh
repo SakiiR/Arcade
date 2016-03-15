@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 15:08:07 2016 Erwan Dupard
-// Last update Fri Mar 11 11:30:08 2016 Erwan Dupard
+// Last update Tue Mar 15 11:33:34 2016 Barthelemy Gouby
 //
 
 #ifndef RESSOURCES_HH_
@@ -15,6 +15,7 @@
 # include <string>
 # include <dlfcn.h>
 # include <vector>
+# include <utility>
 # include "Score.hh"
 # include "IDisplay.hh"
 # include "IGame.hh"
@@ -29,6 +30,7 @@ struct					MenuState
 {
   const std::vector<std::string>	games;
   const std::vector<std::string>	displays;
+  int					index;
 };
 
 typedef IGame				*game_create_t();

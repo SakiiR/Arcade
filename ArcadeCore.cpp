@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Fri Mar 11 14:14:56 2016 Erwan Dupard
+// Last update Tue Mar 15 14:23:53 2016 Erwan Dupard
 //
 
 #include "ArcadeCore.hh"
@@ -20,34 +20,45 @@ ArcadeCore::~ArcadeCore()
   delete this->_loader;
 }
 
-void			ArcadeCore::setDisplay(IDisplay *display);
+// void			ArcadeCore::startArcade(const char *displayName);
+// {
+//   this->_loader->loadGraphicLibrary(displayName);
+//   this->_loader->getDisplay()->initDisplay();
+//   this->startMenu();
+// }
+
+void			ArcadeCore::startMenu()
 {
-  this->_display = display;
-  this->_display->initDisplay();
+  
 }
 
-void			ArcadeCore::setGame(IGame *game)
+void			ArcadeCore::executeInput(char &input, bool &gameIsOn)
 {
-  this->_game = game;
+  //Absoluement hors de question baru !!!!
+  if (input == '2')
+    this->_loader->loadPreviousGraphicLibrary();
+  else if (input == '3')
+    this->_loader->loadNextGraphicLibrary();
+  else if (input == '4')
+    this->_loader->loadPreviousGameLibrary();
+  else if (input == '5')
+    this->_loader->loadNextGameLibrary();
+  else if (input == '8')
+    this->_loader->getGame()->resetGame();
+  else if (input == '9')
+    gameIsOn = false;
+  else if (input != 0)
+    this->_loader->getGame()->sendLastInput(input);
 }
-
-void			ArcadeCore::startArcade(const char *displayName);
-{
-  this->_loader->loadGraphicLibrary(displayName);
-  this->setDisplay(this->_loader->getDisplay());
-  startMenu();
-}
-
-void			ArcadeCore::executeInput(char input)
-{}
 
 void			ArcadeCore::startGame()
 {
-  bool			gameIsSelected = true;
-  CommandType		lastInput = NUL;
-
-  this->_game->initGame();
-  while (gameIsSelected) 
-    this->executeInput(this->_display->getLastInput());
+  bool			gameIsOn = true;
+  
+  this->_loader->getGame()->startGame();
+  while (gameIsOn)
+    {
+      this->executeInput(this->_loader->getDisplay()->getLastInput(), gameIsOn);
+      this->_loader->getDisplay()->renderMap(this->_loader->getGame()->getMap());
+    }
 }
-
