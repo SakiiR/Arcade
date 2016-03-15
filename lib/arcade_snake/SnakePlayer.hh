@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 12:36:59 2016 Barthelemy Gouby
-// Last update Tue Mar 15 17:44:56 2016 Barthelemy Gouby
+// Last update Tue Mar 15 17:53:57 2016 Barthelemy Gouby
 //
 
 #ifndef _SNAKE_PLAYER_HH_
@@ -13,7 +13,7 @@
 
 # include "Snake.hh"
 
-# define SNAKE_PLAYER_INITIAL_LENGTH	3;
+# define SNAKE_PLAYER_INITIAL_LENGTH	3
 
 class			SnakePlayer
 {
