@@ -1,11 +1,11 @@
-//
+;//
 // main.cpp for arcade in /home/dupard_e/rendus/cpp_arcade
 // 
 // Made by Erwan Dupard
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Fri Mar 11 11:30:13 2016 Erwan Dupard
+// Last update Fri Mar 11 14:13:21 2016 Erwan Dupard
 //
 
 #include "ressources.hh"

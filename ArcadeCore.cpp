@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Tue Mar 15 12:02:09 2016 Barthelemy Gouby
+// Last update Tue Mar 15 14:32:55 2016 Barthelemy Gouby
 //
 
 #include "ArcadeCore.hh"
@@ -34,6 +34,7 @@ void			ArcadeCore::startMenu()
 
 void			ArcadeCore::executeInput(char &input, bool &gameIsOn)
 {
+  //Absoluement hors de question baru !!!!
   if (input == '2')
     this->_loader->loadPreviousGraphicLibrary();
   else if (input == '3')
