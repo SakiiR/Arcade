@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Tue Mar 15 15:23:11 2016 Barthelemy Gouby
+// Last update Tue Mar 15 16:59:01 2016 Barthelemy Gouby
 //
 
 #ifndef IGAME_HH_
@@ -26,6 +26,14 @@ namespace			game
       SHOOT,
       PLAY,
       };
+
+  enum class			Direction: int
+  {
+    UP,
+      DOWN,
+      LEFT,
+      RIGHT
+      };
   
   enum class			Tile : int
   {
@@ -44,15 +52,25 @@ namespace			game
   
   struct			Position
   {
+    Position();
+    Position(int initX, int initY) : x(initX), y(initY) {}
     int				x;
     int				y;
   };
 
-  struct			Map
+  class				Map
   {
-    int				width;
-    int				heigth;
-    Tile			*tiles;
+  public:
+    Map(int width, int height);
+    ~Map();
+    void			changeTile(Position position, Tile type);
+    int				getWidth();
+    int				getHeight();
+    Tile			*getTiles();
+  private:
+    int				_width;
+    int				_height;
+    Tile			*_tiles;
   };
 }
 
