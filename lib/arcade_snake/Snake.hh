@@ -5,14 +5,19 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:28:09 2016 Erwan Dupard
-// Last update Fri Mar 11 10:19:44 2016 Erwan Dupard
+// Last update Tue Mar 15 14:27:30 2016 Barthelemy Gouby
 //
 
 #ifndef SNAKE_HH_
 # define SNAKE_HH_
 
+# include <sys/time.h>
 # include <iostream>
+# include <string>
 # include "../../IGame.hh"
+
+# define SNAKE_MAP_WIDTH = 30;
+# define SNAKE_MAP_HEIGHT = 30;
 
 class			        Snake : public IGame
 {
@@ -20,15 +25,19 @@ public:
   Snake();
   virtual ~Snake() {  };
   virtual const std::string	&getName() const;
+  virtual const std::string	&getInstructions() const;
   virtual void			startGame();
+  virtual void			resetGame();
   virtual void		        closeGame();
   virtual void			setLastCommand(const arcade::CommandType &command);
-  virtual const arcade::GetMap	&getMap();
-  virtual void			display();
+  virtual const Map		&getMap();
   virtual void			Play();
 private:
   std::string			_name;
-  arcade::GetMap		_map;
+  std::string			_instructions;
+  timeval			_lastTurn;
+  Map				_map;
+  SnakePlayer			_player;
 };
 
 #endif /* ! SNAKE_HH_ */

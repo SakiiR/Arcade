@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Tue Mar 15 11:48:40 2016 Barthelemy Gouby
+// Last update Tue Mar 15 12:02:09 2016 Barthelemy Gouby
 //
 
 #include "ArcadeCore.hh"
@@ -53,7 +53,10 @@ void			ArcadeCore::executeInput(char &input, bool &gameIsOn)
 void			ArcadeCore::startGame()
 {
   bool			gameIsOn = true;
-  
+
+  while (this->_loader->getDisplay()->getLastInput() == 0)
+    this->_loader->getDisplay()->renderTitleScreen(this->_loader->getGame()->getName(),
+						   this->_loader->getGame()->getInstructions());
   this->_loader->getGame()->startGame();
   while (gameIsOn)
     {

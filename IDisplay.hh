@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:36:09 2016 Erwan Dupard
-// Last update Tue Mar 15 11:47:58 2016 Barthelemy Gouby
+// Last update Tue Mar 15 12:03:25 2016 Barthelemy Gouby
 //
 
 #ifndef IDISPLAY_HH_
@@ -24,6 +24,7 @@ public:
   virtual const std::string	&getName() const = 0;
   virtual void			initDisplay() = 0;
   virtual void			closeDisplay() = 0;
+  virtual void			renderTitleScreen(const std::string &gameTitle, const std::string &Instructions);
   virtual void			renderMap(const arcade::GetMap &map) = 0;
   virtual void			renderMenu(MenuState menuState) = 0;
   virtual char			&getLastInput() = 0;
