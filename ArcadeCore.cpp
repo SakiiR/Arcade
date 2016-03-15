@@ -5,9 +5,10 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Tue Mar 15 18:23:40 2016 Barthelemy Gouby
+// Last update Tue Mar 15 18:51:25 2016 Barthelemy Gouby
 //
 
+#include <stdlib.h>
 #include "ArcadeCore.hh"
 
 ArcadeCore::ArcadeCore()
@@ -51,6 +52,22 @@ void			ArcadeCore::executeInput(char &input, bool &gameIsOn)
     this->_loader->getGame()->sendLastInput(input);
 }
 
+void			displayMapTerm(game::Map map)
+{
+  game::Tile		*tiles = map.getTiles();
+
+  system("clear");
+  for(int i = 0; i < map.getHeight() * map.getWidth(); i++)
+    {
+      if (tiles[i] == game::Tile::EMPTY)
+	printf("O");
+      else if (tiles[i] == game::Tile::SNAKE)
+	printf("X");
+      if (i % map.getWidth() == 0)
+	printf("\n");
+    }
+}
+
 void			ArcadeCore::startGame()
 {
   bool			gameIsOn = true;
@@ -61,7 +78,8 @@ void			ArcadeCore::startGame()
   this->_loader->getGame()->startGame();
   while (gameIsOn)
     {
-      this->executeInput(this->_loader->getDisplay()->getLastInput(), gameIsOn);
+      displayMapTerm(this->_loader->getGame()->getMap());
+      // this->executeInput(this->_loader->getDisplay()->getLastInput(), gameIsOn);
       // this->_loader->getDisplay()->renderMap(this->_loader->getGame()->getMap());
     }
 }

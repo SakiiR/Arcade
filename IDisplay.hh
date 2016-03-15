@@ -5,12 +5,14 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:36:09 2016 Erwan Dupard
-// Last update Tue Mar 15 15:22:36 2016 Barthelemy Gouby
+// Last update Tue Mar 15 19:07:45 2016 Barthelemy Gouby
 //
 
 #ifndef IDISPLAY_HH_
 # define IDISPLAY_HH_
 
+# include <exception>
+# include <stdexcept>
 # include <string>
 # include "IGame.hh"
 # include "ressources.hh"

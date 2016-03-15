@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:37:11 2016 Erwan Dupard
-## Last update Tue Mar 15 17:41:09 2016 Erwan Dupard
+## Last update Tue Mar 15 18:52:07 2016 Barthelemy Gouby
 ##
 
 CC		= g++
@@ -21,6 +21,7 @@ LDXXFLAGS	+= -ldl
 SRCS		= main.cpp		\
 		  Score.cpp		\
 		  Loader.cpp		\
+		  Map.cpp		\
 		  ArcadeCore.cpp
 
 OBJS		= $(SRCS:.cpp=.o)

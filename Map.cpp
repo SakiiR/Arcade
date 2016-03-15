@@ -5,42 +5,42 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 16:45:42 2016 Barthelemy Gouby
-// Last update Tue Mar 15 17:57:41 2016 Barthelemy Gouby
+// Last update Tue Mar 15 19:19:33 2016 Barthelemy Gouby
 //
 
 #include "IGame.hh"
 
-Map::Map(const int width, const int height)
+game::Map::Map(const int width, const int height)
   : _width(width), _height(height)
 {
-  new this->_tiles = new game::Tile[width * height];
+  this->_tiles = new game::Tile[width * height];
   for (int i = 0; i < width * height; i++)
-    this->_tiles[i] = game::Tile::Empty;
+    this->_tiles[i] = game::Tile::EMPTY;
 }
 
-Map::~Map()
+game::Map::~Map()
 {
   delete[] this->_tiles;
 }
 
-void			Map::changeTile(const Position &position, const Tile &type)
+void			game::Map::changeTile(const Position &position, const Tile &type)
 {
-  if (position->x > this->_width || position->y > this->_height)
+  if (position.x > this->_width || position.y > this->_height)
     throw std::out_of_range("position is out of map");
-  this->_tiles[(position->y * this->_width) + position->x] = type;
+  this->_tiles[(position.y * this->_width) + position.x] = type;
 }
 
-int			Map::getWidth() const
+int const		&game::Map::getWidth() const
 {
   return (this->_width);
 }
 
-int			Map::getHeight() const
+int const		&game::Map::getHeight() const
 {
   return (this->_height);
 }
 
-Tile			*Map::getTiles() const
+game::Tile		*game::Map::getTiles() const
 {
   return (this->_tiles);
 }

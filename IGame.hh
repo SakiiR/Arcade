@@ -5,12 +5,14 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Tue Mar 15 17:50:41 2016 Erwan Dupard
+// Last update Tue Mar 15 19:19:06 2016 Barthelemy Gouby
 //
 
 #ifndef IGAME_HH_
 # define IGAME_HH_
 
+# include <stdexcept>
+# include <exception>
 # include <string>
 # include "Protocol.hpp"
 
@@ -61,16 +63,16 @@ namespace			game
   class				Map
   {
   public:
-    Map(int width, int height);
+    Map(const int width, const int height);
     ~Map();
-    void			changeTile(Position position, Tile type);
-    int				getWidth();
-    int				getHeight();
-    Tile			*getTiles();
+    void			changeTile(const Position &position, const Tile &type);
+    int	const			&getWidth() const;
+    int	const			&getHeight() const;
+    game::Tile			*getTiles() const;
   private:
     int				_width;
     int				_height;
-    Tile			*_tiles;
+    game::Tile			*_tiles;
   };
 }
 

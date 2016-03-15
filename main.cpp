@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Tue Mar 15 17:53:56 2016 Erwan Dupard
+// Last update Tue Mar 15 19:20:49 2016 Barthelemy Gouby
 //
 
 #include "ressources.hh"
@@ -26,33 +26,36 @@ void			usage(const char *execName)
   std::cout << "//" << std::endl;
 }
 
-
-
 int			main(int argc, char **argv)
 {
-  Loader		loader;
-  IDisplay		*display;
-  unsigned char		e;
-  bool			quit = false;
 
-  if (argc < 2)
-    {
-      usage(argv[0]);
-      return (RETURN_SUCCESS);
-    }
-  if (loader.loadGraphicLibrary(argv[1]) == false)
-    {
-      std::cerr << "[-] Errors occured ! Maybe the library is imcompatible !" << std::endl;
-      return (RETURN_FAILURE);
-    }
-  display = loader.getDisplay();
-  display->initDisplay();
-  while (!quit)
-    {
-      e = display->getLastInput();
-      quit = (e == 0 ? true : false);
-      if (e != UNDEFINED_KEY_INPUT)
-	printf("KEY : 0x%x\n", e);      
-    }
-  return (RETURN_SUCCESS);
 }
+
+// int			main(int argc, char **argv)
+// {
+//   Loader		loader;
+//   IDisplay		*display;
+//   unsigned char		e;
+//   bool			quit = false;
+
+//   if (argc < 2)
+//     {
+//       usage(argv[0]);
+//       return (RETURN_SUCCESS);
+//     }
+//   if (loader.loadGraphicLibrary(argv[1]) == false)
+//     {
+//       std::cerr << "[-] Errors occured ! Maybe the library is imcompatible !" << std::endl;
+//       return (RETURN_FAILURE);
+//     }
+//   display = loader.getDisplay();
+//   display->initDisplay();
+//   while (!quit)
+//     {
+//       e = display->getLastInput();
+//       quit = (e == 0 ? true : false);
+//       if (e != UNDEFINED_KEY_INPUT)
+// 	printf("KEY : 0x%x\n", e);      
+//     }
+//   return (RETURN_SUCCESS);
+// }
