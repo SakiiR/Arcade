@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Tue Mar 15 16:59:01 2016 Barthelemy Gouby
+// Last update Tue Mar 15 17:47:49 2016 Barthelemy Gouby
 //
 
 #ifndef IGAME_HH_
@@ -16,15 +16,14 @@
 
 namespace			game
 {
-  enum class			Command : int
-  {
-    GO_UP,
+  enum				Command
+    {
+      GO_UP,
       GO_DOWN,
       GO_LEFT,
       GO_RIGHT,
       GO_FORWARD,
       SHOOT,
-      PLAY,
       };
 
   enum class			Direction: int
@@ -35,9 +34,9 @@ namespace			game
       RIGHT
       };
   
-  enum class			Tile : int
-  {
-    EMPTY,	
+  enum				Tile
+    {
+      EMPTY,	
       BLOCK,
       OBSTACLE,
       EVIL_DUDE,
@@ -47,8 +46,8 @@ namespace			game
       POWERUP,
       PLAYER,
       SNAKE,
-      PACMAN,
-      };
+      PACMAN
+    };
   
   struct			Position
   {
