@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:37:11 2016 Erwan Dupard
-## Last update Thu Mar 10 16:27:45 2016 Erwan Dupard
+## Last update Mon Mar 14 15:58:56 2016 Barthelemy Gouby
 ##
 
 CC		= g++
@@ -25,7 +25,7 @@ SRCS		= main.cpp		\
 OBJS		= $(SRCS:.cpp=.o)
 
 
-all: libraries $(NAME)
+all: $(NAME)
 
 libraries:
 	make -C ./lib

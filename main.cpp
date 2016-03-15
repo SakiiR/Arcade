@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Thu Mar 10 17:44:36 2016 Erwan Dupard
+// Last update Fri Mar 11 11:18:16 2016 Erwan Dupard
 //
 
 #include "ressources.hh"
@@ -32,6 +32,8 @@ int			main(int argc, char **argv)
 {
   Loader		loader;
   IDisplay		*display;
+  unsigned char		e;
+  bool			quit = false;
 
   if (argc < 2)
     {
@@ -45,6 +47,12 @@ int			main(int argc, char **argv)
     }
   display = loader.getDisplay();
   display->initDisplay();
-  (void)display;
+  while (!quit)
+    {
+      e = display->getLastInput();
+      quit = (e == 0 ? true : false);
+      if (e != 0x1)
+	printf("KEY : 0x%x\n", e);      
+    }
   return (RETURN_SUCCESS);
 }

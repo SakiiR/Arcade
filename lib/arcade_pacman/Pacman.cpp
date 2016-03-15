@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:24:59 2016 Erwan Dupard
-// Last update Thu Mar 10 15:03:59 2016 Erwan Dupard
+// Last update Fri Mar 11 10:18:16 2016 Erwan Dupard
 //
 
 #include "Pacman.hh"
@@ -26,7 +26,7 @@ void				Pacman::startGame()
 void				Pacman::closeGame()
 {}
 
-void				Pacman::executeCommand(const arcade::CommandType &command)
+void				Pacman::setLastCommand(const arcade::CommandType &command)
 {
   (void)command;
 }

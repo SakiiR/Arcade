@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Thu Mar 10 17:46:14 2016 Erwan Dupard
+// Last update Fri Mar 11 11:16:51 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -24,21 +24,16 @@ const std::string	&mySDL2::getName() const
 
 void			mySDL2::initDisplay()
 {
-  SDL_Surface* screenSurface = NULL;
+  SDL_Surface		*screenSurface = NULL;
   
-  if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
-    printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
-  else
+  if(SDL_Init( SDL_INIT_VIDEO ) >= 0)
     {
-      this->_window = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN );
-      if(this->_window == NULL )
-  	printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
-      else
+      this->_window = SDL_CreateWindow("SDLWindow", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
+      if (this->_window)
   	{
   	  screenSurface = SDL_GetWindowSurface(this->_window);
   	  SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0xFF, 0xFF, 0xFF));
   	  SDL_UpdateWindowSurface(this->_window);
-  	  SDL_Delay(2000);
   	}
     }
 }
@@ -61,7 +56,16 @@ void			mySDL2::renderMenu(MenuState menuState)
 
 char			mySDL2::getLastInput()
 {
-  return ('\\');
+  SDL_Event	        e;
+
+  while (SDL_PollEvent(&e))
+    {
+      if (e.type == SDL_QUIT)
+	return (0);
+      if (e.type == SDL_KEYDOWN)
+	return (e.key.keysym.sym);
+    }
+  return (1);
 }
 
 extern "C" IDisplay	*create()

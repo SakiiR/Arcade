@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Thu Mar 10 18:29:18 2016 Barthelemy Gouby
+// Last update Tue Mar 15 11:23:24 2016 Barthelemy Gouby
 //
 
 #ifndef IGAME_HH_
@@ -19,11 +19,10 @@ class				IGame
 public:
   virtual const std::string	&getName() const = 0;
   virtual void			startGame() = 0;
+  virtual void			resetGame() = 0;
   virtual void			closeGame() = 0;
   virtual void			sendLastInput(const char &input) = 0;
   virtual const arcade::GetMap	&getMap() = 0;
-  virtual void			display() = 0; // pour la moulinette seulement
-  virtual void			Play(void) = 0;
 };
 
 #endif /* ! IGAME_HH_ */

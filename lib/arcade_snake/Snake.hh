@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:28:09 2016 Erwan Dupard
-// Last update Thu Mar 10 14:58:50 2016 Erwan Dupard
+// Last update Fri Mar 11 10:19:44 2016 Erwan Dupard
 //
 
 #ifndef SNAKE_HH_
@@ -22,7 +22,7 @@ public:
   virtual const std::string	&getName() const;
   virtual void			startGame();
   virtual void		        closeGame();
-  virtual void			executeCommand(const arcade::CommandType &command);
+  virtual void			setLastCommand(const arcade::CommandType &command);
   virtual const arcade::GetMap	&getMap();
   virtual void			display();
   virtual void			Play();
