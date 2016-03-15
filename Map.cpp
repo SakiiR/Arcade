@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 16:45:42 2016 Barthelemy Gouby
-// Last update Tue Mar 15 17:49:54 2016 Barthelemy Gouby
+// Last update Tue Mar 15 17:57:41 2016 Barthelemy Gouby
 //
 
 #include "IGame.hh"
@@ -20,7 +20,7 @@ Map::Map(const int width, const int height)
 
 Map::~Map()
 {
-  delete this->tiles;
+  delete[] this->_tiles;
 }
 
 void			Map::changeTile(const Position &position, const Tile &type)
