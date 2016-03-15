@@ -5,14 +5,14 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:36:09 2016 Erwan Dupard
-// Last update Tue Mar 15 12:03:25 2016 Barthelemy Gouby
+// Last update Tue Mar 15 15:22:36 2016 Barthelemy Gouby
 //
 
 #ifndef IDISPLAY_HH_
 # define IDISPLAY_HH_
 
 # include <string>
-# include "Protocol.hpp"
+# include "IGame.hh"
 # include "ressources.hh"
 
 struct				MenuState;
@@ -25,7 +25,7 @@ public:
   virtual void			initDisplay() = 0;
   virtual void			closeDisplay() = 0;
   virtual void			renderTitleScreen(const std::string &gameTitle, const std::string &Instructions);
-  virtual void			renderMap(const arcade::GetMap &map) = 0;
+  virtual void			renderMap(const game::Map &map) = 0;
   virtual void			renderMenu(MenuState menuState) = 0;
   virtual char			&getLastInput() = 0;
 };

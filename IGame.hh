@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Tue Mar 15 14:25:09 2016 Barthelemy Gouby
+// Last update Tue Mar 15 15:23:11 2016 Barthelemy Gouby
 //
 
 #ifndef IGAME_HH_
@@ -14,11 +14,46 @@
 # include <string>
 # include "Protocol.hpp"
 
-struct				Map
+namespace			game
 {
-  int				width;
-  int				heigth;
-  arcade::TileType		*tiles;
+  enum class			Command : int
+  {
+    GO_UP,
+      GO_DOWN,
+      GO_LEFT,
+      GO_RIGHT,
+      GO_FORWARD,
+      SHOOT,
+      PLAY,
+      };
+  
+  enum class			Tile : int
+  {
+    EMPTY,	
+      BLOCK,
+      OBSTACLE,
+      EVIL_DUDE,
+      GHOST,
+      EVIL_SHOOT,
+      MY_SHOOT,
+      POWERUP,
+      PLAYER,
+      SNAKE,
+      PACMAN,
+      };
+  
+  struct			Position
+  {
+    int				x;
+    int				y;
+  };
+
+  struct			Map
+  {
+    int				width;
+    int				heigth;
+    Tile			*tiles;
+  };
 }
 
 class				IGame
@@ -30,7 +65,7 @@ public:
   virtual void			resetGame() = 0;
   virtual void			closeGame() = 0;
   virtual void			sendLastInput(const char &input) = 0;
-  virtual const Map		&getMap() = 0;
+  virtual const game::Map	&getMap() = 0;
 };
 
 #endif /* ! IGAME_HH_ */

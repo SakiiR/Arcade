@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:27:46 2016 Erwan Dupard
-// Last update Tue Mar 15 14:27:22 2016 Barthelemy Gouby
+// Last update Tue Mar 15 14:49:17 2016 Barthelemy Gouby
 //
 
 #include "Snake.hh"
@@ -51,8 +51,7 @@ void				Snake::setLastCommand(const arcade::CommandType &command)
 }
 
 const Map			&Snake::getMap()
-{
-  
+{  
   return (this->_map);
 }
 
