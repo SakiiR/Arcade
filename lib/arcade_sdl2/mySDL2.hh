@@ -5,13 +5,14 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:17:38 2016 Erwan Dupard
-// Last update Thu Mar 10 17:45:11 2016 Erwan Dupard
+// Last update Fri Mar 11 11:30:46 2016 Erwan Dupard
 //
 
 #ifndef MYSDL_HH_
 # define MYSDL_HH_
 
 # include <iostream>
+# include "../../ressources.hh"
 # include "../../deps/SDL2/include/SDL.h"
 # include "../../IDisplay.hh"
 

@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 15:08:07 2016 Erwan Dupard
-// Last update Mon Mar 14 16:28:07 2016 Barthelemy Gouby
+// Last update Tue Mar 15 11:33:34 2016 Barthelemy Gouby
 //
 
 #ifndef RESSOURCES_HH_
@@ -23,6 +23,8 @@
 
 # define RETURN_SUCCESS			(0)
 # define RETURN_FAILURE			(1)
+
+# define UNDEFINED_KEY_INPUT		(0x1)
 
 struct					MenuState
 {
