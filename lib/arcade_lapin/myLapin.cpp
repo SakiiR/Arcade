@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:59 2016 Erwan Dupard
-// Last update Thu Mar 10 14:56:01 2016 Erwan Dupard
+// Last update Tue Mar 15 19:48:55 2016 Erwan Dupard
 //
 
 #include "myLapin.hh"
@@ -26,7 +26,13 @@ void			myLapin::initDisplay()
 void			myLapin::closeDisplay()
 {}
 
-void			myLapin::renderMap(const arcade::GetMap &map)
+void			myLapin::renderTitleScreen(const std::string &gameTitle, const std::string &instructions)
+{
+  (void)gameTitle;
+  (void)Instructions;
+}
+
+void			myLapin::renderMap(const game::Map &map)
 {
   (void)map;
 }

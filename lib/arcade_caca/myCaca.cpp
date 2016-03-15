@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:20:17 2016 Erwan Dupard
-// Last update Thu Mar 10 16:18:16 2016 Erwan Dupard
+// Last update Tue Mar 15 19:44:49 2016 Erwan Dupard
 //
 
 #include "myCaca.hh"
@@ -21,14 +21,18 @@ const std::string	&myCaca::getName() const
 }
 
 void		myCaca::initDisplay()
-{
-
-}
+{}
 
 void		myCaca::closeDisplay()
 {}
 
-void		myCaca::renderMap(const arcade::GetMap &map)
+void		myCaca::renderTitleScreen(const std::string &gameTitle, const std::string &instructions)
+{
+  (void)gameTitle;
+  (void)instructions;
+}
+
+void		myCaca::renderMap(const game::Map &map)
 {
   (void)map;
 }
