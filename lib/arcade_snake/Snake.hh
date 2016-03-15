@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:28:09 2016 Erwan Dupard
-// Last update Tue Mar 15 17:53:53 2016 Barthelemy Gouby
+// Last update Tue Mar 15 18:19:45 2016 Barthelemy Gouby
 //
 
 #ifndef SNAKE_HH_
@@ -32,7 +32,7 @@ public:
   virtual void			resetGame();
   virtual void		        closeGame();
   void				doTurn();
-  virtual void			setLastCommand(const game::Command &command);
+  virtual void			sendLastInput(const char &input);
   virtual const game::Map	&getMap();
   virtual void			Play();
 private:

@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:27:46 2016 Erwan Dupard
-// Last update Tue Mar 15 17:43:06 2016 Barthelemy Gouby
+// Last update Tue Mar 15 18:20:28 2016 Barthelemy Gouby
 //
 
 #include "Snake.hh"
@@ -17,26 +17,21 @@ Snake::Snake()
   this->_instructions = "move with arrow keys or zqsd\n";
 }
 
-Snake::~Snake()
-{}
-
 const std::string		&Snake::getName() const
 {
   return (this->_name);
 }
 
-virtual const std::string	&getInstructions() const
+const std::string		&Snake::getInstructions() const
 {
   return (this->_instructions);
 }
 
 void				Snake::startGame()
 {
-  for (int i = 0; i < SNAKE_MAP_WIDTH * SNAKE_MAP_HEIGHT; i++)
-    this->_map->tiles[i] = arcade::TyleTipe::Empty;
-  this->_player->setInitialPosition();
+  this->_player.setInitialPosition();
   this->_lastCommand = 0;
-  gettimeofday(&this->_lastTurn);
+  gettimeofday(&this->_lastTurn, NULL);
 }
 
 void				Snake::closeGame()
@@ -47,17 +42,17 @@ void				Snake::doTurn()
 
 }
 
-void				Snake::setLastCommand(const game::Command &command)
+void				sendLastInput(const char &input)
 {
-  (void)command;
+  (void)input;
 }
 
 const game::Map			&Snake::getMap()
 {
   timeval			currentTime;
 
-  gettimeofday(&currentTime);
-  if ((currentTime->tv_usec - this->_lastTurn->tv_usec) > SNAKE_TURN_LENGTH)
+  gettimeofday(&currentTime, NULL);
+  if ((currentTime.tv_usec - this->_lastTurn.tv_usec) > SNAKE_TURN_LENGTH)
     {
       this->doTurn();
       this->_lastTurn = currentTime;
