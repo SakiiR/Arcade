@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Wed Mar 16 20:42:31 2016 Erwan Dupard
+// Last update Wed Mar 16 22:49:04 2016 Erwan Dupard
 //
 
 #include "Loader.hh"
@@ -80,18 +80,13 @@ void				Loader::loadInitialGraphicLibrary(const std::string &filePath)
     throw std::runtime_error("Library not found");
 }
 
-// void				loadInitialGameLibrary(const std::string filePath)
-// {
-
-// }
-
 void				Loader::loadNextGraphicLibrary()
 {
   if (std::next(this->_selectedDisplay) == this->_displaysPaths.end())
     this->_selectedDisplay = this->_displaysPaths.begin();
   else
     this->_selectedDisplay++;
-  loadGraphicLibrary(*(this->_selectedDisplay));
+  loadGraphicLibrary(*this->_selectedDisplay);
 }
 
 void				Loader::loadNextGameLibrary()
@@ -100,7 +95,7 @@ void				Loader::loadNextGameLibrary()
     this->_selectedGame = this->_gamesPaths.begin();
   else
     this->_selectedGame++;
-  loadGameLibrary(*(this->_selectedGame));
+  loadGameLibrary(*this->_selectedGame);
 }
 
 void				Loader::loadPreviousGraphicLibrary()
@@ -118,7 +113,7 @@ void				Loader::loadPreviousGameLibrary()
     this->_selectedGame = std::prev(this->_gamesPaths.end());
   else
     this->_selectedGame--;
-  loadGameLibrary(*(this->_selectedGame));
+  loadGameLibrary(*this->_selectedGame);
 }
 
 IGame				*Loader::getGame() const
