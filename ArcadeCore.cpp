@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Wed Mar 16 17:32:21 2016 Barthelemy Gouby
+// Last update Wed Mar 16 19:08:58 2016 Erwan Dupard
 //
 
 #include <stdlib.h>
@@ -59,7 +59,7 @@ void			displayMapTerm(const game::Map &map)
   game::Tile		*tiles = map.getTiles();
 
   system("clear");
-  for(int i = 0; i < map.getHeight() * map.getWidth(); i++)
+  for(unsigned int i = 0; i < map.getHeight() * map.getWidth(); i++)
     {
       if (tiles[i] == game::Tile::EMPTY)
 	printf("o");
