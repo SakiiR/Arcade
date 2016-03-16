@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Wed Mar 16 19:08:58 2016 Erwan Dupard
+// Last update Wed Mar 16 22:54:12 2016 Erwan Dupard
 //
 
 #include <stdlib.h>
@@ -33,20 +33,33 @@ void			ArcadeCore::startMenu()
 void			ArcadeCore::executeInput(char input, bool &gameIsOn)
 {
   //Absoluement hors de question baru !!!!
-  if (input == '2')
-    this->_loader.loadPreviousGraphicLibrary();
-  else if (input == '3')
-    this->_loader.loadNextGraphicLibrary();
-  else if (input == '4')
-    this->_loader.loadPreviousGameLibrary();
-  else if (input == '5')
-    this->_loader.loadNextGameLibrary();
-  else if (input == '8')
-    this->_loader.getGame()->resetGame();
-  else if (input == '9')
-    gameIsOn = false;
-  else if (input != 0)
-    this->_loader.getGame()->sendLastInput(input);
+  switch (input)
+    {
+    case '2':
+      this->_loader.loadPreviousGraphicLibrary();
+      break;
+    case '3':
+      this->_loader.loadNextGraphicLibrary();
+      break;
+    case '4':
+      this->_loader.loadPreviousGameLibrary();
+      break;
+    case '5':
+      this->_loader.loadNextGameLibrary();
+      break;
+    case '8':
+      this->_loader.getGame()->resetGame();
+      break;
+    case '9':
+      gameIsOn = false;
+      break;
+    case 0:
+      // on fait quoi quand c'est zero ?
+      break;
+    default:
+      this->_loader.getGame()->sendLastInput(input);
+      break;
+    }
 }
 
 Loader				&ArcadeCore::getLoader()
