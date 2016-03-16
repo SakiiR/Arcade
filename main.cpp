@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Wed Mar 16 19:44:39 2016 Erwan Dupard
+// Last update Wed Mar 16 20:44:32 2016 Erwan Dupard
 //
 
 #include "ressources.hh"
@@ -49,7 +49,7 @@ int			main(int argc, char **argv)
       usage(argv[0]);
       return (RETURN_SUCCESS);
     }
-  if (loader.loadGraphicLibrary(argv[1]) == false)
+  if (loader.loadGraphicLibrary(std::string(argv[1])) == false)
     {
       std::cerr << "[-] Errors occured ! Maybe the library is imcompatible !" << std::endl;
       return (RETURN_FAILURE);

@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Wed Mar 16 13:22:32 2016 Barthelemy Gouby
+// Last update Wed Mar 16 20:42:31 2016 Erwan Dupard
 //
 
 #include "Loader.hh"
@@ -20,7 +20,7 @@ Loader::~Loader()
   std::cout << "[^] Loader destruction .." << std::endl;
 }
 
-bool				Loader::loadGraphicLibrary(const std::string filePath)
+bool				Loader::loadGraphicLibrary(const std::string &filePath)
 {
   void				*handle;
   display_create_t		*create_display;
@@ -41,7 +41,7 @@ bool				Loader::loadGraphicLibrary(const std::string filePath)
   return (true);
 }
 
-bool				Loader::loadGameLibrary(const std::string filePath)
+bool				Loader::loadGameLibrary(const std::string &filePath)
 {
   void				*handle;
   game_create_t			*create_game;
@@ -62,7 +62,7 @@ bool				Loader::loadGameLibrary(const std::string filePath)
   return (true);
 }
 
-void				Loader::loadInitialGraphicLibrary(const std::string filePath)
+void				Loader::loadInitialGraphicLibrary(const std::string &filePath)
 {
   std::vector<std::string>::iterator it = this->_displaysPaths.begin();
 
