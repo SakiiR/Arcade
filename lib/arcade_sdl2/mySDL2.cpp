@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Wed Mar 16 19:11:57 2016 Erwan Dupard
+// Last update Wed Mar 16 19:12:40 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -67,6 +67,7 @@ void			mySDL2::renderMap(const game::Map &map)
 	case game::Tile::SNAKE:
 	  this->writeTile(p, tileSize, 0x00000000);
 	  break;
+	  // adding food, and add color system
 	default:
 	  break;
 	}
