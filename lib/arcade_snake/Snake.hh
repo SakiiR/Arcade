@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:28:09 2016 Erwan Dupard
-// Last update Tue Mar 15 18:19:45 2016 Barthelemy Gouby
+// Last update Wed Mar 16 13:36:54 2016 Barthelemy Gouby
 //
 
 #ifndef SNAKE_HH_
@@ -16,10 +16,7 @@
 # include <string>
 # include "../../IGame.hh"
 # include "SnakePlayer.hh"
-
-# define SNAKE_MAP_WIDTH	30
-# define SNAKE_MAP_HEIGHT	30
-# define SNAKE_TURN_LENGTH	250000
+# include "SnakeRessources.hh"
 
 class			        Snake : public IGame
 {

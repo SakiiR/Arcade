@@ -5,21 +5,17 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Tue Mar 15 18:51:25 2016 Barthelemy Gouby
+// Last update Wed Mar 16 11:17:17 2016 Barthelemy Gouby
 //
 
 #include <stdlib.h>
 #include "ArcadeCore.hh"
 
 ArcadeCore::ArcadeCore()
-{
-  this->_loader = new Loader;
-}
+{}
 
 ArcadeCore::~ArcadeCore()
-{
-  delete this->_loader;
-}
+{}
 
 // void			ArcadeCore::startArcade(const char *displayName);
 // {
@@ -37,19 +33,24 @@ void			ArcadeCore::executeInput(char &input, bool &gameIsOn)
 {
   //Absoluement hors de question baru !!!!
   if (input == '2')
-    this->_loader->loadPreviousGraphicLibrary();
+    this->_loader.loadPreviousGraphicLibrary();
   else if (input == '3')
-    this->_loader->loadNextGraphicLibrary();
+    this->_loader.loadNextGraphicLibrary();
   else if (input == '4')
-    this->_loader->loadPreviousGameLibrary();
+    this->_loader.loadPreviousGameLibrary();
   else if (input == '5')
-    this->_loader->loadNextGameLibrary();
+    this->_loader.loadNextGameLibrary();
   else if (input == '8')
-    this->_loader->getGame()->resetGame();
+    this->_loader.getGame()->resetGame();
   else if (input == '9')
     gameIsOn = false;
   else if (input != 0)
-    this->_loader->getGame()->sendLastInput(input);
+    this->_loader.getGame()->sendLastInput(input);
+}
+
+Loader				&ArcadeCore::getLoader()
+{
+  return (this->_loader);
 }
 
 void			displayMapTerm(game::Map map)
@@ -72,13 +73,13 @@ void			ArcadeCore::startGame()
 {
   bool			gameIsOn = true;
 
-  while (this->_loader->getDisplay()->getLastInput() == 0)
-    this->_loader->getDisplay()->renderTitleScreen(this->_loader->getGame()->getName(),
-						   this->_loader->getGame()->getInstructions());
-  this->_loader->getGame()->startGame();
+  // while (this->_loader.getDisplay()->getLastInput() == 0)
+  //   this->_loader.getDisplay()->renderTitleScreen(this->_loader.getGame()->getName(),
+  // 						   this->_loader.getGame()->getInstructions());
+  this->_loader.getGame()->startGame();
   while (gameIsOn)
     {
-      displayMapTerm(this->_loader->getGame()->getMap());
+      displayMapTerm(this->_loader.getGame()->getMap());
       // this->executeInput(this->_loader->getDisplay()->getLastInput(), gameIsOn);
       // this->_loader->getDisplay()->renderMap(this->_loader->getGame()->getMap());
     }

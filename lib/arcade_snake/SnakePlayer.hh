@@ -5,15 +5,14 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 12:36:59 2016 Barthelemy Gouby
-// Last update Tue Mar 15 17:53:57 2016 Barthelemy Gouby
+// Last update Wed Mar 16 13:18:45 2016 Barthelemy Gouby
 //
 
 #ifndef _SNAKE_PLAYER_HH_
 # define _SNAKE_PLAYER_HH_
 
-# include "Snake.hh"
-
-# define SNAKE_PLAYER_INITIAL_LENGTH	3
+# include "../../IGame.hh"
+# include "SnakeRessources.hh"
 
 class			SnakePlayer
 {
@@ -21,9 +20,9 @@ class			SnakePlayer
 public:		
   SnakePlayer();
   ~SnakePlayer();
-  void			setInitialPosition(); 
+  void			setInitialPosition(game::Map &map); 
   void			setMovementDirection(game::Direction direction);
-  void			movePlayer();
+  void			movePlayer(game::Map &map);
   void			incrementSize();
   bool			checkIfColision(game::Position position);
 private:

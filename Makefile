@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:37:11 2016 Erwan Dupard
-## Last update Tue Mar 15 18:52:07 2016 Barthelemy Gouby
+## Last update Wed Mar 16 13:30:40 2016 Barthelemy Gouby
 ##
 
 CC		= g++
@@ -14,7 +14,7 @@ RM		= rm -f
 
 NAME		= arcade
 
-CXXFLAGS	+= -g3 -Wall -Werror -W -Wextra -std=c++11
+CXXFLAGS	+= -g3 -Wall -Werror -W -Wextra -std=c++11 -rdynamic
 
 LDXXFLAGS	+= -ldl
 

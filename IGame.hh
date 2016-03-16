@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Tue Mar 15 19:19:06 2016 Barthelemy Gouby
+// Last update Wed Mar 16 13:37:24 2016 Barthelemy Gouby
 //
 
 #ifndef IGAME_HH_
@@ -86,6 +86,7 @@ public:
   virtual void			closeGame() = 0;
   virtual void			sendLastInput(const char &input) = 0;
   virtual const game::Map	&getMap() = 0;
+  virtual void			Play() = 0;
 };
 
 #endif /* ! IGAME_HH_ */

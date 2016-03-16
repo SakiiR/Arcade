@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Wed Mar  9 16:23:56 2016 Barthelemy Gouby
-// Last update Tue Mar 15 11:47:48 2016 Barthelemy Gouby
+// Last update Wed Mar 16 12:42:17 2016 Barthelemy Gouby
 //
 
 #ifndef __ARCADECORE_HH__
@@ -25,8 +25,9 @@ public:
   void					startMenu();
   void					startGame();
   void					executeInput(char &input, bool &gameIsOn);
+  Loader				&getLoader();
 private:
-  Loader				*_loader;
+  Loader				_loader;
 };
 
 #endif /* !__ARCADECORE_HH__ */

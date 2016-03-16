@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:27:46 2016 Erwan Dupard
-// Last update Tue Mar 15 18:20:28 2016 Barthelemy Gouby
+// Last update Wed Mar 16 13:40:08 2016 Barthelemy Gouby
 //
 
 #include "Snake.hh"
@@ -29,9 +29,14 @@ const std::string		&Snake::getInstructions() const
 
 void				Snake::startGame()
 {
-  this->_player.setInitialPosition();
+  this->_player.setInitialPosition(this->_map);
   this->_lastCommand = 0;
   gettimeofday(&this->_lastTurn, NULL);
+}
+
+void				Snake::resetGame()
+{
+
 }
 
 void				Snake::closeGame()
@@ -42,7 +47,7 @@ void				Snake::doTurn()
 
 }
 
-void				sendLastInput(const char &input)
+void				Snake::sendLastInput(const char &input)
 {
   (void)input;
 }

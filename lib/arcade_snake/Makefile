@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:27:24 2016 Erwan Dupard
-## Last update Wed Mar  9 18:27:33 2016 Erwan Dupard
+## Last update Wed Mar 16 13:02:17 2016 Barthelemy Gouby
 ##
 
 CC			= g++
@@ -19,6 +19,7 @@ LDXXFLAGS		=
 NAME			= ../../games/libarcade_snake.so
 
 SRCS			= Snake.cpp		\
+			  SnakePlayer.cpp
 
 OBJS			= $(SRCS:.cpp=.o)
 
