@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:36:22 2016 Erwan Dupard
-// Last update Wed Mar 16 22:48:35 2016 Erwan Dupard
+// Last update Wed Mar 16 22:51:30 2016 Erwan Dupard
 //
 
 #ifndef LOADER_HH_
@@ -24,7 +24,7 @@ public:
   bool					loadGraphicLibrary(const std::string &filePath);
   bool					loadGameLibrary(const std::string &filePath);
   void					loadInitialGraphicLibrary(const std::string &filePath);
-  // void				loadInitialGameLibrary(const std::string filePath); peut etre pas besoin
+  // void				loadInitialGameLibrary(const std::string #&#filePath); peut etre pas besoin --> ok mais n'oubli pas le & ;)
   void					loadNextGraphicLibrary();
   void					loadNextGameLibrary();
   void					loadPreviousGraphicLibrary();
