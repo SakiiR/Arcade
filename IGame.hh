@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Tue Mar 15 19:19:06 2016 Barthelemy Gouby
+// Last update Wed Mar 16 13:22:00 2016 Erwan Dupard
 //
 
 #ifndef IGAME_HH_
@@ -50,15 +50,14 @@ namespace			game
       SNAKE,
       PACMAN
     };
-  
-  class				Position
+
+  struct			Position
   {
-  public:
     Position();
     Position(int initX, int initY) : x(initX), y(initY) {  }
     int				x;
     int				y;
-  };
+  };  
   
   class				Map
   {

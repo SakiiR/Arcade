@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:17:38 2016 Erwan Dupard
-// Last update Tue Mar 15 18:39:09 2016 Erwan Dupard
+// Last update Wed Mar 16 13:30:07 2016 Erwan Dupard
 //
 
 #ifndef MYSDL_HH_
@@ -15,6 +15,12 @@
 # include "../../ressources.hh"
 # include "../../deps/SDL2/include/SDL.h"
 # include "../../IDisplay.hh"
+
+# define SCREEN_X		(800)
+# define SCREEN_Y		(600)
+# define TILE_SIZE		(25)
+# define GAME_X			((SCREEN_X / TILE_SIZE))
+# define GAME_Y			((SCREEN_Y / TILE_SIZE))
 
 class			        mySDL2 : public IDisplay
 {
@@ -29,8 +35,10 @@ public:
   virtual void			renderMenu(MenuState menuState);
   virtual char			getLastInput();
 private:
+  void				writeTile(const game::Position &position, Uint32 color);
   std::string			_name;
   SDL_Window			*_window;
+  SDL_Surface			*_screen;
 };
 
 #endif /* ! MYSDL_HH_ */
