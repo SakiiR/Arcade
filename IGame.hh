@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Wed Mar 16 13:22:00 2016 Erwan Dupard
+// Last update Wed Mar 16 16:03:56 2016 Erwan Dupard
 //
 
 #ifndef IGAME_HH_
@@ -62,11 +62,11 @@ namespace			game
   class				Map
   {
   public:
-    Map(const int width, const int height);
+    Map(const unsigned int width, const unsigned int height);
     ~Map();
     void			changeTile(const Position &position, const Tile &type);
-    int	const			&getWidth() const;
-    int	const			&getHeight() const;
+    const unsigned int		&getWidth() const;
+    const unsigned int		&getHeight() const;
     game::Tile			*getTiles() const;
   private:
     int				_width;

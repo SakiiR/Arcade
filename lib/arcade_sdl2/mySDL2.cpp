@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Wed Mar 16 13:50:30 2016 Erwan Dupard
+// Last update Wed Mar 16 16:04:12 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -49,7 +49,29 @@ void			mySDL2::renderTitleScreen(const std::string &gameTitle, const std::string
 
 void			mySDL2::renderMap(const game::Map &map)
 {
-  (void)map;
+  game::Position	tileSize(SCREEN_X / map.getWidth(), SCREEN_Y / map.getHeight());
+  unsigned int		i = 0;
+  game::Tile		*tiles = map.getTiles();
+  game::Position	p;
+
+  while (i < map.getWidth() * map.getHeight())
+    {
+      p.y = map.getWidth() / i;
+      p.x = i - (map.getWidth() * p.y);
+      switch (tiles[i])
+	{
+	case game::Tile::EMPTY:
+	  this->writeTile(p, tileSize, 0x00FFFFFF);
+	  break;
+	case game::Tile::SNAKE:
+	  this->writeTile(p, tileSize, 0x00000000);
+	  break;
+	default:
+	  break;
+	}
+      ++i;
+    }
+  // 
 }
 
 void			mySDL2::renderMenu(MenuState menuState)
@@ -66,35 +88,33 @@ char			mySDL2::getLastInput()
       if (e.type == SDL_QUIT)
 	return (0);
       if (e.type == SDL_KEYDOWN)
-	{
-	  game::Position	p(5, 5);
-
-	  this->writeTile(p, 0x00000000);
-	  return (e.key.keysym.sym);
-	}
+	return (e.key.keysym.sym);
     }
   return (UNDEFINED_KEY_INPUT);
 }
 
-void			mySDL2::writeTile(const game::Position &position, Uint32 color)
+void			mySDL2::writeTile(const game::Position &position, const game::Position &size, Uint32 color)
 {
   Uint32		*pixels = (Uint32 *)this->_screen->pixels;
   Uint32		start = ((SCREEN_Y / position.y) * this->_screen->w) + (SCREEN_X / position.x);
   Uint32		save = start;
   Uint32		i;
 
-  while (start <= save + (TILE_SIZE * SCREEN_X))
+  while (start <= (save + (size.y * SCREEN_X)))
     {
       i = start;
-      while (i <= (start + TILE_SIZE))
+      while (i <= (start + size.y))
 	{
-	  std::cout << "Writing at : " << i << std::endl;
 	  pixels[i] = color;
 	  ++i;
 	}
       start += SCREEN_X;
     }
-  
+}
+
+void			mySDL2::updateSurface() const
+{
+  SDL_UpdateWindowSurface(this->_window);  
 }
 
 extern "C" IDisplay	*create()
