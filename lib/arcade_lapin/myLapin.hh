@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:51 2016 Erwan Dupard
-// Last update Thu Mar 10 15:04:30 2016 Erwan Dupard
+// Last update Tue Mar 15 19:49:01 2016 Erwan Dupard
 //
 
 #ifndef MYLAPIN_HH_
@@ -23,7 +23,8 @@ public:
   virtual const std::string	&getName() const;
   virtual void			initDisplay();
   virtual void			closeDisplay();
-  virtual void			renderMap(const arcade::GetMap &map);
+  virtual void			renderTitleScreen(const std::string &gameTitle, const std::string &instructions);
+  virtual void			renderMap(const game::Map &map);
   virtual void			renderMenu(MenuState menuState);
   virtual char			getLastInput();
 private:

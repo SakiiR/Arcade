@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Wed Mar 16 13:37:24 2016 Barthelemy Gouby
+// Last update Wed Mar 16 15:31:18 2016 Barthelemy Gouby
 //
 
 #ifndef IGAME_HH_
@@ -50,15 +50,14 @@ namespace			game
       SNAKE,
       PACMAN
     };
-  
-  class				Position
+
+  struct			Position
   {
-  public:
-    Position();
-    Position(int initX, int initY) : x(initX), y(initY) {  }
+    Position() {};
+    Position(int initX, int initY) : x(initX), y(initY) {  };
     int				x;
     int				y;
-  };
+  };  
   
   class				Map
   {
@@ -79,6 +78,7 @@ namespace			game
 class				IGame
 {
 public:
+  virtual ~IGame() { };
   virtual const std::string	&getName() const = 0;
   virtual const std::string	&getInstructions() const = 0;
   virtual void			startGame() = 0;

@@ -5,14 +5,14 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:27:24 2016 Erwan Dupard
-## Last update Wed Mar 16 13:02:17 2016 Barthelemy Gouby
+## Last update Wed Mar 16 15:27:15 2016 Barthelemy Gouby
 ##
 
 CC			= g++
 
 RM			= rm -f
 
-CXXFLAGS		= -fPIC -shared -W -Wall -Werror -Wextra -std=c++11
+CXXFLAGS		= -fPIC -shared -W -Wall -Werror -Wextra -std=c++11 -rdynamic
 
 LDXXFLAGS		= 
 

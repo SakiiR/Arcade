@@ -305,7 +305,7 @@ typedef enum			e_bunny_response
     GO_ON
   }				t_bunny_response;
 typedef enum			e_bunny_event_state
-  {
+  {pppp
     GO_DOWN,
     GO_UP,
     CONNECTED			= GO_DOWN,

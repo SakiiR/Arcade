@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Tue Mar 15 18:51:00 2016 Erwan Dupard
+// Last update Wed Mar 16 13:50:30 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -23,15 +23,13 @@ const std::string	&mySDL2::getName() const
 
 void			mySDL2::initDisplay()
 {
-  SDL_Surface		*screenSurface = NULL;
-  
   if (SDL_Init( SDL_INIT_VIDEO ) >= 0)
     {
-      this->_window = SDL_CreateWindow("SDLWindow", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
+      this->_window = SDL_CreateWindow("SDLWindow", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_X, SCREEN_Y, SDL_WINDOW_SHOWN);
       if (this->_window)
   	{
-  	  screenSurface = SDL_GetWindowSurface(this->_window);
-  	  SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0xFF, 0xFF, 0xFF));
+	  this->_screen = SDL_GetWindowSurface(this->_window);
+  	  SDL_FillRect(this->_screen, NULL, SDL_MapRGB(this->_screen->format, 0xFF, 0xFF, 0xFF));
   	  SDL_UpdateWindowSurface(this->_window);
   	}
     }
@@ -68,9 +66,35 @@ char			mySDL2::getLastInput()
       if (e.type == SDL_QUIT)
 	return (0);
       if (e.type == SDL_KEYDOWN)
-	return (e.key.keysym.sym);
+	{
+	  game::Position	p(5, 5);
+
+	  this->writeTile(p, 0x00000000);
+	  return (e.key.keysym.sym);
+	}
     }
   return (UNDEFINED_KEY_INPUT);
+}
+
+void			mySDL2::writeTile(const game::Position &position, Uint32 color)
+{
+  Uint32		*pixels = (Uint32 *)this->_screen->pixels;
+  Uint32		start = ((SCREEN_Y / position.y) * this->_screen->w) + (SCREEN_X / position.x);
+  Uint32		save = start;
+  Uint32		i;
+
+  while (start <= save + (TILE_SIZE * SCREEN_X))
+    {
+      i = start;
+      while (i <= (start + TILE_SIZE))
+	{
+	  std::cout << "Writing at : " << i << std::endl;
+	  pixels[i] = color;
+	  ++i;
+	}
+      start += SCREEN_X;
+    }
+  
 }
 
 extern "C" IDisplay	*create()
