@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Wed Mar 16 17:40:22 2016 Barthelemy Gouby
+// Last update Wed Mar 16 17:45:10 2016 Barthelemy Gouby
 //
 
 #ifndef IGAME_HH_
@@ -69,8 +69,8 @@ namespace			game
     const unsigned int		&getHeight() const;
     game::Tile			*getTiles() const;
   private:
-    int				_width;
-    int				_height;
+    unsigned int		_width;
+    unsigned int		_height;
     game::Tile			*_tiles;
   };
 }

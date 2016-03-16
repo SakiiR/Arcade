@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Wed Mar 16 17:32:21 2016 Barthelemy Gouby
+// Last update Wed Mar 16 17:44:33 2016 Barthelemy Gouby
 //
 
 #include <stdlib.h>
@@ -54,26 +54,25 @@ Loader				&ArcadeCore::getLoader()
   return (this->_loader);
 }
 
-void			displayMapTerm(const game::Map &map)
-{
-  game::Tile		*tiles = map.getTiles();
+// void			displayMapTerm(const game::Map &map)
+// {
+//   game::Tile		*tiles = map.getTiles();
 
-  system("clear");
-  for(int i = 0; i < map.getHeight() * map.getWidth(); i++)
-    {
-      if (tiles[i] == game::Tile::EMPTY)
-	printf("o");
-      else if (tiles[i] == game::Tile::SNAKE)
-	printf("X");
-      if (i % map.getWidth() == 0)
-	printf("\n");
-    }
-}
+//   system("clear");
+//   for(int i = 0; i < map.getHeight() * map.getWidth(); i++)
+//     {
+//       if (tiles[i] == game::Tile::EMPTY)
+// 	printf("o");
+//       else if (tiles[i] == game::Tile::SNAKE)
+// 	printf("X");
+//       if (i % map.getWidth() == 0)
+// 	printf("\n");
+//     }
+// }
 
 void			ArcadeCore::startGame()
 {
   bool			gameIsOn = true;
-
   // while (this->_loader.getDisplay()->getLastInput() == 0)
   //   this->_loader.getDisplay()->renderTitleScreen(this->_loader.getGame()->getName(),
   // 						   this->_loader.getGame()->getInstructions());
@@ -81,6 +80,7 @@ void			ArcadeCore::startGame()
   while (gameIsOn)
     {
       // this->executeInput(this->_loader.getDisplay()->getLastInput(), gameIsOn);
+      
       printf("input:     %c\n", this->_loader.getDisplay()->getLastInput());
       // displayMapTerm(this->_loader.getGame()->getMap());
       usleep(1000000);
