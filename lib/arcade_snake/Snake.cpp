@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:27:46 2016 Erwan Dupard
-// Last update Wed Mar 16 13:40:08 2016 Barthelemy Gouby
+// Last update Wed Mar 16 17:30:32 2016 Barthelemy Gouby
 //
 
 #include "Snake.hh"
@@ -44,12 +44,21 @@ void				Snake::closeGame()
 
 void				Snake::doTurn()
 {
-
+  printf("doin turn\n");
+  this->_player.movePlayer(this->_map);
 }
 
 void				Snake::sendLastInput(const char &input)
 {
-  (void)input;
+  printf("input------------- %c\n", input);
+  if (input == 'z')
+    this->_player.setMovementDirection(game::Direction::UP);
+  else if (input == 's')
+    this->_player.setMovementDirection(game::Direction::DOWN);
+  else if (input == 'q')
+    this->_player.setMovementDirection(game::Direction::LEFT);
+  else if (input == 'd')
+    this->_player.setMovementDirection(game::Direction::RIGHT);
 }
 
 const game::Map			&Snake::getMap()

@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Wed Mar 16 15:45:41 2016 Barthelemy Gouby
+// Last update Wed Mar 16 17:32:21 2016 Barthelemy Gouby
 //
 
 #include <stdlib.h>
@@ -30,7 +30,7 @@ void			ArcadeCore::startMenu()
   
 }
 
-void			ArcadeCore::executeInput(char &input, bool &gameIsOn)
+void			ArcadeCore::executeInput(char input, bool &gameIsOn)
 {
   //Absoluement hors de question baru !!!!
   if (input == '2')
@@ -80,9 +80,10 @@ void			ArcadeCore::startGame()
   this->_loader.getGame()->startGame();
   while (gameIsOn)
     {
-      displayMapTerm(this->_loader.getGame()->getMap());
-      usleep(250000);
-      // this->executeInput(this->_loader->getDisplay()->getLastInput(), gameIsOn);
+      // this->executeInput(this->_loader.getDisplay()->getLastInput(), gameIsOn);
+      printf("input:     %c\n", this->_loader.getDisplay()->getLastInput());
+      // displayMapTerm(this->_loader.getGame()->getMap());
+      usleep(1000000);
       // this->_loader->getDisplay()->renderMap(this->_loader->getGame()->getMap());
     }
 }

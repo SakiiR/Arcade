@@ -1,11 +1,11 @@
-;//
+//
 // main.cpp for arcade in /home/dupard_e/rendus/cpp_arcade
 // 
 // Made by Erwan Dupard
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Wed Mar 16 13:54:27 2016 Barthelemy Gouby
+// Last update Wed Mar 16 17:38:27 2016 Barthelemy Gouby
 //
 
 #include "ressources.hh"
@@ -32,6 +32,8 @@ int			main()
   ArcadeCore		arcade;
 
   arcade.getLoader().loadGameLibrary("./games/libarcade_snake.so");
+  arcade.getLoader().loadGraphicLibrary("./lib/libarcade_sdl2.so");
+  arcade.getLoader().getDisplay()->initDisplay();
   arcade.startGame();
 }
 

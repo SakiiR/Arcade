@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 14:02:54 2016 Barthelemy Gouby
-// Last update Wed Mar 16 13:21:35 2016 Barthelemy Gouby
+// Last update Wed Mar 16 17:29:12 2016 Barthelemy Gouby
 //
 
 #include "SnakePlayer.hh"
@@ -44,7 +44,27 @@ void		SnakePlayer::setMovementDirection(game::Direction direction)
 
 void		SnakePlayer::movePlayer(game::Map &map)
 {
-  (void) map;
+  game::Position	positionBefore;
+  game::Position	swapBuffer;
+  int		i;
+
+  positionBefore = this->_playerBody[0];
+  if (this->_movementDirection == game::Direction::UP)
+    this->_playerBody[0].y--;
+  if (this->_movementDirection == game::Direction::DOWN)
+    this->_playerBody[0].y++;
+  if (this->_movementDirection == game::Direction::LEFT)
+    this->_playerBody[0].x--;
+  if (this->_movementDirection == game::Direction::RIGHT)
+    this->_playerBody[0].x++;
+  for (i = 1; i < this->_playerLength; i++)
+    {
+      swapBuffer = this->_playerBody[i];
+      this->_playerBody[i] = positionBefore;
+      positionBefore = swapBuffer;
+    }
+  map.changeTile(this->_playerBody[0], game::Tile::SNAKE);
+  map.changeTile(positionBefore, game::Tile::EMPTY);
 }
 
 void		SnakePlayer::incrementSize()
