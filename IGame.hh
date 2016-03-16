@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Wed Mar 16 19:08:34 2016 Erwan Dupard
+// Last update Wed Mar 16 22:57:29 2016 Erwan Dupard
 //
 
 #ifndef IGAME_HH_
@@ -54,7 +54,7 @@ namespace			game
   struct			Position
   {
     Position() {};
-    Position(unsigned int initX, unsigned int initY) : x(initX), y(initY) {  };
+    Position(unsigned int X, unsigned int Y) : x(X), y(Y) {  };
     unsigned int		x;
     unsigned int		y;
   };  
