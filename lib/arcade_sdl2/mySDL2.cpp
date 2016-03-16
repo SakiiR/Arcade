@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Wed Mar 16 16:04:12 2016 Erwan Dupard
+// Last update Wed Mar 16 19:11:57 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -14,6 +14,7 @@ mySDL2::mySDL2()
 {
   this->_name = "libsdl2";
   this->_window = NULL;
+  this->_screen = NULL;
 }
 
 const std::string	&mySDL2::getName() const
@@ -71,7 +72,7 @@ void			mySDL2::renderMap(const game::Map &map)
 	}
       ++i;
     }
-  // 
+  this->updateSurface();
 }
 
 void			mySDL2::renderMenu(MenuState menuState)
