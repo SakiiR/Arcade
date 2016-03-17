@@ -5,16 +5,16 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 16:45:42 2016 Barthelemy Gouby
-// Last update Tue Mar 15 19:19:33 2016 Barthelemy Gouby
+// Last update Wed Mar 16 19:06:55 2016 Erwan Dupard
 //
 
 #include "IGame.hh"
 
-game::Map::Map(const int width, const int height)
+game::Map::Map(unsigned int width, unsigned int height)
   : _width(width), _height(height)
 {
   this->_tiles = new game::Tile[width * height];
-  for (int i = 0; i < width * height; i++)
+  for (unsigned int i = 0; i < width * height; i++)
     this->_tiles[i] = game::Tile::EMPTY;
 }
 
@@ -30,12 +30,12 @@ void			game::Map::changeTile(const Position &position, const Tile &type)
   this->_tiles[(position.y * this->_width) + position.x] = type;
 }
 
-int const		&game::Map::getWidth() const
+const unsigned int	&game::Map::getWidth() const
 {
   return (this->_width);
 }
 
-int const		&game::Map::getHeight() const
+const unsigned int	&game::Map::getHeight() const
 {
   return (this->_height);
 }

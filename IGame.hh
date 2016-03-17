@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Wed Mar 16 17:45:10 2016 Barthelemy Gouby
+// Last update Thu Mar 17 11:00:21 2016 Barthelemy Gouby
 //
 
 #ifndef IGAME_HH_
@@ -54,15 +54,15 @@ namespace			game
   struct			Position
   {
     Position() {};
-    Position(int initX, int initY) : x(initX), y(initY) {  };
-    int				x;
-    int				y;
+    Position(unsigned int X, unsigned int Y) : x(X), y(Y) {  };
+    unsigned int		x;
+    unsigned int		y;
   };  
   
   class				Map
   {
   public:
-    Map(const unsigned int width, const unsigned int height);
+    Map(unsigned int width, unsigned int height);
     ~Map();
     void			changeTile(const Position &position, const Tile &type);
     const unsigned int		&getWidth() const;

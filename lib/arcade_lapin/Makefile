@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:21:25 2016 Erwan Dupard
-## Last update Wed Mar  9 18:21:25 2016 Erwan Dupard
+## Last update Wed Mar 16 20:39:20 2016 Erwan Dupard
 ##
 
 CC			= g++
@@ -14,7 +14,14 @@ RM			= rm -f
 
 CXXFLAGS		= -fPIC -shared -W -Wall -Werror -Wextra -std=c++11
 
-LDXXFLAGS		= -L../../deps/lapin/ -llapin
+LDXXFLAGS		= -L../../deps/lapin/ \
+			-llapin \
+			-lsfml-audio \
+			-lsfml-graphics \
+			-lsfml-window \
+			-lsfml-system \
+			-lstdc++ -ldl \
+			-lm
 
 NAME			= ../../lib/libarcade_lapin.so
 

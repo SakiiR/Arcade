@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:59 2016 Erwan Dupard
-// Last update Tue Mar 15 19:48:55 2016 Erwan Dupard
+// Last update Wed Mar 16 20:23:10 2016 Erwan Dupard
 //
 
 #include "myLapin.hh"
@@ -13,6 +13,7 @@
 myLapin::myLapin()
 {
   this->_name = "liblapin";
+  this->_window = NULL;
 }
 
 const std::string	&myLapin::getName() const
@@ -21,7 +22,13 @@ const std::string	&myLapin::getName() const
 }
 
 void			myLapin::initDisplay()
-{}
+{
+  this->_window = bunny_start(SCREEN_X, SCREEN_Y, 0, this->_name.c_str());
+  
+  bunny_display(this->_window);
+
+  bunny_stop(this->_window);
+}
 
 void			myLapin::closeDisplay()
 {}
@@ -29,7 +36,7 @@ void			myLapin::closeDisplay()
 void			myLapin::renderTitleScreen(const std::string &gameTitle, const std::string &instructions)
 {
   (void)gameTitle;
-  (void)Instructions;
+  (void)instructions;
 }
 
 void			myLapin::renderMap(const game::Map &map)
@@ -47,7 +54,7 @@ char			myLapin::getLastInput()
   return ('\\');
 }
 
-extern "C" myLapin	*create()
+extern "C" IDisplay	*create()
 {
   return (new myLapin);
 }

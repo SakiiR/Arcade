@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:36:22 2016 Erwan Dupard
-// Last update Mon Mar 14 16:09:09 2016 Barthelemy Gouby
+// Last update Wed Mar 16 22:51:30 2016 Erwan Dupard
 //
 
 #ifndef LOADER_HH_
@@ -21,10 +21,10 @@ class					Loader
 public:
   Loader();
   ~Loader();
-  bool					loadGraphicLibrary(const std::string filePath);
-  bool					loadGameLibrary(const std::string filePath);
-  void					loadInitialGraphicLibrary(const std::string filePath);
-  // void				loadInitialGameLibrary(const std::string filePath); peut etre pas besoin
+  bool					loadGraphicLibrary(const std::string &filePath);
+  bool					loadGameLibrary(const std::string &filePath);
+  void					loadInitialGraphicLibrary(const std::string &filePath);
+  // void				loadInitialGameLibrary(const std::string #&#filePath); peut etre pas besoin --> ok mais n'oubli pas le & ;)
   void					loadNextGraphicLibrary();
   void					loadNextGameLibrary();
   void					loadPreviousGraphicLibrary();

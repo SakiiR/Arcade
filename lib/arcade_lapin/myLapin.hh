@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:51 2016 Erwan Dupard
-// Last update Tue Mar 15 19:49:01 2016 Erwan Dupard
+// Last update Wed Mar 16 20:14:36 2016 Erwan Dupard
 //
 
 #ifndef MYLAPIN_HH_
@@ -14,6 +14,9 @@
 # include <iostream>
 # include "../../deps/lapin/include/lapin.h"
 # include "../../IDisplay.hh"
+
+# define SCREEN_X		(800)
+# define SCREEN_Y		(600)
 
 class			        myLapin : public IDisplay
 {
@@ -29,6 +32,7 @@ public:
   virtual char			getLastInput();
 private:
   std::string			_name;
+  t_bunny_window		*_window;
 };
 
 # endif /* ! MYLAPIN_HH_ */

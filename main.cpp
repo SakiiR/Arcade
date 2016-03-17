@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Wed Mar 16 18:26:19 2016 Barthelemy Gouby
+// Last update Thu Mar 17 11:00:09 2016 Barthelemy Gouby
 //
 
 #include "ressources.hh"
@@ -27,7 +27,7 @@ void			usage(const char *execName)
   std::cout << "//" << std::endl;
 }
 
-int			main()
+int		main()
 {
   ArcadeCore		arcade;
 
@@ -41,7 +41,7 @@ int			main()
 // {
 //   Loader		loader;
 //   IDisplay		*display;
-//   char			e;
+//   unsigned char		e;
 //   bool			quit = false;
 
 //   if (argc < 2)
@@ -49,7 +49,7 @@ int			main()
 //       usage(argv[0]);
 //       return (RETURN_SUCCESS);
 //     }
-//   if (loader.loadGraphicLibrary(argv[1]) == false)
+//   if (loader.loadGraphicLibrary(std::string(argv[1])) == false)
 //     {
 //       std::cerr << "[-] Errors occured ! Maybe the library is imcompatible !" << std::endl;
 //       return (RETURN_FAILURE);
@@ -59,9 +59,9 @@ int			main()
 //   while (!quit)
 //     {
 //       e = display->getLastInput();
-//       quit = (e == 0 ? true : false);
+//       quit = (e == 0 || e == 0x1b ? true : false);
 //       if (e != UNDEFINED_KEY_INPUT)
-// 	printf("KEY : %c\n", e);      
+// 	printf("KEY : 0x%x\n", e);      
 //     }
 //   return (RETURN_SUCCESS);
 // }
