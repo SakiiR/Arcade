@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 14:02:54 2016 Barthelemy Gouby
-// Last update Thu Mar 17 15:26:54 2016 Barthelemy Gouby
+// Last update Thu Mar 17 15:39:06 2016 Barthelemy Gouby
 //
 
 #include "SnakePlayer.hh"
@@ -97,10 +97,4 @@ bool		SnakePlayer::movePlayer(game::Map &map)
 void		SnakePlayer::incrementSize()
 {
 
-}
-
-bool		SnakePlayer::checkIfColision(game::Position position)
-{
-  (void) position;
-  return (true);
 }

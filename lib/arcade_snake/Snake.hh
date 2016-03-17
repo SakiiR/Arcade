@@ -5,12 +5,13 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:28:09 2016 Erwan Dupard
-// Last update Thu Mar 17 12:29:43 2016 Barthelemy Gouby
+// Last update Thu Mar 17 16:46:48 2016 Barthelemy Gouby
 //
 
 #ifndef SNAKE_HH_
 # define SNAKE_HH_
 
+# include <random>
 # include <sys/time.h>
 # include <iostream>
 # include <string>
@@ -29,6 +30,7 @@ public:
   virtual void			resetGame();
   virtual void		        closeGame();
   void				doTurn();
+  void				createPowerUp();
   virtual void			sendLastInput(const char &input);
   virtual const game::Map	&getMap();
   virtual const bool		&getIfGameIsOver() const;
@@ -41,6 +43,7 @@ private:
   SnakePlayer			_player;
   char				_lastCommand;
   bool				_gameIsOver;
+  game::Position		_powerUp;
 };
 
 #endif /* ! SNAKE_HH_ */

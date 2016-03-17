@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:27:46 2016 Erwan Dupard
-// Last update Thu Mar 17 12:30:43 2016 Barthelemy Gouby
+// Last update Thu Mar 17 17:04:14 2016 Barthelemy Gouby
 //
 
 #include "Snake.hh"
@@ -33,6 +33,7 @@ void				Snake::startGame()
   this->_player.setInitialPosition(this->_map);
   this->_lastCommand = 0;
   gettimeofday(&this->_lastTurn, NULL);
+  createPowerUp();
 }
 
 void				Snake::resetGame()
@@ -49,6 +50,22 @@ void				Snake::doTurn()
     {
       this->_gameIsOver = true;
     }
+}
+
+void				Snake::createPowerUp()
+{
+  std::default_random_engine		generator;
+  std::uniform_int_distribution<int>	xDistribution(0, SNAKE_MAP_WIDTH - 1);
+  std::uniform_int_distribution<int>	yDistribution(0, SNAKE_MAP_HEIGHT - 1);  
+
+  this->_powerUp.x = xDistribution(generator);
+  this->_powerUp.y = yDistribution(generator);
+  while (this->_map.getTileAt(this->_powerUp) != game::Tile::EMPTY)
+    {
+      this->_powerUp.x = xDistribution(generator);
+      this->_powerUp.y = yDistribution(generator);  
+    }
+  this->_map.changeTile(this->_powerUp, game::Tile::POWERUP);
 }
 
 void				Snake::sendLastInput(const char &input)
