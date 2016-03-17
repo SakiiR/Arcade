@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 14:02:54 2016 Barthelemy Gouby
-// Last update Thu Mar 17 18:11:21 2016 Barthelemy Gouby
+// Last update Thu Mar 17 18:39:24 2016 Barthelemy Gouby
 //
 
 #include "SnakePlayer.hh"
@@ -54,33 +54,22 @@ bool			SnakePlayer::movePlayer(game::Map &map)
   int			i;
 
   positionBefore = this->_playerBody[0];
-  if (this->_movementDirection == game::Direction::UP)
+  switch (this->_movementDirection)
     {
-      if (this->_playerBody[0].y > 0)
-	this->_playerBody[0].y--;
-      else
-	this->_playerBody[0].y = SNAKE_MAP_HEIGHT - 1;
-    }
-  if (this->_movementDirection == game::Direction::DOWN)
-    {
-      if (this->_playerBody[0].y < SNAKE_MAP_HEIGHT - 1)
-	this->_playerBody[0].y++;
-      else
-	this->_playerBody[0].y = 0;
-    }
-  if (this->_movementDirection == game::Direction::LEFT)
-    {
-      if (this->_playerBody[0].x > 0)
-	this->_playerBody[0].x--;
-      else
-	this->_playerBody[0].x = SNAKE_MAP_WIDTH - 1;
-    }
-  if (this->_movementDirection == game::Direction::RIGHT)
-    {
-      if (this->_playerBody[0].x < SNAKE_MAP_WIDTH - 1)
-	this->_playerBody[0].x++;
-      else
-	this->_playerBody[0].x = 0;
+    case game::Direction::UP :
+      this->_playerBody[0].y > 0 ? this->_playerBody[0].y-- : this->_playerBody[0].y = SNAKE_MAP_HEIGHT - 1;
+      break;
+    case game::Direction::DOWN :
+      this->_playerBody[0].y < SNAKE_MAP_HEIGHT - 1 ? this->_playerBody[0].y++ : this->_playerBody[0].y = 0;
+      break;
+    case game::Direction::LEFT :
+      this->_playerBody[0].x > 0 ? this->_playerBody[0].x-- : this->_playerBody[0].x = SNAKE_MAP_WIDTH - 1;
+      break;
+    case game::Direction::RIGHT :
+      this->_playerBody[0].x < SNAKE_MAP_WIDTH - 1 ? this->_playerBody[0].x++ : this->_playerBody[0].x = 0;
+      break;
+    default :
+      break;
     }
   if (map.getTileAt(this->_playerBody[0]) == game::Tile::POWERUP)
     {
