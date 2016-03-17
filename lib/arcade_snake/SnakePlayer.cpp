@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 14:02:54 2016 Barthelemy Gouby
-// Last update Thu Mar 17 15:39:06 2016 Barthelemy Gouby
+// Last update Thu Mar 17 18:11:21 2016 Barthelemy Gouby
 //
 
 #include "SnakePlayer.hh"
@@ -21,7 +21,7 @@ SnakePlayer::~SnakePlayer()
     delete this->_playerBody;
 }
 
-void		SnakePlayer::setInitialPosition(game::Map &map)
+void			SnakePlayer::setInitialPosition(game::Map &map)
 {
   this->_playerBody = new game::Position[3];
   this->_playerBody[0].x = SNAKE_MAP_WIDTH / 2;
@@ -37,7 +37,7 @@ void		SnakePlayer::setInitialPosition(game::Map &map)
   this->_movementDirection = game::Direction::RIGHT;
 }
 
-void		SnakePlayer::setMovementDirection(game::Direction direction)
+void			SnakePlayer::setMovementDirection(game::Direction direction)
 {
   if (!((this->_movementDirection == game::Direction::RIGHT && direction == game::Direction::LEFT)
 	|| (this->_movementDirection == game::Direction::LEFT && direction == game::Direction::RIGHT)
@@ -46,11 +46,12 @@ void		SnakePlayer::setMovementDirection(game::Direction direction)
     this->_movementDirection = direction;
 }
 
-bool		SnakePlayer::movePlayer(game::Map &map)
+bool			SnakePlayer::movePlayer(game::Map &map)
 {
   game::Position	positionBefore;
   game::Position	swapBuffer;
-  int		i;
+  bool			incremented = false;
+  int			i;
 
   positionBefore = this->_playerBody[0];
   if (this->_movementDirection == game::Direction::UP)
@@ -81,6 +82,11 @@ bool		SnakePlayer::movePlayer(game::Map &map)
       else
 	this->_playerBody[0].x = 0;
     }
+  if (map.getTileAt(this->_playerBody[0]) == game::Tile::POWERUP)
+    {
+      incremented = true;
+      this->incrementSize();
+    }
   if (map.getTileAt(this->_playerBody[0]) == game::Tile::SNAKE)
     return false;
   for (i = 1; i < this->_playerLength; i++)
@@ -90,11 +96,20 @@ bool		SnakePlayer::movePlayer(game::Map &map)
       positionBefore = swapBuffer;
     }
   map.changeTile(this->_playerBody[0], game::Tile::SNAKE);
-  map.changeTile(positionBefore, game::Tile::EMPTY);
+  if (!incremented)
+    map.changeTile(positionBefore, game::Tile::EMPTY);
   return true;
 }
 
-void		SnakePlayer::incrementSize()
+void			SnakePlayer::incrementSize()
 {
+  game::Position	*newBody = new game::Position[this->_playerLength + 1];
 
+  for (int i = 0; i < this->_playerLength; i++)
+    {
+      newBody[i] = this->_playerBody[i];
+    }
+  // delete[] this->_playerBody;
+  this->_playerBody = newBody;
+  this->_playerLength++;
 }

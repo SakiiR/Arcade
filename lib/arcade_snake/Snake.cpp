@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:27:46 2016 Erwan Dupard
-// Last update Thu Mar 17 17:04:14 2016 Barthelemy Gouby
+// Last update Thu Mar 17 17:44:42 2016 Barthelemy Gouby
 //
 
 #include "Snake.hh"
@@ -50,11 +50,17 @@ void				Snake::doTurn()
     {
       this->_gameIsOver = true;
     }
+  else
+    {
+      if (this->_map.getTileAt(this->_powerUp) != game::Tile::POWERUP)
+	this->createPowerUp();
+    }
 }
 
 void				Snake::createPowerUp()
 {
-  std::default_random_engine		generator;
+  std::random_device			rd;
+  std::default_random_engine		generator(rd());
   std::uniform_int_distribution<int>	xDistribution(0, SNAKE_MAP_WIDTH - 1);
   std::uniform_int_distribution<int>	yDistribution(0, SNAKE_MAP_HEIGHT - 1);  
 

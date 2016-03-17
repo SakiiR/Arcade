@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Thu Mar 17 15:15:07 2016 Erwan Dupard
+// Last update Thu Mar 17 15:46:32 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -67,7 +67,6 @@ void			mySDL2::renderMap(const game::Map &map)
   	case game::Tile::SNAKE:
   	  this->writeTile(p, tileSize, 0x000f9d58);
   	  break;
-  	  // add food and color system
 	case game::Tile::POWERUP:
 	  this->writeTile(p, tileSize, 0x006d0a3a);
   	  break;
@@ -113,7 +112,7 @@ void			mySDL2::writeTile(const game::Position &position, const game::Position &s
       while (start <= (save + (size.y * SCREEN_X)))
       	{
       	  i = start;
-      	  while (i <= (start + size.x))
+      	  while (i < (start + size.x))
       	    {
       	      pixels[i] = color;
       	      ++i;
