@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 16:45:42 2016 Barthelemy Gouby
-// Last update Thu Mar 17 12:04:14 2016 Barthelemy Gouby
+// Last update Thu Mar 17 15:23:39 2016 Barthelemy Gouby
 //
 
 #include "IGame.hh"
@@ -25,7 +25,7 @@ game::Map::~Map()
 
 void			game::Map::changeTile(const Position &position, const Tile &type)
 {
-  if (position.x > this->_width || position.y > this->_height)
+  if (position.x >= this->_width || position.y >= this->_height)
     throw std::out_of_range("position is out of map");
   this->_tiles[(position.y * this->_width) + position.x] = type;
 }

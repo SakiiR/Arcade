@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Thu Mar 17 14:19:49 2016 Erwan Dupard
+// Last update Thu Mar 17 14:35:59 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -54,7 +54,7 @@ void			mySDL2::renderMap(const game::Map &map)
   unsigned int		i = 0;
   game::Tile		*tiles = map.getTiles();
   game::Position	p(0, 0);
-  std::cout << map.getWidth() << ":" << map.getHeight() << std::endl;
+
   while (i < map.getWidth() * map.getHeight())
     {
       p.y = (i == 0 ? 0 : i / map.getWidth());
@@ -102,22 +102,21 @@ void			mySDL2::writeTile(const game::Position &position, const game::Position &s
   Uint32		save;
   Uint32		i;
   
-  start = (SCREEN_X * position.y * size.x) + (size.x * position.x);
+  start = (SCREEN_X * position.y * size.y) + (size.x * position.x);
   save = start;
   SDL_LockSurface(this->_screen);
   if (pixels[start] != color)
     {
-      std::cout << "Writing at : " << position.x << ":" << position.y << ":" << start << std::endl;
       while (start <= (save + (size.y * SCREEN_X)))
-	{
-	  i = start;
-	  while (i <= (start + size.y))
-	    {
-	      pixels[i] = color;
-	      ++i;
-	    }
-	  start += SCREEN_X;
-	}
+      	{
+      	  i = start;
+      	  while (i <= (start + size.x))
+      	    {
+      	      pixels[i] = color;
+      	      ++i;
+      	    }
+      	  start += SCREEN_X;
+      	}
     }
   SDL_UnlockSurface(this->_screen);
 }

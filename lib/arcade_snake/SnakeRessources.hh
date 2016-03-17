@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Wed Mar 16 13:15:47 2016 Barthelemy Gouby
-// Last update Thu Mar 17 11:52:54 2016 Barthelemy Gouby
+// Last update Thu Mar 17 15:11:25 2016 Barthelemy Gouby
 //
 
 #ifndef _SNAKE_RESSOURCES_

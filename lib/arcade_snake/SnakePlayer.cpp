@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 14:02:54 2016 Barthelemy Gouby
-// Last update Thu Mar 17 12:39:33 2016 Barthelemy Gouby
+// Last update Thu Mar 17 15:26:54 2016 Barthelemy Gouby
 //
 
 #include "SnakePlayer.hh"
@@ -39,7 +39,11 @@ void		SnakePlayer::setInitialPosition(game::Map &map)
 
 void		SnakePlayer::setMovementDirection(game::Direction direction)
 {
-  this->_movementDirection = direction;
+  if (!((this->_movementDirection == game::Direction::RIGHT && direction == game::Direction::LEFT)
+	|| (this->_movementDirection == game::Direction::LEFT && direction == game::Direction::RIGHT)
+	|| (this->_movementDirection == game::Direction::UP && direction == game::Direction::DOWN)
+	|| (this->_movementDirection == game::Direction::DOWN && direction == game::Direction::UP)))
+    this->_movementDirection = direction;
 }
 
 bool		SnakePlayer::movePlayer(game::Map &map)
@@ -58,7 +62,7 @@ bool		SnakePlayer::movePlayer(game::Map &map)
     }
   if (this->_movementDirection == game::Direction::DOWN)
     {
-      if (this->_playerBody[0].y < SNAKE_MAP_HEIGHT)
+      if (this->_playerBody[0].y < SNAKE_MAP_HEIGHT - 1)
 	this->_playerBody[0].y++;
       else
 	this->_playerBody[0].y = 0;
@@ -72,7 +76,7 @@ bool		SnakePlayer::movePlayer(game::Map &map)
     }
   if (this->_movementDirection == game::Direction::RIGHT)
     {
-      if (this->_playerBody[0].x < SNAKE_MAP_WIDTH)
+      if (this->_playerBody[0].x < SNAKE_MAP_WIDTH - 1)
 	this->_playerBody[0].x++;
       else
 	this->_playerBody[0].x = 0;
