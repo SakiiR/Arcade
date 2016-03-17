@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Thu Mar 17 15:15:07 2016 Erwan Dupard
+// Last update Thu Mar 17 15:45:34 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -113,7 +113,7 @@ void			mySDL2::writeTile(const game::Position &position, const game::Position &s
       while (start <= (save + (size.y * SCREEN_X)))
       	{
       	  i = start;
-      	  while (i <= (start + size.x))
+      	  while (i < (start + size.x))
       	    {
       	      pixels[i] = color;
       	      ++i;

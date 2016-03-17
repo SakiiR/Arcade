@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:17:38 2016 Erwan Dupard
-// Last update Thu Mar 17 15:41:00 2016 Erwan Dupard
+// Last update Thu Mar 17 15:44:24 2016 Erwan Dupard
 //
 
 #ifndef MYSDL_HH_
@@ -16,8 +16,8 @@
 # include "../../deps/SDL2/include/SDL.h"
 # include "../../IDisplay.hh"
 
-# define SCREEN_X		(1366)
-# define SCREEN_Y		(768)
+# define SCREEN_X		(300)
+# define SCREEN_Y		(300)
 
 class			        mySDL2 : public IDisplay
 {
