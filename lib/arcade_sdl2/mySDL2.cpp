@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Wed Mar 16 19:17:08 2016 Erwan Dupard
+// Last update Thu Mar 17 11:55:10 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -24,7 +24,7 @@ const std::string	&mySDL2::getName() const
 
 void			mySDL2::initDisplay()
 {
-  if (SDL_Init( SDL_INIT_VIDEO ) >= 0)
+  if (SDL_Init(SDL_INIT_VIDEO) >= 0)
     {
       this->_window = SDL_CreateWindow("SDLWindow", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_X, SCREEN_Y, SDL_WINDOW_SHOWN);
       if (this->_window)
@@ -42,10 +42,10 @@ void			mySDL2::closeDisplay()
   SDL_Quit();
 }
 
-void			mySDL2::renderTitleScreen(const std::string &gameTitle, const std::string &Instructions)
+void			mySDL2::renderTitleScreen(const std::string &gameTitle, const std::string &instructions)
 {
   (void)gameTitle;
-  (void)Instructions;
+  (void)instructions;
 }
 
 void			mySDL2::renderMap(const game::Map &map)
@@ -102,15 +102,18 @@ void			mySDL2::writeTile(const game::Position &position, const game::Position &s
   Uint32		save = start;
   Uint32		i;
 
-  while (start <= (save + (size.y * SCREEN_X)))
+  if (pixels[start] != color)
     {
-      i = start;
-      while (i <= (start + size.y))
+      while (start <= (save + (size.y * SCREEN_X)))
 	{
-	  pixels[i] = color;
-	  ++i;
+	  i = start;
+	  while (i <= (start + size.y))
+	    {
+	      pixels[i] = color;
+	      ++i;
+	    }
+	  start += SCREEN_X;
 	}
-      start += SCREEN_X;
     }
 }
 
