@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:27:46 2016 Erwan Dupard
-// Last update Thu Mar 17 11:50:03 2016 Barthelemy Gouby
+// Last update Thu Mar 17 12:30:43 2016 Barthelemy Gouby
 //
 
 #include "Snake.hh"
@@ -15,6 +15,7 @@ Snake::Snake()
 {
   this->_name = "Snake";
   this->_instructions = "move with arrow keys or zqsd\n";
+  this->_gameIsOver = false;
 }
 
 const std::string		&Snake::getName() const
@@ -44,8 +45,10 @@ void				Snake::closeGame()
 
 void				Snake::doTurn()
 {
-  printf("doin turn\n");
-  this->_player.movePlayer(this->_map);
+  if (!this->_player.movePlayer(this->_map))
+    {
+      this->_gameIsOver = true;
+    }
 }
 
 void				Snake::sendLastInput(const char &input)
@@ -66,15 +69,19 @@ const game::Map			&Snake::getMap()
   long int			timeDifference;
 
   gettimeofday(&currentTime, NULL);
-  timeDifference = (currentTime.tv_sec - this->_lastTurn.tv_sec) * 1000000 + (currentTime.tv_usec - this->_lastTurn.tv_usec);
-  printf("time diff :%li\n", timeDifference);
+  timeDifference = (currentTime.tv_sec - this->_lastTurn.tv_sec) * 1000000
+    + (currentTime.tv_usec - this->_lastTurn.tv_usec);
   if (timeDifference > SNAKE_TURN_LENGTH)
     {
-      printf("doin turn yo\n");
       this->doTurn();
       this->_lastTurn = currentTime;
     }
   return (this->_map);
+}
+
+const bool			&Snake::getIfGameIsOver() const
+{
+  return (this->_gameIsOver);
 }
 
 void				Snake::Play()
