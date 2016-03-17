@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 14:02:54 2016 Barthelemy Gouby
-// Last update Wed Mar 16 17:29:12 2016 Barthelemy Gouby
+// Last update Thu Mar 17 12:39:33 2016 Barthelemy Gouby
 //
 
 #include "SnakePlayer.hh"
@@ -42,7 +42,7 @@ void		SnakePlayer::setMovementDirection(game::Direction direction)
   this->_movementDirection = direction;
 }
 
-void		SnakePlayer::movePlayer(game::Map &map)
+bool		SnakePlayer::movePlayer(game::Map &map)
 {
   game::Position	positionBefore;
   game::Position	swapBuffer;
@@ -50,13 +50,35 @@ void		SnakePlayer::movePlayer(game::Map &map)
 
   positionBefore = this->_playerBody[0];
   if (this->_movementDirection == game::Direction::UP)
-    this->_playerBody[0].y--;
+    {
+      if (this->_playerBody[0].y > 0)
+	this->_playerBody[0].y--;
+      else
+	this->_playerBody[0].y = SNAKE_MAP_HEIGHT - 1;
+    }
   if (this->_movementDirection == game::Direction::DOWN)
-    this->_playerBody[0].y++;
+    {
+      if (this->_playerBody[0].y < SNAKE_MAP_HEIGHT)
+	this->_playerBody[0].y++;
+      else
+	this->_playerBody[0].y = 0;
+    }
   if (this->_movementDirection == game::Direction::LEFT)
-    this->_playerBody[0].x--;
+    {
+      if (this->_playerBody[0].x > 0)
+	this->_playerBody[0].x--;
+      else
+	this->_playerBody[0].x = SNAKE_MAP_WIDTH - 1;
+    }
   if (this->_movementDirection == game::Direction::RIGHT)
-    this->_playerBody[0].x++;
+    {
+      if (this->_playerBody[0].x < SNAKE_MAP_WIDTH)
+	this->_playerBody[0].x++;
+      else
+	this->_playerBody[0].x = 0;
+    }
+  if (map.getTileAt(this->_playerBody[0]) == game::Tile::SNAKE)
+    return false;
   for (i = 1; i < this->_playerLength; i++)
     {
       swapBuffer = this->_playerBody[i];
@@ -65,6 +87,7 @@ void		SnakePlayer::movePlayer(game::Map &map)
     }
   map.changeTile(this->_playerBody[0], game::Tile::SNAKE);
   map.changeTile(positionBefore, game::Tile::EMPTY);
+  return true;
 }
 
 void		SnakePlayer::incrementSize()

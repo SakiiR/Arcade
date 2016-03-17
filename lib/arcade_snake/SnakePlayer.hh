@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 12:36:59 2016 Barthelemy Gouby
-// Last update Wed Mar 16 13:18:45 2016 Barthelemy Gouby
+// Last update Thu Mar 17 12:10:38 2016 Barthelemy Gouby
 //
 
 #ifndef _SNAKE_PLAYER_HH_
@@ -22,7 +22,7 @@ public:
   ~SnakePlayer();
   void			setInitialPosition(game::Map &map); 
   void			setMovementDirection(game::Direction direction);
-  void			movePlayer(game::Map &map);
+  bool			movePlayer(game::Map &map);
   void			incrementSize();
   bool			checkIfColision(game::Position position);
 private:
