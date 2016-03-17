@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Thu Mar 17 12:41:51 2016 Barthelemy Gouby
+// Last update Thu Mar 17 14:08:22 2016 Barthelemy Gouby
 //
 
 #include <stdlib.h>
@@ -74,16 +74,25 @@ void			displayMapTerm(const game::Map &map)
   game::Tile		*tiles = map.getTiles();
 
   system("clear");
+  printf("\n");
   for(unsigned int i = 0; i < map.getHeight() * map.getWidth(); i++)
     {
       if (tiles[i] == game::Tile::EMPTY)
 	printf("o");
       else if (tiles[i] == game::Tile::SNAKE)
 	printf("X");
-      if (i % map.getWidth() == 0 && i != 0)
+      if ((i + 1) % map.getWidth() == 0 && i != 0)
 	printf("\n");
     }
 }
+
+      // if (tiles[i] == game::Tile::EMPTY)
+      // 	printf("o");
+      // else if (tiles[i] == game::Tile::SNAKE)
+      // 	printf("X");
+      // if ((i + 1) % map.getWidth() == 0 && i != 0)
+      // 	printf("\n");
+
 
 void			ArcadeCore::startGame()
 {
