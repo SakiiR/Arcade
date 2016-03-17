@@ -5,11 +5,11 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Thu Mar 17 11:55:10 2016 Erwan Dupard
+// Last update Thu Mar 17 14:19:49 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
-
+#include <unistd.h>
 mySDL2::mySDL2()
 {
   this->_name = "libsdl2";
@@ -53,24 +53,24 @@ void			mySDL2::renderMap(const game::Map &map)
   game::Position	tileSize(SCREEN_X / map.getWidth(), SCREEN_Y / map.getHeight());
   unsigned int		i = 0;
   game::Tile		*tiles = map.getTiles();
-  game::Position	p;
-
+  game::Position	p(0, 0);
+  std::cout << map.getWidth() << ":" << map.getHeight() << std::endl;
   while (i < map.getWidth() * map.getHeight())
     {
-      p.y = map.getWidth() / i;
-      p.x = i - (map.getWidth() * p.y);
+      p.y = (i == 0 ? 0 : i / map.getWidth());
+      p.x = i - (p.y * map.getWidth());
       switch (tiles[i])
-	{
-	case game::Tile::EMPTY:
-	  this->writeTile(p, tileSize, 0x00FFFFFF);
-	  break;
-	case game::Tile::SNAKE:
-	  this->writeTile(p, tileSize, 0x00000000);
-	  break;
-	  // adding food, and add color system
-	default:
-	  break;
-	}
+  	{
+  	case game::Tile::EMPTY:
+  	  this->writeTile(p, tileSize, 0x00FFFFFF);
+  	  break;
+  	case game::Tile::SNAKE:
+  	  this->writeTile(p, tileSize, 0x00000000);
+  	  break;
+  	  // add food and color system
+  	default:
+  	  break;
+  	}
       ++i;
     }
   this->updateSurface();
@@ -98,12 +98,16 @@ char			mySDL2::getLastInput()
 void			mySDL2::writeTile(const game::Position &position, const game::Position &size, Uint32 color)
 {
   Uint32		*pixels = (Uint32 *)this->_screen->pixels;
-  Uint32		start = ((SCREEN_Y / position.y) * this->_screen->w) + (SCREEN_X / position.x);
-  Uint32		save = start;
+  Uint32		start = 0;
+  Uint32		save;
   Uint32		i;
-
+  
+  start = (SCREEN_X * position.y * size.x) + (size.x * position.x);
+  save = start;
+  SDL_LockSurface(this->_screen);
   if (pixels[start] != color)
     {
+      std::cout << "Writing at : " << position.x << ":" << position.y << ":" << start << std::endl;
       while (start <= (save + (size.y * SCREEN_X)))
 	{
 	  i = start;
@@ -115,6 +119,7 @@ void			mySDL2::writeTile(const game::Position &position, const game::Position &s
 	  start += SCREEN_X;
 	}
     }
+  SDL_UnlockSurface(this->_screen);
 }
 
 void			mySDL2::updateSurface() const
