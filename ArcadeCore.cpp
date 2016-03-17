@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Thu Mar 17 11:00:30 2016 Barthelemy Gouby
+// Last update Thu Mar 17 11:55:27 2016 Barthelemy Gouby
 //
 
 #include <stdlib.h>
@@ -54,8 +54,10 @@ void			ArcadeCore::executeInput(char input, bool &gameIsOn)
       gameIsOn = false;
       break;
     case 0:
-      // on fait quoi quand c'est zero ?
+      gameIsOn = false;
       break;
+    case 0x1b:
+      gameIsOn = false;
     default:
       this->_loader.getGame()->sendLastInput(input);
       break;
@@ -93,9 +95,8 @@ void			ArcadeCore::startGame()
   while (gameIsOn)
     {
       this->executeInput(this->_loader.getDisplay()->getLastInput(), gameIsOn);
-      
-      displayMapTerm(this->_loader.getGame()->getMap());
-      usleep(1000000);
-      // this->_loader->getDisplay()->renderMap(this->_loader->getGame()->getMap());
+      //displayMapTerm(this->_loader.getGame()->getMap());
+      usleep(100000);
+      this->_loader.getDisplay()->renderMap(this->_loader.getGame()->getMap());
     }
 }

@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:27:46 2016 Erwan Dupard
-// Last update Wed Mar 16 17:30:32 2016 Barthelemy Gouby
+// Last update Thu Mar 17 11:50:03 2016 Barthelemy Gouby
 //
 
 #include "Snake.hh"
@@ -50,7 +50,6 @@ void				Snake::doTurn()
 
 void				Snake::sendLastInput(const char &input)
 {
-  printf("input------------- %c\n", input);
   if (input == 'z')
     this->_player.setMovementDirection(game::Direction::UP);
   else if (input == 's')
@@ -64,10 +63,14 @@ void				Snake::sendLastInput(const char &input)
 const game::Map			&Snake::getMap()
 {
   timeval			currentTime;
+  long int			timeDifference;
 
   gettimeofday(&currentTime, NULL);
-  if ((currentTime.tv_usec - this->_lastTurn.tv_usec) > SNAKE_TURN_LENGTH)
+  timeDifference = (currentTime.tv_sec - this->_lastTurn.tv_sec) * 1000000 + (currentTime.tv_usec - this->_lastTurn.tv_usec);
+  printf("time diff :%li\n", timeDifference);
+  if (timeDifference > SNAKE_TURN_LENGTH)
     {
+      printf("doin turn yo\n");
       this->doTurn();
       this->_lastTurn = currentTime;
     }
