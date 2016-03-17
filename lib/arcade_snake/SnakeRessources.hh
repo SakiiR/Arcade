@@ -5,16 +5,16 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Wed Mar 16 13:15:47 2016 Barthelemy Gouby
-// Last update Thu Mar 17 15:11:25 2016 Barthelemy Gouby
+// Last update Thu Mar 17 15:41:34 2016 Erwan Dupard
 //
 
 #ifndef _SNAKE_RESSOURCES_
 # define _SNAKE_RESSOURCES_
 
-# define SNAKE_MAP_WIDTH		30
-# define SNAKE_MAP_HEIGHT		30
-# define SNAKE_TURN_LENGTH		150000
-# define SNAKE_PLAYER_INITIAL_LENGTH	3
+# define SNAKE_MAP_WIDTH		(30)
+# define SNAKE_MAP_HEIGHT		(30)
+# define SNAKE_TURN_LENGTH		(150000)
+# define SNAKE_PLAYER_INITIAL_LENGTH	(3)
 
 #endif /* !_SNAKE_RESSOURCES_ */
 
