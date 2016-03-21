@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Thu Mar 17 15:46:32 2016 Erwan Dupard
+// Last update Mon Mar 21 11:50:03 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -104,7 +104,7 @@ void			mySDL2::writeTile(const game::Position &position, const game::Position &s
   Uint32		save;
   Uint32		i;
   
-  start = (SCREEN_X * position.y * size.y) + (size.x * position.x);
+  start = ((SCREEN_X * position.y * size.y) + (size.x * position.x));
   save = start;
   SDL_LockSurface(this->_screen);
   if (pixels[start] != color)
