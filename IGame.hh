@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Thu Mar 17 12:35:14 2016 Barthelemy Gouby
+// Last update Fri Mar 18 17:39:49 2016 Barthelemy Gouby
 //
 
 #ifndef IGAME_HH_
@@ -36,19 +36,19 @@ namespace			game
       RIGHT
     };
   
-  enum				Tile
+  enum				Tile : int
     {
-      EMPTY,	
-      BLOCK,
-      OBSTACLE,
-      EVIL_DUDE,
-      GHOST,
-      EVIL_SHOOT,
-      MY_SHOOT,
-      POWERUP,
-      PLAYER,
-      SNAKE,
-      PACMAN
+      EMPTY = 0,	
+      BLOCK = 1,
+      OBSTACLE = 2,
+      EVIL_DUDE = 3,
+      GHOST = 4,
+      EVIL_SHOOT = 5,
+      MY_SHOOT = 6,
+      POWERUP = 7,
+      PLAYER = 8,
+      SNAKE = 9,
+      PACMAN = 10
     };
 
   struct			Position
@@ -63,6 +63,7 @@ namespace			game
   {
   public:
     Map(unsigned int width, unsigned int height);
+    Map(unsigned int width, unsigned int height, int *tiles);
     ~Map();
     void			changeTile(const Position &position, const Tile &type);
     const unsigned int		&getWidth() const;
@@ -86,7 +87,7 @@ public:
   virtual void			resetGame() = 0;
   virtual void			closeGame() = 0;
   virtual void			sendLastInput(const char &input) = 0;
-  virtual const game::Map	&getMap() = 0;
+  virtual const game::Map	&refreshAndGetMap() = 0;
   virtual const bool		&getIfGameIsOver() const = 0;
   virtual void			Play() = 0;
 };

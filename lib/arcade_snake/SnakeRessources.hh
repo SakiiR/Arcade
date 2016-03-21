@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Wed Mar 16 13:15:47 2016 Barthelemy Gouby
-// Last update Thu Mar 17 18:17:45 2016 Barthelemy Gouby
+// Last update Mon Mar 21 11:35:09 2016 Barthelemy Gouby
 //
 
 #ifndef _SNAKE_RESSOURCES_
@@ -15,6 +15,8 @@
 # define SNAKE_MAP_HEIGHT		(30)
 # define SNAKE_TURN_LENGTH		(100000)
 # define SNAKE_PLAYER_INITIAL_LENGTH	(3)
+
+extern int pacmanMap[900];
 
 #endif /* !_SNAKE_RESSOURCES_ */
 

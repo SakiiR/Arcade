@@ -5,14 +5,16 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:24:59 2016 Erwan Dupard
-// Last update Fri Mar 11 10:18:16 2016 Erwan Dupard
+// Last update Fri Mar 18 17:53:42 2016 Barthelemy Gouby
 //
 
 #include "Pacman.hh"
 
 Pacman::Pacman()
+  : _map(PACMAN_MAP_WIDTH, PACMAN_MAP_HEIGHT, pacmanMap)
 {
   this->_name = "libsnake";
+  this->_gameIsOver = false;
 }
 
 const std::string		&Pacman::getName() const
@@ -20,24 +22,36 @@ const std::string		&Pacman::getName() const
   return (this->_name);
 }
 
+const std::string		&Pacman::getInstructions() const
+{
+  return (this->_instructions);
+}
+
 void				Pacman::startGame()
 {}
+
+void				Pacman::resetGame()
+{
+
+}
 
 void				Pacman::closeGame()
 {}
 
-void				Pacman::setLastCommand(const arcade::CommandType &command)
+void				Pacman::sendLastInput(const char &input)
 {
-  (void)command;
+  (void)input;
 }
 
-const arcade::GetMap		&Pacman::getMap()
+const game::Map			&Pacman::refreshAndGetMap()
 {
   return (this->_map);
 }
 
-void				Pacman::display()
-{}
+const bool			&Pacman::getIfGameIsOver() const
+{
+  return (this->_gameIsOver);
+}
 
 void				Pacman::Play()
 {}
