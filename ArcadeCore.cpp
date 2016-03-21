@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Fri Mar 18 17:50:10 2016 Barthelemy Gouby
+// Last update Mon Mar 21 12:39:08 2016 Barthelemy Gouby
 //
 
 #include <stdlib.h>
@@ -78,6 +78,8 @@ void			displayMapTerm(const game::Map &map)
   	printf("o");
       else if (tiles[i] == game::Tile::SNAKE)
   	printf("X");
+      else if (tiles[i] == game::Tile::OBSTACLE)
+	printf("a");
       if ((i + 1) % map.getWidth() == 0 && i != 0)
   	printf("\n");
     }
@@ -96,7 +98,9 @@ void			ArcadeCore::startGame()
       if (!this->_loader.getGame()->getIfGameIsOver())
 	{
 	  this->executeInput(this->_loader.getDisplay()->getLastInput(), gameIsOn);
+	  // displayMapTerm(this->_loader.getGame()->refreshAndGetMap());
 	  this->_loader.getDisplay()->renderMap(this->_loader.getGame()->refreshAndGetMap());
+	  usleep(100000);
 	}
       else
 	gameIsOn = false;
