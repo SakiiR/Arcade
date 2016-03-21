@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Fri Mar 18 17:48:13 2016 Barthelemy Gouby
+// Last update Mon Mar 21 11:56:43 2016 Barthelemy Gouby
 //
 
 #include "mySDL2.hh"
@@ -61,9 +61,6 @@ void			mySDL2::renderMap(const game::Map &map)
       p.x = i - (p.y * map.getWidth());
       switch (tiles[i])
   	{
-  	case game::Tile::EMPTY:
-  	  this->writeTile(p, tileSize, 0x00FFFFFF);
-  	  break;
   	case game::Tile::SNAKE:
   	  this->writeTile(p, tileSize, 0x000f9d58);
   	  break;
@@ -74,6 +71,7 @@ void			mySDL2::renderMap(const game::Map &map)
 	  this->writeTile(p, tileSize, 0x00000000);
   	  break;
   	default:
+  	  this->writeTile(p, tileSize, 0x00FFFFFF);
   	  break;
   	}
       ++i;
@@ -107,7 +105,7 @@ void			mySDL2::writeTile(const game::Position &position, const game::Position &s
   Uint32		save;
   Uint32		i;
   
-  start = (SCREEN_X * position.y * size.y) + (size.x * position.x);
+  start = ((SCREEN_X * position.y * size.y) + (size.x * position.x));
   save = start;
   SDL_LockSurface(this->_screen);
   if (pixels[start] != color)
