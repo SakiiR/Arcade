@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Mon Mar 21 11:53:52 2016 Erwan Dupard
+// Last update Mon Mar 21 12:44:22 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -66,6 +66,9 @@ void			mySDL2::renderMap(const game::Map &map)
   	  break;
 	case game::Tile::POWERUP:
 	  this->writeTile(p, tileSize, 0x006d0a3a);
+  	  break;
+	case game::Tile::OBSTACLE:
+	  this->writeTile(p, tileSize, 0x00000000);
   	  break;
   	default:
   	  this->writeTile(p, tileSize, 0x00FFFFFF);
