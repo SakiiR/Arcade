@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:25:15 2016 Erwan Dupard
-// Last update Fri Mar 11 10:18:29 2016 Erwan Dupard
+// Last update Fri Mar 18 17:53:12 2016 Barthelemy Gouby
 //
 
 #ifndef PACMAN_HH_
@@ -13,6 +13,7 @@
 
 # include <iostream>
 # include "../../IGame.hh"
+# include "PacmanRessources.hh"
 
 class			        Pacman : public IGame
 {
@@ -20,15 +21,19 @@ public:
   Pacman();
   virtual ~Pacman() {  };
   virtual const std::string	&getName() const;
+  virtual const std::string	&getInstructions() const;
   virtual void			startGame();
-  virtual void		        closeGame();
-  virtual void		        setLastCommand(const arcade::CommandType &command);
-  virtual const arcade::GetMap	&getMap();
-  virtual void			display();
+  virtual void			resetGame();
+  virtual void			closeGame();
+  virtual void			sendLastInput(const char &input);
+  virtual const game::Map	&refreshAndGetMap();
+  virtual const bool		&getIfGameIsOver() const;
   virtual void			Play();
 private:
   std::string			_name;
-  arcade::GetMap		_map;
+  std::string			_instructions;
+  game::Map			_map;
+  bool				_gameIsOver;
 };
 
 #endif /* ! PACMAN_HH_ */

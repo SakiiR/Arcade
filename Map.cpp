@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 16:45:42 2016 Barthelemy Gouby
-// Last update Thu Mar 17 15:23:39 2016 Barthelemy Gouby
+// Last update Mon Mar 21 11:57:47 2016 Barthelemy Gouby
 //
 
 #include "IGame.hh"
@@ -16,6 +16,14 @@ game::Map::Map(unsigned int width, unsigned int height)
   this->_tiles = new game::Tile[width * height];
   for (unsigned int i = 0; i < width * height; i++)
     this->_tiles[i] = game::Tile::EMPTY;
+}
+
+game::Map::Map(unsigned int width, unsigned int height, int *tiles)
+  : _width(width), _height(height)
+{
+  this->_tiles = new game::Tile[width * height];
+  for (unsigned int i = 0; i < width * height; i++)
+    this->_tiles[i] = (game::Tile) tiles[i];
 }
 
 game::Map::~Map()

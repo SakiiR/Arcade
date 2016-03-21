@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Thu Mar 17 15:29:15 2016 Barthelemy Gouby
+// Last update Mon Mar 21 12:39:08 2016 Barthelemy Gouby
 //
 
 #include <stdlib.h>
@@ -32,7 +32,6 @@ void			ArcadeCore::startMenu()
 
 void			ArcadeCore::executeInput(char input, bool &gameIsOn)
 {
-  //Absoluement hors de question baru !!!!
   switch (input)
     {
     case '2':
@@ -79,19 +78,13 @@ void			displayMapTerm(const game::Map &map)
   	printf("o");
       else if (tiles[i] == game::Tile::SNAKE)
   	printf("X");
+      else if (tiles[i] == game::Tile::OBSTACLE)
+	printf("a");
       if ((i + 1) % map.getWidth() == 0 && i != 0)
   	printf("\n");
     }
   printf("\n");
 }
-
-      // if (tiles[i] == game::Tile::EMPTY)
-      // 	printf("o");
-      // else if (tiles[i] == game::Tile::SNAKE)
-      // 	printf("X");
-      // if ((i + 1) % map.getWidth() == 0 && i != 0)
-      // 	printf("\n");
-
 
 void			ArcadeCore::startGame()
 {
@@ -105,9 +98,9 @@ void			ArcadeCore::startGame()
       if (!this->_loader.getGame()->getIfGameIsOver())
 	{
 	  this->executeInput(this->_loader.getDisplay()->getLastInput(), gameIsOn);
-	  //displayMapTerm(this->_loader.getGame()->getMap());
-	  this->_loader.getDisplay()->renderMap(this->_loader.getGame()->getMap());
-	  usleep(10000);
+	  // displayMapTerm(this->_loader.getGame()->refreshAndGetMap());
+	  this->_loader.getDisplay()->renderMap(this->_loader.getGame()->refreshAndGetMap());
+	  usleep(100000);
 	}
       else
 	gameIsOn = false;

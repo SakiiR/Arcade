@@ -5,11 +5,12 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Mon Mar 21 12:44:22 2016 Erwan Dupard
+// Last update Mon Mar 21 12:45:21 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
 #include <unistd.h>
+
 mySDL2::mySDL2()
 {
   this->_name = "libsdl2";
@@ -63,7 +64,7 @@ void			mySDL2::renderMap(const game::Map &map)
   	{
   	case game::Tile::SNAKE:
   	  this->writeTile(p, tileSize, 0x000f9d58);
-  	  break;
+	  break;
 	case game::Tile::POWERUP:
 	  this->writeTile(p, tileSize, 0x006d0a3a);
   	  break;
@@ -72,7 +73,7 @@ void			mySDL2::renderMap(const game::Map &map)
   	  break;
   	default:
   	  this->writeTile(p, tileSize, 0x00FFFFFF);
-  	  break;
+	  break;
   	}
       ++i;
     }
