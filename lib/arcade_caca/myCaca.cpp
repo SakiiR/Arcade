@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:20:17 2016 Erwan Dupard
-// Last update Thu Mar 24 16:19:45 2016 Erwan Dupard
+// Last update Thu Mar 24 16:22:07 2016 Erwan Dupard
 //
 
 #include "myCaca.hh"
@@ -34,9 +34,7 @@ void		myCaca::initDisplay()
       caca_put_str(this->_canvas, 37, 12, "░░▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░");
       caca_put_str(this->_canvas, 37, 13, "░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░");
       caca_put_str(this->_canvas, 37, 14, "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
-      caca_set_color_ansi(this->_canvas, CACA_LIGHTRED, CACA_LIGHTGREEN);
       caca_put_str(this->_canvas, 37, 15, "░ Arcade libcaca by Barthe && Erwan ░");
-      caca_set_color_ansi(this->_canvas, CACA_LIGHTGREEN, CACA_LIGHTRED);
       caca_put_str(this->_canvas, 37, 16, "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
       caca_put_str(this->_canvas, 37, 17, "░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░");
       caca_put_str(this->_canvas, 37, 18, "░░▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░");
