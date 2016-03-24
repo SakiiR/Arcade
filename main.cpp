@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Mon Mar 21 11:36:20 2016 Barthelemy Gouby
+// Last update Thu Mar 24 14:18:32 2016 Erwan Dupard
 //
 
 #include "ressources.hh"
@@ -32,7 +32,7 @@ int		main()
   ArcadeCore		arcade;
 
   arcade.getLoader().loadGameLibrary("./games/libarcade_snake.so");
-  arcade.getLoader().loadGraphicLibrary("./lib/libarcade_sdl2.so");
+  arcade.getLoader().loadGraphicLibrary("./lib/libarcade_caca.so");
   arcade.getLoader().getDisplay()->initDisplay();
   arcade.startGame();
 }

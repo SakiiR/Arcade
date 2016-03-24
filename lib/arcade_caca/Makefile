@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:19:58 2016 Erwan Dupard
-## Last update Thu Mar 10 16:05:42 2016 Erwan Dupard
+## Last update Thu Mar 24 14:50:23 2016 Erwan Dupard
 ##
 
 CC			= g++
@@ -14,7 +14,7 @@ RM			= rm -f
 
 CXXFLAGS		= -fPIC -W -Wall -Werror -Wextra -std=c++11
 
-LDXXFLAGS		= -L../../deps/caca/ -lcaca++
+LDXXFLAGS		= -I ../../deps/caca/include -L../../deps/caca/ -lcaca
 
 NAME			= ../../lib/libarcade_caca.so
 
