@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:20:17 2016 Erwan Dupard
-// Last update Thu Mar 24 16:18:28 2016 Erwan Dupard
+// Last update Thu Mar 24 16:19:45 2016 Erwan Dupard
 //
 
 #include "myCaca.hh"
@@ -25,7 +25,7 @@ void		myCaca::initDisplay()
   if ((this->_display = caca_create_display(NULL)) != NULL)
     {
       this->_canvas = caca_get_canvas(this->_display);      
-      caca_set_display_title(this->_display, "Arcade!C++LibCaca");
+      caca_set_display_title(this->_display, "Arcade ! C++ LibCaca");
       caca_set_color_ansi(this->_canvas, CACA_LIGHTGREEN, CACA_LIGHTRED);
       caca_put_str(this->_canvas, 37, 8, "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
       caca_put_str(this->_canvas, 37, 9, "░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░");
