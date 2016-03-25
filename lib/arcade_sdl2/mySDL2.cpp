@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Mon Mar 21 12:56:28 2016 Erwan Dupard
+// Last update Fri Mar 25 17:29:22 2016 Barthelemy Gouby
 //
 
 #include "mySDL2.hh"
