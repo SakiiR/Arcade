@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:25:15 2016 Erwan Dupard
-// Last update Fri Mar 18 17:53:12 2016 Barthelemy Gouby
+// Last update Sat Mar 26 07:25:57 2016 Barthelemy Gouby
 //
 
 #ifndef PACMAN_HH_
@@ -34,6 +34,7 @@ private:
   std::string			_instructions;
   game::Map			_map;
   bool				_gameIsOver;
+  PacmanPlayer		       _player;
 };
 
 #endif /* ! PACMAN_HH_ */
