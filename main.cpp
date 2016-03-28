@@ -34,13 +34,13 @@ int			main(int argc, char **argv)
   if (argc < 2)
     {
       usage(argv[0]);
-      return (0);
+      return (RETURN_SUCCESS);
     }
   if (arcade.getLoader().loadGameLibrary("./games/libarcade_snake.so") == false)
-    return (1);
+    return (RETURN_FAILURE);
   if (arcade.getLoader().loadGraphicLibrary(argv[1]) == false)
-    return (1);
+    return (RETURN_FAILURE);
   arcade.getLoader().getDisplay()->initDisplay();
   arcade.startGame();
-  return (0);
+  return (RETURN_SUCCESS);
 }
