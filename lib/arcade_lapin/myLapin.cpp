@@ -5,23 +5,41 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:59 2016 Erwan Dupard
-// Last update Fri Mar 25 17:51:04 2016 Erwan Dupard
+// Last update Tue Mar 29 14:28:18 2016 Erwan Dupard
 //
 
 #include "myLapin.hh"
+
+t_bunny_response		my_keyevent(t_bunny_event_state state, t_bunny_keysym key, void *data)
+{
+  myLapin			*lapin = (myLapin *)data;
+
+  (void)state;
+  lapin->setLastKey((char)key);
+  return (EXIT_ON_SUCCESS);
+}
+
+t_bunny_response		my_loop(void *data)
+{
+  (void)data;
+  return (EXIT_ON_SUCCESS);
+}
 
 myLapin::myLapin()
 {
   this->_name = "liblapin";
   this->_window = NULL;
+  this->_lastKey = 0x10;
+  bunny_set_loop_main_function(&my_loop);
+  bunny_set_key_response(&my_keyevent);
 }
 
-const std::string	&myLapin::getName() const
+const std::string		&myLapin::getName() const
 {
   return (this->_name);
 }
 
-void			myLapin::initDisplay()
+void				myLapin::initDisplay()
 {
   if ((this->_window = bunny_start(SCREEN_X, SCREEN_Y, false, this->_name.c_str())) != NULL)
     {
@@ -30,13 +48,13 @@ void			myLapin::initDisplay()
     }
 }
 
-void			myLapin::closeDisplay()
+void				myLapin::closeDisplay()
 {
   bunny_stop(this->_window);
   bunny_delete_clipable(&this->_screen->clipable);
 }
 
-void			myLapin::renderTitleScreen(const std::string &gameTitle, const std::string &instructions)
+void				myLapin::renderTitleScreen(const std::string &gameTitle, const std::string &instructions)
 {
   (void)gameTitle;
   (void)instructions;
@@ -52,7 +70,7 @@ void				myLapin::_updateWindow()
   bunny_display(this->_window);
 }
 
-void			myLapin::renderMap(const game::Map &map)
+void				myLapin::renderMap(const game::Map &map)
 {
   game::Position	tileSize(SCREEN_X / map.getWidth(), SCREEN_Y / map.getHeight());
   unsigned int		i = 0;
@@ -114,7 +132,13 @@ void			myLapin::renderMenu(MenuState menuState)
 
 char			myLapin::getLastInput()
 {
-  return ('\\');
+  bunny_loop(this->_window, 100, (void *)this);
+  return (this->_lastKey + 0x61);
+}
+
+void			myLapin::setLastKey(char c)
+{
+  this->_lastKey = c;
 }
 
 extern "C" IDisplay	*create()

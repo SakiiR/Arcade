@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:51 2016 Erwan Dupard
-// Last update Fri Mar 25 17:51:21 2016 Erwan Dupard
+// Last update Tue Mar 29 14:08:40 2016 Erwan Dupard
 //
 
 #ifndef MYLAPIN_HH_
@@ -35,12 +35,15 @@ public:
   virtual void			renderMap(const game::Map &map);
   virtual void			renderMenu(MenuState menuState);
   virtual char			getLastInput();
+  void				setLastKey(char c);
 private:
   std::string			_name;
   t_bunny_window		*_window;
   t_bunny_pixelarray		*_screen;
+  char				_lastKey;
   void				_updateWindow();
-  void				_writeTile(const game::Position &position, const game::Position &size, unsigned int color);
+  void				_writeTile(const game::Position &position, const game::Position &size, unsigned int
+ color);
 };
 
 # endif /* ! MYLAPIN_HH_ */
