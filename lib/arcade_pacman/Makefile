@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:26:09 2016 Erwan Dupard
-## Last update Wed Mar  9 18:26:30 2016 Erwan Dupard
+## Last update Mon Mar 28 13:02:27 2016 Barthelemy Gouby
 ##
 
 CC			= g++
@@ -19,6 +19,7 @@ LDXXFLAGS		=
 NAME			= ../../games/libarcade_pacman.so
 
 SRCS			= Pacman.cpp		\
+			  PacmanPlayer.cpp
 
 OBJS			= $(SRCS:.cpp=.o)
 

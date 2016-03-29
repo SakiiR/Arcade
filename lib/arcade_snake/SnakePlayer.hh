@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 12:36:59 2016 Barthelemy Gouby
-// Last update Thu Mar 17 15:39:07 2016 Barthelemy Gouby
+// Last update Sat Mar 26 07:28:46 2016 Barthelemy Gouby
 //
 
 #ifndef _SNAKE_PLAYER_HH_

@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Fri Mar 25 18:00:36 2016 Erwan Dupard
+// Last update Mon Mar 28 14:29:01 2016 Barthelemy Gouby
 //
 
 #include "ressources.hh"
@@ -27,20 +27,13 @@ void			usage(const char *execName)
   std::cout << "//" << std::endl;
 }
 
-int			main(int argc, char **argv)
+int			main()
 {
   ArcadeCore		arcade;
-  
-  if (argc < 2)
-    {
-      usage(argv[0]);
-      return (0);
-    }
-  if (arcade.getLoader().loadGameLibrary("./games/libarcade_snake.so") == false)
-    return (1);
-  if (arcade.getLoader().loadGraphicLibrary(argv[1]) == false)
-    return (1);
+
+  arcade.getLoader().loadGameLibrary("./games/libarcade_pacman.so");
+  arcade.getLoader().loadGraphicLibrary("./lib/libarcade_sdl2.so");
   arcade.getLoader().getDisplay()->initDisplay();
   arcade.startGame();
-  return (0);
+  return (RETURN_SUCCESS);
 }
