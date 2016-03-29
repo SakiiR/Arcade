@@ -5,18 +5,23 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:51 2016 Erwan Dupard
-// Last update Wed Mar 16 20:14:36 2016 Erwan Dupard
+// Last update Fri Mar 25 17:51:21 2016 Erwan Dupard
 //
 
 #ifndef MYLAPIN_HH_
 # define MYLAPIN_HH_
 
 # include <iostream>
-# include "../../deps/lapin/include/lapin.h"
+# include "lapin.h"
 # include "../../IDisplay.hh"
 
-# define SCREEN_X		(800)
+# define SCREEN_X		(600)
 # define SCREEN_Y		(600)
+
+# define SNAKE_COLOR		(BLUE)
+# define OBSTACLE_COLOR		(BLACK)
+# define POWERUP_COLOR		(GREEN)
+# define VOID_COLOR		(WHITE)
 
 class			        myLapin : public IDisplay
 {
@@ -33,6 +38,9 @@ public:
 private:
   std::string			_name;
   t_bunny_window		*_window;
+  t_bunny_pixelarray		*_screen;
+  void				_updateWindow();
+  void				_writeTile(const game::Position &position, const game::Position &size, unsigned int color);
 };
 
 # endif /* ! MYLAPIN_HH_ */

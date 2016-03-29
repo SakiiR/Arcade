@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:20:17 2016 Erwan Dupard
-// Last update Thu Mar 24 16:22:07 2016 Erwan Dupard
+// Last update Fri Mar 25 14:39:36 2016 Erwan Dupard
 //
 
 #include "myCaca.hh"
@@ -27,8 +27,8 @@ void		myCaca::initDisplay()
       this->_canvas = caca_get_canvas(this->_display);      
       caca_set_display_title(this->_display, "Arcade ! C++ LibCaca");
       caca_set_color_ansi(this->_canvas, CACA_LIGHTGREEN, CACA_LIGHTRED);
-      caca_put_str(this->_canvas, 37, 8, "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
-      caca_put_str(this->_canvas, 37, 9, "░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░");
+      caca_put_str(this->_canvas, 37, 8,  "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
+      caca_put_str(this->_canvas, 37, 9,  "░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░");
       caca_put_str(this->_canvas, 37, 10, "░░▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░");
       caca_put_str(this->_canvas, 37, 11, "░░▒▒▓▓▓███████████████████████▓▓▓▒▒░░");
       caca_put_str(this->_canvas, 37, 12, "░░▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░");
@@ -81,7 +81,7 @@ void		myCaca::renderMap(const game::Map &map)
 	  caca_set_color_ansi(this->_canvas, CACA_LIGHTGREEN, CACA_LIGHTRED);
 	  break;
   	}
-      caca_put_str(this->_canvas, p.x, p.y, "~");
+      caca_put_str(this->_canvas, p.x, p.y, " ");
       ++i;
     }
   caca_refresh_display(this->_display);

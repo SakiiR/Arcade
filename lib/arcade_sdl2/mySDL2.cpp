@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Fri Mar 25 17:29:22 2016 Barthelemy Gouby
+// Last update Mon Mar 28 14:12:13 2016 Barthelemy Gouby
 //
 
 #include "mySDL2.hh"
@@ -70,6 +70,9 @@ void			mySDL2::renderMap(const game::Map &map)
   	  break;
 	case game::Tile::OBSTACLE:
 	  this->writeTile(p, tileSize, 0x00000000);
+  	  break;
+	case game::Tile::PACMAN:
+	  this->writeTile(p, tileSize, 0x00FFFF00);
   	  break;
   	default:
   	  this->writeTile(p, tileSize, 0x00FFFFFF);

@@ -5,27 +5,22 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Wed Mar 16 22:49:04 2016 Erwan Dupard
+// Last update Fri Mar 25 18:03:47 2016 Erwan Dupard
 //
 
 #include "Loader.hh"
 
 Loader::Loader() : _game(0), _display(0)
-{
-  std::cout << "[^] Loader initialisation .." << std::endl;
-}
+{}
 
 Loader::~Loader()
-{
-  std::cout << "[^] Loader destruction .." << std::endl;
-}
+{}
 
 bool				Loader::loadGraphicLibrary(const std::string &filePath)
 {
   void				*handle;
   display_create_t		*create_display;
 
-  std::cout << "[^] Loading Graphic Library.." << std::endl;
   if ((handle = dlopen(filePath.c_str(), RTLD_NOW)) == NULL)
     {
       std::cerr << "[-] Failed To Open Library : " << dlerror() << std::endl;
@@ -37,7 +32,6 @@ bool				Loader::loadGraphicLibrary(const std::string &filePath)
       return (false);
     }
   this->_display = create_display();
-  std::cout << "[+] Graphic library loaded : " << this->_display << " !" << std::endl;
   return (true);
 }
 
@@ -46,7 +40,6 @@ bool				Loader::loadGameLibrary(const std::string &filePath)
   void				*handle;
   game_create_t			*create_game;
 
-  std::cout << "[^] Loading Game Library.." << std::endl;
   if ((handle = dlopen(filePath.c_str(), RTLD_NOW)) == NULL)
     {
       std::cerr << "[-] Failed To Open Library : " << dlerror() << std::endl;
@@ -58,7 +51,6 @@ bool				Loader::loadGameLibrary(const std::string &filePath)
       return (false);
     }
   this->_game = create_game();
-  std::cout << "[+] Game library loaded : " << this->_game << " !" << std::endl;
   return (true);
 }
 
