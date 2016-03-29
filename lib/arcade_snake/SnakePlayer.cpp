@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 14:02:54 2016 Barthelemy Gouby
-// Last update Thu Mar 17 18:39:24 2016 Barthelemy Gouby
+// Last update Tue Mar 29 16:30:23 2016 Barthelemy Gouby
 //
 
 #include "SnakePlayer.hh"
@@ -98,7 +98,6 @@ void			SnakePlayer::incrementSize()
     {
       newBody[i] = this->_playerBody[i];
     }
-  // delete[] this->_playerBody;
   this->_playerBody = newBody;
   this->_playerLength++;
 }

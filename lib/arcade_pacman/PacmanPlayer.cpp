@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Sat Mar 26 07:34:53 2016 Barthelemy Gouby
-// Last update Mon Mar 28 16:44:16 2016 Barthelemy Gouby
+// Last update Tue Mar 29 16:36:54 2016 Barthelemy Gouby
 //
 
 #include "PacmanPlayer.hh"
@@ -53,7 +53,7 @@ game::Position		PacmanPlayer::findNextPosition(const game::Direction &direction)
   return (newPosition);
 }
 
-void			PacmanPlayer::movePlayer(game::Map &map)
+void			PacmanPlayer::movePlayer(game::Map &map, bool &gameIsOver)
 {
   game::Position	newPosition;
 
@@ -61,6 +61,8 @@ void			PacmanPlayer::movePlayer(game::Map &map)
   if (map.getTileAt(newPosition) != game::Tile::OBSTACLE)
     {
       map.changeTile(this->_playerPosition, game::Tile::EMPTY);
+      if (map.getTileAt(newPosition) == game::Tile::GHOST)
+	gameIsOver = true;
       map.changeTile(newPosition, game::Tile::PACMAN);
       this->_playerPosition = newPosition;
     }

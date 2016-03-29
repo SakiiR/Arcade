@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Mon Mar 28 17:28:50 2016 Barthelemy Gouby
-// Last update Tue Mar 29 16:24:50 2016 Barthelemy Gouby
+// Last update Tue Mar 29 16:36:00 2016 Barthelemy Gouby
 //
 
 #include "Ghost.hh"
@@ -66,7 +66,7 @@ std::vector<game::Direction>	Ghost::getPossibleDirections(const game::Map &map) 
   return (directions);
 }
 
-void				Ghost::moveGhost(game::Map &map)
+void				Ghost::moveGhost(game::Map &map, bool &gameIsOver)
 {
   std::vector<game::Direction>		directions = getPossibleDirections(map);
   std::random_device			rd;
@@ -75,6 +75,8 @@ void				Ghost::moveGhost(game::Map &map)
   game::Direction			chosenDirection = directions[directionDistrib(generator)];
   game::Position			nextPosition = this->findNextPosition(chosenDirection);
 
+  if (map.getTileAt(nextPosition) == game::Tile::PACMAN)
+    gameIsOver = true;
   map.changeTile(nextPosition, game::Tile::GHOST);
   map.changeTile(this->_ghostPosition, game::Tile::EMPTY);
   this->_ghostPosition = nextPosition;

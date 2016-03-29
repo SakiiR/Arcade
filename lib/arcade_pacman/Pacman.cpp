@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:24:59 2016 Erwan Dupard
-// Last update Tue Mar 29 14:55:36 2016 Barthelemy Gouby
+// Last update Tue Mar 29 16:36:36 2016 Barthelemy Gouby
 //
 
 #include "Pacman.hh"
@@ -84,9 +84,9 @@ void				Pacman::sendLastInput(const char &input)
 void				Pacman::doTurn()
 {
   this->_player.setMovementDirection(this->_lastCommand, this->_map);
-  this->_player.movePlayer(this->_map);
+  this->_player.movePlayer(this->_map, this->_gameIsOver);
   for (unsigned int i = 0; i < this->_ghosts.size(); i++)
-    this->_ghosts[i].moveGhost(this->_map);
+    this->_ghosts[i].moveGhost(this->_map, this->_gameIsOver);
 }
 
 const game::Map			&Pacman::refreshAndGetMap()
