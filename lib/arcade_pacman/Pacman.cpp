@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:24:59 2016 Erwan Dupard
-// Last update Tue Mar 29 18:56:54 2016 Barthelemy Gouby
+// Last update Tue Mar 29 20:02:13 2016 Barthelemy Gouby
 //
 
 #include "Pacman.hh"
@@ -14,11 +14,11 @@ int pacmanMap[961] =		{2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
 				 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
 				 2,0,2,2,2,2,0,2,2,2,2,2,2,2,0,2,0,2,2,2,2,2,2,2,0,2,2,2,2,0,2,
 				 2,0,2,2,2,2,0,2,2,2,2,2,2,2,0,2,0,2,2,2,2,2,2,2,0,2,2,2,2,0,2,
-				 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+				 2,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,2,
 				 2,0,2,2,2,2,0,2,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,2,0,2,2,2,2,0,2,
 				 2,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,2,
 				 2,2,2,2,2,2,0,2,2,2,2,2,2,2,0,2,0,2,2,2,2,2,2,2,0,2,2,2,2,2,2,
-				 2,2,2,2,2,2,0,2,8,0,0,0,0,0,0,0,0,0,0,0,0,0,8,2,0,2,2,2,2,2,2,
+				 2,2,2,2,2,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,2,2,2,2,2,2,
 				 2,2,2,2,2,2,0,2,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,2,0,2,2,2,2,2,2,
 				 2,2,2,2,2,2,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,2,0,2,0,2,2,2,2,2,2,
 				 0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,
@@ -28,7 +28,7 @@ int pacmanMap[961] =		{2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
 				 2,2,2,2,2,2,0,2,0,2,2,2,2,2,0,2,0,2,2,2,2,2,0,2,0,2,2,2,2,2,2,
 				 2,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,2,
 				 2,0,2,2,2,2,0,2,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,2,0,2,2,2,2,0,2,
-				 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+				 2,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,2,
 				 2,0,2,2,2,2,0,2,2,2,2,2,2,2,0,2,0,2,2,2,2,2,2,2,0,2,2,2,2,0,2,
 				 2,0,2,2,2,2,0,2,2,2,2,2,2,2,0,2,0,2,2,2,2,2,2,2,0,2,2,2,2,0,2,
 				 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
@@ -92,7 +92,7 @@ void				Pacman::doTurn()
 
 
   this->_player.setMovementDirection(this->_lastCommand, this->_map);
-  this->_player.movePlayer(this->_map, this->_gameIsOver, this->_pacmanHunted);
+  this->_player.movePlayer(this->_map, this->_gameIsOver, this->_pacmanHunted, this->_powerBeginTime);
   while (it != this->_ghosts.end())
     {
       (*it).moveGhost(this->_map, this->_gameIsOver, this->_pacmanHunted);
@@ -106,12 +106,20 @@ void				Pacman::doTurn()
 const game::Map			&Pacman::refreshAndGetMap()
 {
   timeval			currentTime;
-  long int			timeDifference;
+  long int			turnTimeDifference;
+  long int			powerTimeDifference;
 
   gettimeofday(&currentTime, NULL);
-  timeDifference = (currentTime.tv_sec - this->_lastTurn.tv_sec) * 1000000
+  turnTimeDifference = (currentTime.tv_sec - this->_lastTurn.tv_sec) * 1000000
     + (currentTime.tv_usec - this->_lastTurn.tv_usec);
-  if (timeDifference > PACMAN_TURN_LENGTH)
+  if (this->_pacmanHunted == false)
+    {
+      powerTimeDifference = (currentTime.tv_sec - this->_powerBeginTime.tv_sec) * 1000000
+	+ (currentTime.tv_usec - this->_powerBeginTime.tv_usec);
+      if (powerTimeDifference > PACMAN_POWERUP_LENGTH)
+	this->_pacmanHunted = true;
+    }
+  if (turnTimeDifference > PACMAN_TURN_LENGTH)
     {
       this->doTurn();
       this->_lastTurn = currentTime;

@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:25:15 2016 Erwan Dupard
-// Last update Tue Mar 29 17:03:16 2016 Barthelemy Gouby
+// Last update Tue Mar 29 19:09:52 2016 Barthelemy Gouby
 //
 
 #ifndef PACMAN_HH_
@@ -37,8 +37,9 @@ private:
   std::string			_name;
   std::string			_instructions;
   timeval			_lastTurn;
+  timeval			_powerBeginTime;
   game::Map			_map;
-  PacmanPlayer		       _player;
+  PacmanPlayer			_player;
   game::Direction		_lastCommand;
   bool				_gameIsOver;
   std::vector<Ghost>		_ghosts;

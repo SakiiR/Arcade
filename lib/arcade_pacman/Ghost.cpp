@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Mon Mar 28 17:28:50 2016 Barthelemy Gouby
-// Last update Tue Mar 29 18:58:17 2016 Barthelemy Gouby
+// Last update Tue Mar 29 19:58:19 2016 Barthelemy Gouby
 //
 
 #include "Ghost.hh"
@@ -15,6 +15,7 @@ Ghost::Ghost(const game::Position initialPosition, const game::Direction initial
   this->_isDead = false;
   this->_ghostPosition = initialPosition;
   this->_savedTile = game::Tile::EMPTY;
+  this->_huntedMove = true;
   map.changeTile(initialPosition, game::Tile::GHOST);
   this->_movementDirection = initialDirection;
 }
@@ -84,7 +85,7 @@ void				Ghost::moveGhost(game::Map &map, bool &gameIsOver, bool &hunter)
 
   if (hunter == false && map.getTileAt(this->_ghostPosition) == game::Tile::PACMAN)
     this->_isDead = true;
-  else
+  else if (hunter == true || (hunter == false && this->_huntedMove == true))
     {
       if (map.getTileAt(nextPosition) == game::Tile::PACMAN)
 	{
@@ -104,5 +105,7 @@ void				Ghost::moveGhost(game::Map &map, bool &gameIsOver, bool &hunter)
       this->_ghostPosition = nextPosition;
       this->_movementDirection = chosenDirection;
     }
+  if (hunter == false)
+    this->_huntedMove = !(this->_huntedMove);
 }
 

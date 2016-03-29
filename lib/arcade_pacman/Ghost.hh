@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Mon Mar 28 16:53:01 2016 Barthelemy Gouby
-// Last update Tue Mar 29 17:40:58 2016 Barthelemy Gouby
+// Last update Tue Mar 29 19:47:52 2016 Barthelemy Gouby
 //
 
 #ifndef _GHOST_HH_
@@ -28,6 +28,7 @@ private:
   game::Direction		_movementDirection;
   bool				_isDead;
   game::Tile			_savedTile;
+  bool				_huntedMove;
 
   game::Position		findNextPosition(const game::Direction &direction) const;
   std::vector<game::Direction>	getPossibleDirections(const game::Map &map) const;
