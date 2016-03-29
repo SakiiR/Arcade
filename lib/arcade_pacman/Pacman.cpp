@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:24:59 2016 Erwan Dupard
-// Last update Mon Mar 28 16:46:13 2016 Barthelemy Gouby
+// Last update Tue Mar 29 14:55:36 2016 Barthelemy Gouby
 //
 
 #include "Pacman.hh"
@@ -39,6 +39,10 @@ Pacman::Pacman()
 {
   this->_name = "libsnake";
   this->_gameIsOver = false;
+  this->_ghosts.push_back(Ghost(game::Position(PACMAN_MAP_WIDTH / 2 - 3, PACMAN_MAP_HEIGHT / 2 - 3),
+				game::Direction::LEFT, this->_map));
+  this->_ghosts.push_back(Ghost(game::Position(PACMAN_MAP_WIDTH / 2 + 3, PACMAN_MAP_HEIGHT / 2 - 3),
+				game::Direction::RIGHT, this->_map));
 }
 
 const std::string		&Pacman::getName() const
@@ -81,6 +85,8 @@ void				Pacman::doTurn()
 {
   this->_player.setMovementDirection(this->_lastCommand, this->_map);
   this->_player.movePlayer(this->_map);
+  for (unsigned int i = 0; i < this->_ghosts.size(); i++)
+    this->_ghosts[i].moveGhost(this->_map);
 }
 
 const game::Map			&Pacman::refreshAndGetMap()

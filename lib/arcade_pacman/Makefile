@@ -5,21 +5,22 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:26:09 2016 Erwan Dupard
-## Last update Mon Mar 28 13:02:27 2016 Barthelemy Gouby
+## Last update Tue Mar 29 13:37:40 2016 Barthelemy Gouby
 ##
 
 CC			= g++
 
 RM			= rm -f
 
-CXXFLAGS		= -fPIC -shared -W -Wall -Werror -Wextra -std=c++11
+CXXFLAGS		= -fPIC -shared -W -Wall -Werror -Wextra -std=c++11 -g -g3 -ggdb
 
 LDXXFLAGS		= 
 
 NAME			= ../../games/libarcade_pacman.so
 
 SRCS			= Pacman.cpp		\
-			  PacmanPlayer.cpp
+			  PacmanPlayer.cpp	\
+			  Ghost.cpp
 
 OBJS			= $(SRCS:.cpp=.o)
 

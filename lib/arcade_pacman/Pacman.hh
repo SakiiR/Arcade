@@ -5,16 +5,19 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:25:15 2016 Erwan Dupard
-// Last update Mon Mar 28 14:19:24 2016 Barthelemy Gouby
+// Last update Tue Mar 29 12:07:37 2016 Barthelemy Gouby
 //
 
 #ifndef PACMAN_HH_
 # define PACMAN_HH_
 
+# include <vector>
 # include <iostream>
 # include "../../IGame.hh"
 # include "PacmanRessources.hh"
 # include "PacmanPlayer.hh"
+# include "Ghost.hh"
+
 class			        Pacman : public IGame
 {
 public:
@@ -38,6 +41,7 @@ private:
   PacmanPlayer		       _player;
   game::Direction		_lastCommand;
   bool				_gameIsOver;
+  std::vector<Ghost>		_ghosts;
 };
 
 #endif /* ! PACMAN_HH_ */

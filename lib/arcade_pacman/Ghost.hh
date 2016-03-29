@@ -5,23 +5,29 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Mon Mar 28 16:53:01 2016 Barthelemy Gouby
-// Last update Mon Mar 28 18:01:18 2016 Barthelemy Gouby
+// Last update Tue Mar 29 13:56:16 2016 Barthelemy Gouby
 //
 
 #ifndef _GHOST_HH_
 # define _GHOST_HH_
 
+# include <random>
+# include <vector>
 # include "PacmanRessources.hh"
 
-class			Ghost
+class				Ghost
 {
 public:
-  Ghost();
+  Ghost(const game::Position initialPosition, const game::Direction initialDirection, game::Map &map);
   ~Ghost();
-  void			moveGhost();
+  void				moveGhost(game::Map &map);
+
 private:
-  game::Position	_ghostPosition;
-  game::Direction	_movementDirection;
+  game::Position		_ghostPosition;
+  game::Direction		_movementDirection;
+
+  game::Position		findNextPosition(const game::Direction &direction) const;
+  std::vector<game::Direction>	getPossibleDirections(const game::Map &map) const;
 };
 
-#endif _GHOST_HH_
+#endif /* ! _GHOST_HH_ */
