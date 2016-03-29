@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:24:59 2016 Erwan Dupard
-// Last update Tue Mar 29 16:36:36 2016 Barthelemy Gouby
+// Last update Tue Mar 29 18:56:54 2016 Barthelemy Gouby
 //
 
 #include "Pacman.hh"
@@ -18,7 +18,7 @@ int pacmanMap[961] =		{2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
 				 2,0,2,2,2,2,0,2,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,2,0,2,2,2,2,0,2,
 				 2,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,2,
 				 2,2,2,2,2,2,0,2,2,2,2,2,2,2,0,2,0,2,2,2,2,2,2,2,0,2,2,2,2,2,2,
-				 2,2,2,2,2,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,2,2,2,2,2,2,
+				 2,2,2,2,2,2,0,2,8,0,0,0,0,0,0,0,0,0,0,0,0,0,8,2,0,2,2,2,2,2,2,
 				 2,2,2,2,2,2,0,2,0,2,2,2,2,2,2,2,2,2,2,2,2,2,0,2,0,2,2,2,2,2,2,
 				 2,2,2,2,2,2,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,2,0,2,0,2,2,2,2,2,2,
 				 0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,
@@ -39,9 +39,14 @@ Pacman::Pacman()
 {
   this->_name = "libsnake";
   this->_gameIsOver = false;
+  this->_pacmanHunted = true;
   this->_ghosts.push_back(Ghost(game::Position(PACMAN_MAP_WIDTH / 2 - 3, PACMAN_MAP_HEIGHT / 2 - 3),
 				game::Direction::LEFT, this->_map));
   this->_ghosts.push_back(Ghost(game::Position(PACMAN_MAP_WIDTH / 2 + 3, PACMAN_MAP_HEIGHT / 2 - 3),
+				game::Direction::RIGHT, this->_map));
+  this->_ghosts.push_back(Ghost(game::Position(PACMAN_MAP_WIDTH / 2 - 5, PACMAN_MAP_HEIGHT / 2 - 3),
+				game::Direction::LEFT, this->_map));
+  this->_ghosts.push_back(Ghost(game::Position(PACMAN_MAP_WIDTH / 2 + 5, PACMAN_MAP_HEIGHT / 2 - 3),
 				game::Direction::RIGHT, this->_map));
 }
 
@@ -83,10 +88,19 @@ void				Pacman::sendLastInput(const char &input)
 
 void				Pacman::doTurn()
 {
+  std::vector<Ghost>::iterator it = this->_ghosts.begin();
+
+
   this->_player.setMovementDirection(this->_lastCommand, this->_map);
-  this->_player.movePlayer(this->_map, this->_gameIsOver);
-  for (unsigned int i = 0; i < this->_ghosts.size(); i++)
-    this->_ghosts[i].moveGhost(this->_map, this->_gameIsOver);
+  this->_player.movePlayer(this->_map, this->_gameIsOver, this->_pacmanHunted);
+  while (it != this->_ghosts.end())
+    {
+      (*it).moveGhost(this->_map, this->_gameIsOver, this->_pacmanHunted);
+      if ((*it).getIfDead() == true)
+	it = this->_ghosts.erase(it);
+      else
+	it++;
+    }
 }
 
 const game::Map			&Pacman::refreshAndGetMap()

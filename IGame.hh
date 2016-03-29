@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Fri Mar 18 17:39:49 2016 Barthelemy Gouby
+// Last update Tue Mar 29 17:06:51 2016 Barthelemy Gouby
 //
 
 #ifndef IGAME_HH_
@@ -39,17 +39,18 @@ namespace			game
   enum				Tile : int
     {
       EMPTY = 0,	
-      BLOCK = 1,
-      OBSTACLE = 2,
-      EVIL_DUDE = 3,
-      GHOST = 4,
-      EVIL_SHOOT = 5,
-      MY_SHOOT = 6,
-      POWERUP = 7,
-      PLAYER = 8,
-      SNAKE = 9,
-      PACMAN = 10
-    };
+	BLOCK = 1,
+	OBSTACLE = 2,
+	EVIL_DUDE = 3,
+	GHOST = 4,
+	HUNTED_GHOST = 5,
+	EVIL_SHOOT = 6,
+	MY_SHOOT = 7,
+	POWERUP = 8,
+	PLAYER = 9,
+	SNAKE = 10,
+	PACMAN = 11
+	};
 
   struct			Position
   {

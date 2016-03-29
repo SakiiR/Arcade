@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Sat Mar 26 07:34:53 2016 Barthelemy Gouby
-// Last update Tue Mar 29 16:36:54 2016 Barthelemy Gouby
+// Last update Tue Mar 29 18:02:46 2016 Barthelemy Gouby
 //
 
 #include "PacmanPlayer.hh"
@@ -24,7 +24,7 @@ void			PacmanPlayer::setMovementDirection(const game::Direction &direction, cons
 {
   const game::Tile	&testTile = map.getTileAt(this->findNextPosition(direction));
   
-  if (testTile == game::Tile::EMPTY)
+  if (testTile != game::Tile::OBSTACLE)
     this->_movementDirection = direction;
 }
 
@@ -53,7 +53,7 @@ game::Position		PacmanPlayer::findNextPosition(const game::Direction &direction)
   return (newPosition);
 }
 
-void			PacmanPlayer::movePlayer(game::Map &map, bool &gameIsOver)
+void			PacmanPlayer::movePlayer(game::Map &map, bool &gameIsOver, bool &hunted)
 {
   game::Position	newPosition;
 
@@ -62,7 +62,12 @@ void			PacmanPlayer::movePlayer(game::Map &map, bool &gameIsOver)
     {
       map.changeTile(this->_playerPosition, game::Tile::EMPTY);
       if (map.getTileAt(newPosition) == game::Tile::GHOST)
-	gameIsOver = true;
+	{
+	  if (hunted == true)
+	    gameIsOver = true;
+	}
+      if (map.getTileAt(newPosition) == game::Tile::POWERUP)
+	hunted = false;
       map.changeTile(newPosition, game::Tile::PACMAN);
       this->_playerPosition = newPosition;
     }

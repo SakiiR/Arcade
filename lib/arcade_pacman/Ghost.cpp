@@ -5,14 +5,16 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Mon Mar 28 17:28:50 2016 Barthelemy Gouby
-// Last update Tue Mar 29 16:36:00 2016 Barthelemy Gouby
+// Last update Tue Mar 29 18:58:17 2016 Barthelemy Gouby
 //
 
 #include "Ghost.hh"
 
 Ghost::Ghost(const game::Position initialPosition, const game::Direction initialDirection, game::Map &map)
 {
+  this->_isDead = false;
   this->_ghostPosition = initialPosition;
+  this->_savedTile = game::Tile::EMPTY;
   map.changeTile(initialPosition, game::Tile::GHOST);
   this->_movementDirection = initialDirection;
 }
@@ -66,7 +68,12 @@ std::vector<game::Direction>	Ghost::getPossibleDirections(const game::Map &map) 
   return (directions);
 }
 
-void				Ghost::moveGhost(game::Map &map, bool &gameIsOver)
+bool				Ghost::getIfDead()
+{
+  return (this->_isDead);
+}
+
+void				Ghost::moveGhost(game::Map &map, bool &gameIsOver, bool &hunter)
 {
   std::vector<game::Direction>		directions = getPossibleDirections(map);
   std::random_device			rd;
@@ -75,11 +82,27 @@ void				Ghost::moveGhost(game::Map &map, bool &gameIsOver)
   game::Direction			chosenDirection = directions[directionDistrib(generator)];
   game::Position			nextPosition = this->findNextPosition(chosenDirection);
 
-  if (map.getTileAt(nextPosition) == game::Tile::PACMAN)
-    gameIsOver = true;
-  map.changeTile(nextPosition, game::Tile::GHOST);
-  map.changeTile(this->_ghostPosition, game::Tile::EMPTY);
-  this->_ghostPosition = nextPosition;
-  this->_movementDirection = chosenDirection;
+  if (hunter == false && map.getTileAt(this->_ghostPosition) == game::Tile::PACMAN)
+    this->_isDead = true;
+  else
+    {
+      if (map.getTileAt(nextPosition) == game::Tile::PACMAN)
+	{
+	  if (hunter == true)
+	    gameIsOver = true;
+	  else
+	    this->_isDead = true;
+	}
+      map.changeTile(this->_ghostPosition, this->_savedTile);
+      this->_savedTile = map.getTileAt(nextPosition);
+      if (this->_savedTile == game::Tile::GHOST || this->_savedTile == game::Tile::HUNTED_GHOST)
+	this->_savedTile = game::Tile::EMPTY;
+      if (hunter == true)
+	map.changeTile(nextPosition, game::Tile::GHOST);
+      else
+	map.changeTile(nextPosition, game::Tile::HUNTED_GHOST);
+      this->_ghostPosition = nextPosition;
+      this->_movementDirection = chosenDirection;
+    }
 }
 

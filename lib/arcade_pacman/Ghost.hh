@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Mon Mar 28 16:53:01 2016 Barthelemy Gouby
-// Last update Tue Mar 29 16:35:03 2016 Barthelemy Gouby
+// Last update Tue Mar 29 17:40:58 2016 Barthelemy Gouby
 //
 
 #ifndef _GHOST_HH_
@@ -20,11 +20,14 @@ class				Ghost
 public:
   Ghost(const game::Position initialPosition, const game::Direction initialDirection, game::Map &map);
   ~Ghost();
-  void				moveGhost(game::Map &map, bool &gameIsOver);
+  void				moveGhost(game::Map &map, bool &gameIsOver, bool &hunter);
+  bool				getIfDead();
 
 private:
   game::Position		_ghostPosition;
   game::Direction		_movementDirection;
+  bool				_isDead;
+  game::Tile			_savedTile;
 
   game::Position		findNextPosition(const game::Direction &direction) const;
   std::vector<game::Direction>	getPossibleDirections(const game::Map &map) const;
