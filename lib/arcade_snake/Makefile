@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:27:24 2016 Erwan Dupard
-## Last update Wed Mar 16 15:27:15 2016 Barthelemy Gouby
+## Last update Wed Mar 30 11:33:48 2016 Erwan Dupard
 ##
 
 CC			= g++
@@ -16,7 +16,7 @@ CXXFLAGS		= -fPIC -shared -W -Wall -Werror -Wextra -std=c++11 -rdynamic
 
 LDXXFLAGS		= 
 
-NAME			= ../../games/libarcade_snake.so
+NAME			= ../../games/lib_arcade_snake.so
 
 SRCS			= Snake.cpp		\
 			  SnakePlayer.cpp

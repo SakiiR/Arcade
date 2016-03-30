@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:18:51 2016 Erwan Dupard
-## Last update Wed Mar  9 18:18:53 2016 Erwan Dupard
+## Last update Wed Mar 30 11:29:28 2016 Erwan Dupard
 ##
 
 CC			= g++
@@ -16,7 +16,7 @@ CXXFLAGS		= -fPIC -shared -W -Wall -Werror -Wextra -std=c++11
 
 LDXXFLAGS		= -L../../deps/SDL2/ -lSDL2
 
-NAME			= ../../lib/libarcade_sdl2.so
+NAME			= ../../lib/lib_arcade_sdl2.so
 
 SRCS			= mySDL2.cpp		\
 

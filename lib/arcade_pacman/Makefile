@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:26:09 2016 Erwan Dupard
-## Last update Tue Mar 29 13:37:40 2016 Barthelemy Gouby
+## Last update Wed Mar 30 11:29:39 2016 Erwan Dupard
 ##
 
 CC			= g++
@@ -16,7 +16,7 @@ CXXFLAGS		= -fPIC -shared -W -Wall -Werror -Wextra -std=c++11 -g -g3 -ggdb
 
 LDXXFLAGS		= 
 
-NAME			= ../../games/libarcade_pacman.so
+NAME			= ../../games/lib_arcade_pacman.so
 
 SRCS			= Pacman.cpp		\
 			  PacmanPlayer.cpp	\

@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:21:25 2016 Erwan Dupard
-## Last update Fri Mar 25 17:30:53 2016 Erwan Dupard
+## Last update Wed Mar 30 11:29:48 2016 Erwan Dupard
 ##
 
 CC			= g++
@@ -24,7 +24,7 @@ CPPFLAGS		= -I../../deps/lapin/include 	\
 			-lstdc++ -ldl 			\
 			-lm				\
 
-NAME			= ../../lib/libarcade_lapin.so
+NAME			= ../../lib/lib_arcade_lapin.so
 
 SRCS			= myLapin.cpp		\
 
