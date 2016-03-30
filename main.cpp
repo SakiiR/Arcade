@@ -5,13 +5,13 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Wed Mar 30 12:05:08 2016 Erwan Dupard
+// Last update Wed Mar 30 13:47:06 2016 Erwan Dupard
 //
 
 #include "ressources.hh"
 #include "ArcadeCore.hh"
 
-void			usage(const char *execName)
+static void		usage(const char *execName)
 {
   std::cout << "//" << std::endl;
   std::cout << "//     _____                            .___" << std::endl;      
