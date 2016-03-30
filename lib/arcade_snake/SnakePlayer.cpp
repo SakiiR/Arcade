@@ -5,9 +5,10 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 14:02:54 2016 Barthelemy Gouby
-// Last update Wed Mar 30 16:12:51 2016 Barthelemy Gouby
+// Last update Wed Mar 30 18:55:35 2016 Barthelemy Gouby
 //
 
+#include <iostream>
 #include "SnakePlayer.hh"
 
 SnakePlayer::SnakePlayer()

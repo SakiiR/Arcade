@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Tue Mar 29 17:08:30 2016 Barthelemy Gouby
+// Last update Wed Mar 30 12:04:31 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -33,12 +33,15 @@ void			mySDL2::initDisplay()
 	  this->_screen = SDL_GetWindowSurface(this->_window);
   	  SDL_FillRect(this->_screen, NULL, SDL_MapRGB(this->_screen->format, 0xFF, 0xFF, 0xFF));
   	  SDL_UpdateWindowSurface(this->_window);
+	  this->_font = TTF_OpenFont("./fonts/Painterz.ttf", 10);
+	  this->_renderer = SDL_CreateRenderer(this->_window, -1, SDL_RENDERER_ACCELERATED);
   	}
     }
 }
 
 void			mySDL2::closeDisplay()
 {
+  SDL_DestroyRenderer(this->_renderer);
   SDL_DestroyWindow(this->_window);
   SDL_Quit();
 }
@@ -89,8 +92,18 @@ void			mySDL2::renderMap(const game::Map &map)
   this->updateSurface();
 }
 
-void			mySDL2::renderMenu(MenuState menuState)
+void			mySDL2::renderMenu(const MenuState &menuState)
 {
+  SDL_Color		black = {0, 0, 0, 0};
+  SDL_Surface		*messageSurface = TTF_RenderText_Solid(this->_font, "lol", black);
+  SDL_Texture		*message = SDL_CreateTextureFromSurface(this->_renderer, messageSurface);
+  SDL_Rect		messageRect;
+
+  messageRect.x = 50;
+  messageRect.y = 50;
+  messageRect.w = 100;
+  messageRect.h = 100;
+  SDL_RenderCopy(this->_renderer, message, NULL, &messageRect);
   (void)menuState;
 }
 

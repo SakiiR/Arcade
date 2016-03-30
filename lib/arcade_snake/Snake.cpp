@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:27:46 2016 Erwan Dupard
-// Last update Wed Mar 30 17:21:13 2016 Barthelemy Gouby
+// Last update Wed Mar 30 18:56:25 2016 Barthelemy Gouby
 //
 
 #include "Snake.hh"
@@ -109,12 +109,13 @@ const bool			&Snake::getIfGameIsOver() const
   return (this->_gameIsOver);
 }
 
-void				Play()
+extern "C" void				Play()
 {
 
   arcade::CommandType		lastInput;
   Snake				snake;
 
+  snake.startGame();
   while (!std::cin.eof())
     {
       lastInput = (arcade::CommandType)std::cin.get();
@@ -124,16 +125,16 @@ void				Play()
 	  snake.doTurn();
 	  break;
 	case arcade::CommandType::GO_UP :
-	  snake._player.setMovementDirection(game::Direction::UP);
+	  snake.sendLastInput('z');
 	  break;
 	case arcade::CommandType::GO_DOWN :
-	  snake._player.setMovementDirection(game::Direction::DOWN);
+	  snake.sendLastInput('s');
 	  break;
 	case arcade::CommandType::GO_LEFT :
-	  snake._player.setMovementDirection(game::Direction::LEFT);
+	  snake.sendLastInput('q');
 	  break;
 	case arcade::CommandType::GO_RIGHT :
-	  snake._player.setMovementDirection(game::Direction::RIGHT);
+	  snake.sendLastInput('d');
 	  break;
 	case arcade::CommandType::WHERE_AM_I :
 	  snake.whereAmI();
@@ -151,12 +152,11 @@ void				Snake::getMap()
 {
   struct GetMap			getMap;
   const game::Tile		*mapTiles;
-  Snake				snake;
 
   getMap.type = arcade::CommandType::GET_MAP;
   getMap.width = SNAKE_MAP_WIDTH;
   getMap.height = SNAKE_MAP_HEIGHT;
-  mapTiles = snake->_map.getTiles();
+  mapTiles = this->_map.getTiles();
   for (unsigned int i = 0; i < SNAKE_MAP_WIDTH * SNAKE_MAP_HEIGHT; i++)
     {
       switch (mapTiles[i])
@@ -177,7 +177,7 @@ void				Snake::getMap()
 	  break;
 	}
     }
-  std::cout.write((char*)&getMap, sizeof(getMap));
+  std::cout.write((char*)(&getMap), sizeof(getMap));
 }
 
 void				Snake::whereAmI()
@@ -186,7 +186,7 @@ void				Snake::whereAmI()
   const game::Position		*playerBody;
 
   whereAmI.type = arcade::CommandType::WHERE_AM_I;
-  whereAmI.length = this->_player.getLength();
+  whereAmI.length = (uint16_t)(this->_player.getLength());
   playerBody = this->_player.getBody();
   for (unsigned int i = 0; i < whereAmI.length; i++)
     {

@@ -5,13 +5,13 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Wed Mar 30 17:22:15 2016 Barthelemy Gouby
+// Last update Wed Mar 30 17:25:01 2016 Barthelemy Gouby
 //
 
 #include "ressources.hh"
 #include "ArcadeCore.hh"
 
-void			usage(const char *execName)
+static void		usage(const char *execName)
 {
   std::cout << "//" << std::endl;
   std::cout << "//     _____                            .___" << std::endl;      
@@ -27,12 +27,17 @@ void			usage(const char *execName)
   std::cout << "//" << std::endl;
 }
 
-int			main()
+int			main(int argc, char **argv)
 {
   ArcadeCore		arcade;
 
-  arcade.getLoader().loadGameLibrary("./games/libarcade_snake.so");
-  arcade.getLoader().loadGraphicLibrary("./lib/libarcade_sdl2.so");
+  if (argc < 2)
+    {
+      usage(argv[0]);
+      return (RETURN_FAILURE);
+    }
+  arcade.getLoader().loadGameLibrary("./games/lib_arcade_snake.so");
+  arcade.getLoader().loadGraphicLibrary(argv[1]);
   arcade.getLoader().getDisplay()->initDisplay();
   arcade.startGame();
   return (RETURN_SUCCESS);

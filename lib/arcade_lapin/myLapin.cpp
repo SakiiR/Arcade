@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:59 2016 Erwan Dupard
-// Last update Tue Mar 29 15:08:52 2016 Erwan Dupard
+// Last update Wed Mar 30 11:36:58 2016 Erwan Dupard
 //
 
 #include "myLapin.hh"
@@ -125,7 +125,7 @@ void		        myLapin::_writeTile(const game::Position &position, const game::Po
     }
 }
 
-void			myLapin::renderMenu(MenuState menuState)
+void			myLapin::renderMenu(const MenuState &menuState)
 {
   (void)menuState;
 }
