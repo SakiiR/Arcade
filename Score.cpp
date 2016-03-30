@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 12:00:46 2016 Erwan Dupard
-// Last update Wed Mar 30 11:34:05 2016 Erwan Dupard
+// Last update Wed Mar 30 11:34:42 2016 Erwan Dupard
 //
 
 #include "Score.hh"
@@ -58,7 +58,6 @@ void								Score::_sync()
 	{
 	  this->_file << it->first << ":" << it->second << std::endl;
 	  it++;
-
 	}
     }
 }
