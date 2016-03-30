@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:17:38 2016 Erwan Dupard
-// Last update Thu Mar 17 18:12:22 2016 Barthelemy Gouby
+// Last update Wed Mar 30 12:01:15 2016 Erwan Dupard
 //
 
 #ifndef MYSDL_HH_
@@ -13,7 +13,8 @@
 
 # include <iostream>
 # include "../../ressources.hh"
-# include "../../deps/SDL2/include/SDL.h"
+# include "SDL.h"
+# include "SDL_ttf.h"
 # include "../../IDisplay.hh"
 
 # define SCREEN_X		(600)
@@ -29,7 +30,7 @@ public:
   virtual void			closeDisplay();
   virtual void			renderTitleScreen(const std::string &gameTitle, const std::string &Instructions);
   virtual void			renderMap(const game::Map &map);
-  virtual void			renderMenu(MenuState menuState);
+  virtual void			renderMenu(const MenuState &menuState);
   virtual char			getLastInput();
 private:
   void				writeTile(const game::Position &position, const game::Position &size, Uint32 color);
@@ -37,6 +38,8 @@ private:
   std::string			_name;
   SDL_Window			*_window;
   SDL_Surface			*_screen;
+  TTF_Font			*_font;
+  SDL_Renderer			*_renderer;
 };
 
 #endif /* ! MYSDL_HH_ */

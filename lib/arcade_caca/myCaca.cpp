@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:20:17 2016 Erwan Dupard
-// Last update Fri Mar 25 14:39:36 2016 Erwan Dupard
+// Last update Wed Mar 30 11:37:19 2016 Erwan Dupard
 //
 
 #include "myCaca.hh"
@@ -87,7 +87,7 @@ void		myCaca::renderMap(const game::Map &map)
   caca_refresh_display(this->_display);
 }
 
-void		myCaca::renderMenu(MenuState menuState)
+void		myCaca::renderMenu(const MenuState &menuState)
 {
   (void)menuState;
 }

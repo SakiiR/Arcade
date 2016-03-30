@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 17:55:00 2016 Erwan Dupard
-// Last update Thu Mar 24 15:31:27 2016 Erwan Dupard
+// Last update Wed Mar 30 11:37:10 2016 Erwan Dupard
 //
 
 #ifndef MYCACA_HH_
@@ -25,7 +25,7 @@ public:
   virtual void			closeDisplay();
   virtual void			renderTitleScreen(const std::string &gameTitle, const std::string &instructions);
   virtual void			renderMap(const game::Map &map);
-  virtual void			renderMenu(MenuState menuState);
+  virtual void			renderMenu(const MenuState &menuState);
   virtual char			getLastInput();
 private:
   std::string			_name;
