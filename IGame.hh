@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Tue Mar 29 17:06:51 2016 Barthelemy Gouby
+// Last update Wed Mar 30 16:10:48 2016 Barthelemy Gouby
 //
 
 #ifndef IGAME_HH_
@@ -69,7 +69,7 @@ namespace			game
     void			changeTile(const Position &position, const Tile &type);
     const unsigned int		&getWidth() const;
     const unsigned int		&getHeight() const;
-    game::Tile			*getTiles() const;
+    const game::Tile		*getTiles() const;
     const game::Tile		&getTileAt(const game::Position position) const;
   private:
     unsigned int		_width;

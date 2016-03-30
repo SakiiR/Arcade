@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Mon Mar 28 14:29:01 2016 Barthelemy Gouby
+// Last update Wed Mar 30 17:22:15 2016 Barthelemy Gouby
 //
 
 #include "ressources.hh"
@@ -31,7 +31,7 @@ int			main()
 {
   ArcadeCore		arcade;
 
-  arcade.getLoader().loadGameLibrary("./games/libarcade_pacman.so");
+  arcade.getLoader().loadGameLibrary("./games/libarcade_snake.so");
   arcade.getLoader().loadGraphicLibrary("./lib/libarcade_sdl2.so");
   arcade.getLoader().getDisplay()->initDisplay();
   arcade.startGame();

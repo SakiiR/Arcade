@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 14:02:54 2016 Barthelemy Gouby
-// Last update Tue Mar 29 16:30:23 2016 Barthelemy Gouby
+// Last update Wed Mar 30 16:12:51 2016 Barthelemy Gouby
 //
 
 #include "SnakePlayer.hh"
@@ -51,7 +51,7 @@ bool			SnakePlayer::movePlayer(game::Map &map)
   game::Position	positionBefore;
   game::Position	swapBuffer;
   bool			incremented = false;
-  int			i;
+  size_t		i;
 
   positionBefore = this->_playerBody[0];
   switch (this->_movementDirection)
@@ -94,10 +94,20 @@ void			SnakePlayer::incrementSize()
 {
   game::Position	*newBody = new game::Position[this->_playerLength + 1];
 
-  for (int i = 0; i < this->_playerLength; i++)
+  for (size_t i = 0; i < this->_playerLength; i++)
     {
       newBody[i] = this->_playerBody[i];
     }
   this->_playerBody = newBody;
   this->_playerLength++;
+}
+
+const size_t		&SnakePlayer::getLength() const
+{
+  return (this->_playerLength);
+}
+
+const game::Position	*SnakePlayer::getBody() const
+{
+  return (this->_playerBody);
 }
