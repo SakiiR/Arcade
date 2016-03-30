@@ -5,13 +5,13 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Wed Mar 30 13:47:06 2016 Erwan Dupard
+// Last update Wed Mar 30 17:02:39 2016 Erwan Dupard
 //
 
 #include "ressources.hh"
 #include "ArcadeCore.hh"
 
-static void		usage(const char *execName)
+void		usage(const char *execName)
 {
   std::cout << "//" << std::endl;
   std::cout << "//     _____                            .___" << std::endl;      
@@ -31,8 +31,8 @@ int			main()
 {
   ArcadeCore		arcade;
 
-  arcade.getLoader().loadGameLibrary("./games/lib_arcade_pacman.so");
-  arcade.getLoader().loadGraphicLibrary("./lib/lib_arcade_sdl2.so");
+  arcade.getLoader().loadGameLibrary("./games/lib_arcade_snake.so");
+  arcade.getLoader().loadGraphicLibrary("./lib/lib_arcade_lapin.so");
   arcade.getLoader().getDisplay()->initDisplay();
   arcade.startGame();
   return (RETURN_SUCCESS);
