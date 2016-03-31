@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Thu Mar 31 15:45:12 2016 Erwan Dupard
+// Last update Thu Mar 31 15:47:07 2016 Erwan Dupard
 //
 
 #include "Loader.hh"
@@ -120,14 +120,21 @@ IDisplay			*Loader::getDisplay() const
   return (this->_display);
 }
 
-void				Loader::retrieveFilesNames(char *directoryPath, std::vector<std::string> pathsTab)
+void				Loader::retrieveFilesNames(std::string directoryPath,
+							   std::vector<std::string> &pathsTab)
 {
   DIR				*dir;
   dirent			*entry;
 
-  if ((dir = opendir(directoryPath)) == NULL)
+  if ((dir = opendir(directoryPath.c_str())) == NULL)
     throw std::runtime_error("Failed to open directory");
   while ((entry = readdir(dir)) != NULL)
-    pathsTab.push_back(std::string(entry->d_name));
+    pathsTab.push_back(directoryPath + std::string(entry->d_name));
   closedir(dir);
+}
+
+void				Loader::loadFilesNames()
+{
+  retrieveFilesNames("./lib/", this->_displaysPaths);
+  retrieveFilesNames("./games/", this->_gamesPaths);
 }
