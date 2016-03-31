@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:59 2016 Erwan Dupard
-// Last update Thu Mar 31 11:13:50 2016 Barthelemy Gouby
+// Last update Thu Mar 31 14:31:33 2016 Erwan Dupard
 //
 
 #include "myLapin.hh"
@@ -92,6 +92,15 @@ void				myLapin::renderMap(const game::Map &map)
 	case game::Tile::OBSTACLE:
 	  this->_writeTile(p, tileSize, OBSTACLE_COLOR);
   	  break;
+	case game::Tile::PACMAN:
+	  this->_writeTile(p, tileSize, OBSTACLE_COLOR);
+	  break;
+	case game::Tile::GHOST:
+	  this->_writeTile(p, tileSize, GHOST_COLOR);
+	  break;
+	case game::Tile::HUNTED_GHOST:
+	  this->_writeTile(p, tileSize, WEAKGHOST_COLOR);
+	  break;
   	default:
   	  this->_writeTile(p, tileSize, VOID_COLOR);
 	  break;

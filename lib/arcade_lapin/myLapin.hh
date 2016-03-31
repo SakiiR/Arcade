@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:51 2016 Erwan Dupard
-// Last update Wed Mar 30 11:36:47 2016 Erwan Dupard
+// Last update Thu Mar 31 14:30:54 2016 Erwan Dupard
 //
 
 #ifndef MYLAPIN_HH_
@@ -21,6 +21,9 @@
 # define SNAKE_COLOR		(BLUE)
 # define OBSTACLE_COLOR		(BLACK)
 # define POWERUP_COLOR		(GREEN)
+# define PACMAN_COLOR		(YELLOW)
+# define GHOST_COLOR		(RED)
+# define WEAKGHOST_COLOR	(BLUE)
 # define VOID_COLOR		(WHITE)
 
 class			        myLapin : public IDisplay
