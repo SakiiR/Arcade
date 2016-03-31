@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:17:38 2016 Erwan Dupard
-// Last update Wed Mar 30 12:01:15 2016 Erwan Dupard
+// Last update Thu Mar 31 15:19:30 2016 Erwan Dupard
 //
 
 #ifndef MYSDL_HH_
@@ -38,7 +38,6 @@ private:
   std::string			_name;
   SDL_Window			*_window;
   SDL_Surface			*_screen;
-  TTF_Font			*_font;
   SDL_Renderer			*_renderer;
 };
 
