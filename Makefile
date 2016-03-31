@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:37:11 2016 Erwan Dupard
-## Last update Wed Mar 16 16:45:59 2016 Barthelemy Gouby
+## Last update Thu Mar 31 14:58:20 2016 Barthelemy Gouby
 ##
 
 CC		= g++
@@ -14,7 +14,7 @@ RM		= rm -f
 
 NAME		= arcade
 
-CXXFLAGS	+= -g3 -Wall -Werror -W -Wextra -std=c++11 -rdynamic
+CXXFLAGS	+= -g3 -Wall -Werror -W -Wextra -std=c++11 -rdynamic -fPIC
 
 LDXXFLAGS	+= -ldl
 
@@ -26,11 +26,10 @@ SRCS		= main.cpp		\
 
 OBJS		= $(SRCS:.cpp=.o)
 
-
-all: $(NAME)
-
 libraries:
-	make -C ./lib
+	 make -C ./lib
+
+all: $(NAME) libraries
 
 $(NAME): $(OBJS)
 	$(CC) -o $(NAME) $(OBJS) $(CXXFLAGS) $(LDXXFLAGS)
@@ -43,6 +42,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean clean re
+.PHONY: all clean clean re libraries
 
 

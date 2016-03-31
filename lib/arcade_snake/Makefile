@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:27:24 2016 Erwan Dupard
-## Last update Wed Mar 30 17:47:13 2016 Barthelemy Gouby
+## Last update Thu Mar 31 14:42:58 2016 Barthelemy Gouby
 ##
 
 CC			= g++
@@ -20,7 +20,7 @@ NAME			= ../../games/lib_arcade_snake.so
 
 SRCS			= Snake.cpp		\
 			  SnakePlayer.cpp	\
-			  ../../Map.cpp
+			  Map.cpp
 
 OBJS			= $(SRCS:.cpp=.o)
 
