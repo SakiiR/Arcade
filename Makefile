@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Tue Mar  8 14:37:11 2016 Erwan Dupard
-## Last update Thu Mar 31 14:58:20 2016 Barthelemy Gouby
+## Last update Thu Mar 31 15:03:34 2016 Barthelemy Gouby
 ##
 
 CC		= g++
@@ -26,10 +26,10 @@ SRCS		= main.cpp		\
 
 OBJS		= $(SRCS:.cpp=.o)
 
+all: $(NAME) libraries
+
 libraries:
 	 make -C ./lib
-
-all: $(NAME) libraries
 
 $(NAME): $(OBJS)
 	$(CC) -o $(NAME) $(OBJS) $(CXXFLAGS) $(LDXXFLAGS)
