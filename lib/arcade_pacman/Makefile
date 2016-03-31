@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:26:09 2016 Erwan Dupard
-## Last update Thu Mar 31 10:35:18 2016 Barthelemy Gouby
+## Last update Thu Mar 31 14:42:43 2016 Barthelemy Gouby
 ##
 
 CC			= g++
@@ -21,7 +21,7 @@ NAME			= ../../games/lib_arcade_pacman.so
 SRCS			= Pacman.cpp		\
 			  PacmanPlayer.cpp	\
 			  Ghost.cpp		\
-			  ../../Map.cpp
+			  Map.cpp
 
 OBJS			= $(SRCS:.cpp=.o)
 
