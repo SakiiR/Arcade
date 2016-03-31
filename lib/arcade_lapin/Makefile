@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:21:25 2016 Erwan Dupard
-## Last update Thu Mar 31 14:53:52 2016 Erwan Dupard
+## Last update Thu Mar 31 15:10:22 2016 Erwan Dupard
 ##
 
 CC			= g++
@@ -15,14 +15,14 @@ RM			= rm -f
 CXXFLAGS		= -fPIC -shared -W -Wall -Werror -Wextra -std=c++11
 
 CPPFLAGS		= -I../../deps/lapin/include 	\
-			-lstdc++ -ldl 			\
-			-lm				\
-			-L../../deps/lapin/lib/		\
-			-llapin 			\
+			-L../../deps/lapin/lib		\
+			-llapin				\
 			-lsfml-audio 			\
 			-lsfml-graphics 		\
 			-lsfml-window 			\
 			-lsfml-system 			\
+			-lstdc++ -ldl 			\
+			-lm				\
 
 NAME			= ../../lib/lib_arcade_lapin.so
 
