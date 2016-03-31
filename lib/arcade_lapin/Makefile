@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:21:25 2016 Erwan Dupard
-## Last update Thu Mar 31 14:49:30 2016 Erwan Dupard
+## Last update Thu Mar 31 14:53:52 2016 Erwan Dupard
 ##
 
 CC			= g++
@@ -17,7 +17,7 @@ CXXFLAGS		= -fPIC -shared -W -Wall -Werror -Wextra -std=c++11
 CPPFLAGS		= -I../../deps/lapin/include 	\
 			-lstdc++ -ldl 			\
 			-lm				\
-			-L../../deps/lapin/lib		\
+			-L../../deps/lapin/lib/		\
 			-llapin 			\
 			-lsfml-audio 			\
 			-lsfml-graphics 		\
