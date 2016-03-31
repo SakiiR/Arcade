@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Sat Mar 26 07:34:53 2016 Barthelemy Gouby
-// Last update Tue Mar 29 19:32:31 2016 Barthelemy Gouby
+// Last update Thu Mar 31 10:31:57 2016 Barthelemy Gouby
 //
 
 #include "PacmanPlayer.hh"
@@ -75,4 +75,9 @@ void			PacmanPlayer::movePlayer(game::Map &map, bool &gameIsOver,
       map.changeTile(newPosition, game::Tile::PACMAN);
       this->_playerPosition = newPosition;
     }
+}
+
+game::Position	&PacmanPlayer::getPosition()
+{
+  return (this->_playerPosition);
 }

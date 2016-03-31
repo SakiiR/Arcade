@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 16:45:42 2016 Barthelemy Gouby
-// Last update Mon Mar 21 11:57:47 2016 Barthelemy Gouby
+// Last update Wed Mar 30 16:23:20 2016 Barthelemy Gouby
 //
 
 #include "IGame.hh"
@@ -48,7 +48,7 @@ const unsigned int	&game::Map::getHeight() const
   return (this->_height);
 }
 
-game::Tile		*game::Map::getTiles() const
+const game::Tile	*game::Map::getTiles() const
 {
   return (this->_tiles);
 }

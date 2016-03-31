@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:28:09 2016 Erwan Dupard
-// Last update Fri Mar 18 15:42:41 2016 Barthelemy Gouby
+// Last update Wed Mar 30 17:47:38 2016 Barthelemy Gouby
 //
 
 #ifndef SNAKE_HH_
@@ -18,6 +18,7 @@
 # include "../../IGame.hh"
 # include "SnakePlayer.hh"
 # include "SnakeRessources.hh"
+# include "../../Protocol.hpp"
 
 class			        Snake : public IGame
 {
@@ -34,7 +35,8 @@ public:
   virtual void			sendLastInput(const char &input);
   virtual const game::Map	&refreshAndGetMap();
   virtual const bool		&getIfGameIsOver() const;
-  virtual void			Play();
+  void				getMap();
+  void				whereAmI();
 private:
   std::string			_name;
   std::string			_instructions;
@@ -45,5 +47,21 @@ private:
   bool				_gameIsOver;
   game::Position		_powerUp;
 };
+
+struct		GetMap
+  {
+    arcade::CommandType		type;
+    uint16_t			width;
+    uint16_t			height;
+    arcade::TileType		tile[SNAKE_MAP_WIDTH * SNAKE_MAP_HEIGHT];
+} __attribute__((packed));
+
+struct		WhereAmI
+{
+  arcade::CommandType		type;
+  uint16_t			length;
+  arcade::Position		position[SNAKE_MAP_WIDTH * SNAKE_MAP_HEIGHT];
+} __attribute__((packed));
+
 
 #endif /* ! SNAKE_HH_ */

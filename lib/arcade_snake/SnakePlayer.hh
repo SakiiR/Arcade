@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Tue Mar 15 12:36:59 2016 Barthelemy Gouby
-// Last update Sat Mar 26 07:28:46 2016 Barthelemy Gouby
+// Last update Wed Mar 30 17:56:41 2016 Barthelemy Gouby
 //
 
 #ifndef _SNAKE_PLAYER_HH_
@@ -24,9 +24,11 @@ public:
   void			setMovementDirection(game::Direction direction);
   bool			movePlayer(game::Map &map);
   void			incrementSize();
+  const size_t		&getLength() const;
+  const game::Position	*getBody() const;
 private:
   game::Position	*_playerBody;
-  int			_playerLength;
+  size_t		_playerLength;
   game::Direction	_movementDirection;
 };
 

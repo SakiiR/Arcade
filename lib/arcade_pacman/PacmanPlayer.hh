@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Sat Mar 26 07:26:07 2016 Barthelemy Gouby
-// Last update Tue Mar 29 19:38:33 2016 Barthelemy Gouby
+// Last update Thu Mar 31 10:31:04 2016 Barthelemy Gouby
 //
 
 #ifndef _PACMAN_PLAYER_
@@ -21,6 +21,8 @@ public:
   ~PacmanPlayer();
   void			setMovementDirection(const game::Direction &direction, const game::Map &map);
   void			movePlayer(game::Map &map, bool &gameIsOver, bool &hunted, timeval &powerBeginTime);
+  game::Position	&getPosition();
+
 private:
   game::Position	_playerPosition;
   game::Direction	_movementDirection;

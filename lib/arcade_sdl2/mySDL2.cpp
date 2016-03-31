@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Thu Mar 31 14:23:35 2016 Erwan Dupard
+// Last update Thu Mar 31 14:24:35 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -56,7 +56,7 @@ void			mySDL2::renderMap(const game::Map &map)
 {
   game::Position	tileSize(SCREEN_X / map.getWidth(), SCREEN_Y / map.getHeight());
   unsigned int		i = 0;
-  game::Tile		*tiles = map.getTiles();
+  const game::Tile	*tiles = map.getTiles();
   game::Position	p(0, 0);
 
   while (i < map.getWidth() * map.getHeight())

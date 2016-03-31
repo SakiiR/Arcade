@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Tue Mar 29 17:06:51 2016 Barthelemy Gouby
+// Last update Thu Mar 31 10:41:42 2016 Barthelemy Gouby
 //
 
 #ifndef IGAME_HH_
@@ -47,9 +47,10 @@ namespace			game
 	EVIL_SHOOT = 6,
 	MY_SHOOT = 7,
 	POWERUP = 8,
-	PLAYER = 9,
-	SNAKE = 10,
-	PACMAN = 11
+	PACGUM = 9,
+	PLAYER = 10,
+	SNAKE = 11,
+	PACMAN = 12
 	};
 
   struct			Position
@@ -69,7 +70,7 @@ namespace			game
     void			changeTile(const Position &position, const Tile &type);
     const unsigned int		&getWidth() const;
     const unsigned int		&getHeight() const;
-    game::Tile			*getTiles() const;
+    const game::Tile		*getTiles() const;
     const game::Tile		&getTileAt(const game::Position position) const;
   private:
     unsigned int		_width;
@@ -90,7 +91,6 @@ public:
   virtual void			sendLastInput(const char &input) = 0;
   virtual const game::Map	&refreshAndGetMap() = 0;
   virtual const bool		&getIfGameIsOver() const = 0;
-  virtual void			Play() = 0;
 };
 
 #endif /* ! IGAME_HH_ */

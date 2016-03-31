@@ -5,39 +5,8 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:27:46 2016 Erwan Dupard
-// Last update Mon Mar 21 14:20:54 2016 Barthelemy Gouby
+// Last update Thu Mar 31 10:40:31 2016 Barthelemy Gouby
 //
-
-int pacmanMap[900] =		{2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-				 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2};
 
 #include "Snake.hh"
 
@@ -140,8 +109,93 @@ const bool			&Snake::getIfGameIsOver() const
   return (this->_gameIsOver);
 }
 
-void				Snake::Play()
-{}
+extern "C" void				Play()
+{
+
+  arcade::CommandType		lastInput;
+  Snake				snake;
+
+  snake.startGame();
+  while (!std::cin.eof())
+    {
+      lastInput = (arcade::CommandType)std::cin.get();
+      switch(lastInput)
+	{
+	case arcade::CommandType::PLAY :
+	  snake.doTurn();
+	  break;
+	case arcade::CommandType::GO_UP :
+	  snake.sendLastInput('z');
+	  break;
+	case arcade::CommandType::GO_DOWN :
+	  snake.sendLastInput('s');
+	  break;
+	case arcade::CommandType::GO_LEFT :
+	  snake.sendLastInput('q');
+	  break;
+	case arcade::CommandType::GO_RIGHT :
+	  snake.sendLastInput('d');
+	  break;
+	case arcade::CommandType::WHERE_AM_I :
+	  snake.whereAmI();
+	  break;
+	case arcade::CommandType::GET_MAP :
+	  snake.getMap();
+	  break;
+	default:
+	  break;
+	}
+    }
+}
+
+void				Snake::getMap()
+{
+  struct GetMap			getMap;
+  const game::Tile		*mapTiles;
+
+  getMap.type = arcade::CommandType::GET_MAP;
+  getMap.width = SNAKE_MAP_WIDTH;
+  getMap.height = SNAKE_MAP_HEIGHT;
+  mapTiles = this->_map.getTiles();
+  for (unsigned int i = 0; i < SNAKE_MAP_WIDTH * SNAKE_MAP_HEIGHT; i++)
+    {
+      switch (mapTiles[i])
+	{
+	case game::Tile::EMPTY :
+	  getMap.tile[i] = arcade::TileType::EMPTY;
+	  break;
+	case game::Tile::OBSTACLE :
+	  getMap.tile[i] = arcade::TileType::BLOCK;
+	  break;
+	case game::Tile::SNAKE :
+	  getMap.tile[i] = arcade::TileType::EMPTY;
+	  break;
+	case game::Tile::POWERUP :
+	  getMap.tile[i] = arcade::TileType::POWERUP;
+	  break;
+	default :
+	  break;
+	}
+    }
+  std::cout.write((char*)(&getMap), sizeof(getMap));
+}
+
+void				Snake::whereAmI()
+{
+  struct WhereAmI		whereAmI;
+  const game::Position		*playerBody;
+
+  whereAmI.type = arcade::CommandType::WHERE_AM_I;
+  whereAmI.length = (uint16_t)(this->_player.getLength());
+  playerBody = this->_player.getBody();
+  for (unsigned int i = 0; i < whereAmI.length; i++)
+    {
+      whereAmI.position[i].x = playerBody[i].x;
+      whereAmI.position[i].y = playerBody[i].y;
+    }
+  std::cout.write((char*)&whereAmI, sizeof(whereAmI) - ((SNAKE_MAP_WIDTH * SNAKE_MAP_HEIGHT) - whereAmI.length));
+}
+
 
 extern "C" Snake		*create()
 {
