@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Mon Mar 28 16:53:01 2016 Barthelemy Gouby
-// Last update Tue Mar 29 19:47:52 2016 Barthelemy Gouby
+// Last update Thu Mar 31 16:05:18 2016 Barthelemy Gouby
 //
 
 #ifndef _GHOST_HH_
@@ -22,11 +22,15 @@ public:
   ~Ghost();
   void				moveGhost(game::Map &map, bool &gameIsOver, bool &hunter);
   bool				getIfDead();
+  timeval			&getTimeOfDeath();
+  void				reviveGhost();
 
 private:
+  game::Position		_initialPosition;
   game::Position		_ghostPosition;
   game::Direction		_movementDirection;
   bool				_isDead;
+  timeval			_timeOfDeath;
   game::Tile			_savedTile;
   bool				_huntedMove;
 

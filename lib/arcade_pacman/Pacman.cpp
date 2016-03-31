@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:24:59 2016 Erwan Dupard
-// Last update Thu Mar 31 10:59:09 2016 Barthelemy Gouby
+// Last update Thu Mar 31 16:06:07 2016 Barthelemy Gouby
 //
 
 #include "Pacman.hh"
@@ -89,18 +89,23 @@ void				Pacman::sendLastInput(const char &input)
 
 void				Pacman::doTurn()
 {
-  std::vector<Ghost>::iterator it = this->_ghosts.begin();
+  timeval			currentTime;
+  long int			deathTimeDifference;
 
-
+  gettimeofday(&currentTime, NULL);
   this->_player.setMovementDirection(this->_lastCommand, this->_map);
   this->_player.movePlayer(this->_map, this->_gameIsOver, this->_pacmanHunted, this->_powerBeginTime);
-  while (it != this->_ghosts.end())
+  for (std::vector<Ghost>::iterator it = this->_ghosts.begin(); it != this->_ghosts.end(); it++)
     {
-      (*it).moveGhost(this->_map, this->_gameIsOver, this->_pacmanHunted);
-      if ((*it).getIfDead() == true)
-	it = this->_ghosts.erase(it);
+      if ((*it).getIfDead() != true)
+	(*it).moveGhost(this->_map, this->_gameIsOver, this->_pacmanHunted);
       else
-	it++;
+	{
+	  deathTimeDifference = (currentTime.tv_sec - (*it).getTimeOfDeath().tv_sec) * 1000000
+	    + (currentTime.tv_usec - (*it).getTimeOfDeath().tv_usec);
+	  if (deathTimeDifference > GHOST_DEATH_DURATION)
+	    (*it).reviveGhost();
+	}
     }
   this->testIfVictory();
 }

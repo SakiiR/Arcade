@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Mon Mar 28 17:28:50 2016 Barthelemy Gouby
-// Last update Tue Mar 29 19:58:19 2016 Barthelemy Gouby
+// Last update Thu Mar 31 16:09:44 2016 Barthelemy Gouby
 //
 
 #include "Ghost.hh"
@@ -13,6 +13,7 @@
 Ghost::Ghost(const game::Position initialPosition, const game::Direction initialDirection, game::Map &map)
 {
   this->_isDead = false;
+  this->_initialPosition = initialPosition;
   this->_ghostPosition = initialPosition;
   this->_savedTile = game::Tile::EMPTY;
   this->_huntedMove = true;
@@ -74,6 +75,18 @@ bool				Ghost::getIfDead()
   return (this->_isDead);
 }
 
+timeval				&Ghost::getTimeOfDeath()
+{
+  return (this->_timeOfDeath);
+}
+
+void				Ghost::reviveGhost()
+{
+  this->_isDead = false;
+  this->_ghostPosition = this->_initialPosition;
+  this->_savedTile = game::Tile::EMPTY;
+}
+
 void				Ghost::moveGhost(game::Map &map, bool &gameIsOver, bool &hunter)
 {
   std::vector<game::Direction>		directions = getPossibleDirections(map);
@@ -84,7 +97,10 @@ void				Ghost::moveGhost(game::Map &map, bool &gameIsOver, bool &hunter)
   game::Position			nextPosition = this->findNextPosition(chosenDirection);
 
   if (hunter == false && map.getTileAt(this->_ghostPosition) == game::Tile::PACMAN)
-    this->_isDead = true;
+    {
+      this->_isDead = true;
+      gettimeofday(&(this->_timeOfDeath), NULL);
+    }
   else if (hunter == true || (hunter == false && this->_huntedMove == true))
     {
       if (map.getTileAt(nextPosition) == game::Tile::PACMAN)
@@ -108,4 +124,3 @@ void				Ghost::moveGhost(game::Map &map, bool &gameIsOver, bool &hunter)
   if (hunter == false)
     this->_huntedMove = !(this->_huntedMove);
 }
-

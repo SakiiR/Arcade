@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Thu Mar 31 15:23:20 2016 Barthelemy Gouby
+// Last update Thu Mar 31 15:31:09 2016 Barthelemy Gouby
 //
 
 #include "Loader.hh"
@@ -60,7 +60,7 @@ void				Loader::loadInitialGraphicLibrary(const std::string &filePath)
 
   while (it != this->_displaysPaths.end())
     {
-      if (("./lib/" + *it) == filePath)
+      if (*it == filePath)
 	{
 	  this->loadGraphicLibrary(filePath);
 	  this->_selectedDisplay = it;
@@ -69,6 +69,24 @@ void				Loader::loadInitialGraphicLibrary(const std::string &filePath)
       it++;
     }
   if (it == this->_displaysPaths.end())
+    throw std::runtime_error("Library not found");
+}
+
+void				Loader::loadInitialGameLibrary(const std::string &filePath)
+{
+  std::vector<std::string>::iterator it = this->_gamesPaths.begin();
+
+  while (it != this->_gamesPaths.end())
+    {
+      if (*it == filePath)
+	{
+	  this->loadGameLibrary(filePath);
+	  this->_selectedGame = it;
+	  break;
+	}
+      it++;
+    }
+  if (it == this->_gamesPaths.end())
     throw std::runtime_error("Library not found");
 }
 

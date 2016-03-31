@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Thu Mar 31 15:22:49 2016 Erwan Dupard
+// Last update Thu Mar 31 16:16:21 2016 Barthelemy Gouby
 //
 
 #include "mySDL2.hh"
@@ -98,14 +98,21 @@ void			mySDL2::renderMenu(const MenuState &menuState)
 char			mySDL2::getLastInput()
 {
   SDL_Event	        e;
+  SDL_Event		keyEvent;
+  bool			foundKey = false;
 
   while (SDL_PollEvent(&e))
     {
       if (e.type == SDL_QUIT)
 	return (0);
       if (e.type == SDL_KEYDOWN)
-	return (e.key.keysym.sym);
+	{
+	  keyEvent = e;
+	  foundKey = true;
+	}
     }
+  if (foundKey == true)
+    return (keyEvent.key.keysym.sym);
   return (UNDEFINED_KEY_INPUT);
 }
 

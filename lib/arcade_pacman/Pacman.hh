@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:25:15 2016 Erwan Dupard
-// Last update Thu Mar 31 10:48:57 2016 Barthelemy Gouby
+// Last update Thu Mar 31 16:01:25 2016 Barthelemy Gouby
 //
 
 #ifndef PACMAN_HH_
