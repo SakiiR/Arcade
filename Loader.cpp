@@ -5,12 +5,12 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Wed Mar 30 13:48:36 2016 Erwan Dupard
+// Last update Thu Mar 31 15:45:12 2016 Erwan Dupard
 //
 
 #include "Loader.hh"
 
-Loader::Loader() : _game(0), _display(0)
+Loader::Loader() : _game(0), _display(0), _graphicHandle(0), _gameHandle(0)
 {}
 
 Loader::~Loader()
@@ -18,15 +18,16 @@ Loader::~Loader()
 
 bool				Loader::loadGraphicLibrary(const std::string &filePath)
 {
-  void				*handle;
   display_create_t		*create_display;
 
-  if ((handle = dlopen(filePath.c_str(), RTLD_NOW)) == NULL)
+  if (this->_graphicHandle)
+    dlclose(this->_graphicHandle);
+  if ((this->_graphicHandle = dlopen(filePath.c_str(), RTLD_NOW)) == NULL)
     {
       std::cerr << "[-] Failed To Open Library : " << dlerror() << std::endl;
       return (false);
     }
-  if ((create_display = (display_create_t *)dlsym(handle, "create")) == NULL)
+  if ((create_display = (display_create_t *)dlsym(this->_graphicHandle, "create")) == NULL)
     {
       std::cerr << "[-] Failed To Load Symbol : " << dlerror() << std::endl;
       return (false);
@@ -37,15 +38,16 @@ bool				Loader::loadGraphicLibrary(const std::string &filePath)
 
 bool				Loader::loadGameLibrary(const std::string &filePath)
 {
-  void				*handle;
   game_create_t			*create_game;
 
-  if ((handle = dlopen(filePath.c_str(), RTLD_NOW)) == NULL)
+  if (this->_gameHandle)
+    dlclose(this->_gameHandle);
+  if ((this->_gameHandle = dlopen(filePath.c_str(), RTLD_NOW)) == NULL)
     {
       std::cerr << "[-] Failed To Open Library : " << dlerror() << std::endl;
       return (false);
     }
-  if ((create_game = (game_create_t *)dlsym(handle, "create")) == NULL)
+  if ((create_game = (game_create_t *)dlsym(this->_gameHandle, "create")) == NULL)
     {
       std::cerr << "[-] Failed To Load Symbol : " << dlerror() << std::endl;
       return (false);
