@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:24:59 2016 Erwan Dupard
-// Last update Tue Mar 29 20:02:13 2016 Barthelemy Gouby
+// Last update Thu Mar 31 10:59:09 2016 Barthelemy Gouby
 //
 
 #include "Pacman.hh"
@@ -39,6 +39,7 @@ Pacman::Pacman()
 {
   this->_name = "libsnake";
   this->_gameIsOver = false;
+  this->_victory = false;
   this->_pacmanHunted = true;
   this->_ghosts.push_back(Ghost(game::Position(PACMAN_MAP_WIDTH / 2 - 3, PACMAN_MAP_HEIGHT / 2 - 3),
 				game::Direction::LEFT, this->_map));
@@ -101,6 +102,7 @@ void				Pacman::doTurn()
       else
 	it++;
     }
+  this->testIfVictory();
 }
 
 const game::Map			&Pacman::refreshAndGetMap()
@@ -132,8 +134,104 @@ const bool			&Pacman::getIfGameIsOver() const
   return (this->_gameIsOver);
 }
 
-void				Pacman::Play()
-{}
+void				Pacman::testIfVictory()
+{
+  unsigned int i;
+
+  for (i = 0; i < PACMAN_MAP_HEIGHT * PACMAN_MAP_WIDTH; i++)
+    {
+      if (this->_map.getTiles()[i] == game::Tile::PACGUM || this->_map.getTiles()[i] == game::Tile::POWERUP)
+	break;
+    }
+  if (i == PACMAN_MAP_HEIGHT * PACMAN_MAP_WIDTH)
+    {
+      this->_victory = true;
+      this->_gameIsOver = true;
+    }
+}
+
+
+extern "C" void				Play()
+{
+
+  arcade::CommandType		lastInput;
+  Pacman			pacman;
+
+  pacman.startGame();
+  while (!std::cin.eof())
+    {
+      lastInput = (arcade::CommandType)std::cin.get();
+      switch(lastInput)
+	{
+	case arcade::CommandType::PLAY :
+	  pacman.doTurn();
+	  break;
+	case arcade::CommandType::GO_UP :
+	  pacman.sendLastInput('z');
+	  break;
+	case arcade::CommandType::GO_DOWN :
+	  pacman.sendLastInput('s');
+	  break;
+	case arcade::CommandType::GO_LEFT :
+	  pacman.sendLastInput('q');
+	  break;
+	case arcade::CommandType::GO_RIGHT :
+	  pacman.sendLastInput('d');
+	  break;
+	case arcade::CommandType::WHERE_AM_I :
+	  pacman.whereAmI();
+	  break;
+	case arcade::CommandType::GET_MAP :
+	  pacman.getMap();
+	  break;
+	default:
+	  break;
+	}
+    }
+}
+
+void				Pacman::getMap()
+{
+  struct GetMap			getMap;
+  const game::Tile		*mapTiles;
+
+  getMap.type = arcade::CommandType::GET_MAP;
+  getMap.width = PACMAN_MAP_WIDTH;
+  getMap.height = PACMAN_MAP_HEIGHT;
+  mapTiles = this->_map.getTiles();
+  for (unsigned int i = 0; i < PACMAN_MAP_WIDTH * PACMAN_MAP_HEIGHT; i++)
+    {
+      switch (mapTiles[i])
+	{
+	case game::Tile::EMPTY :
+	  getMap.tile[i] = arcade::TileType::EMPTY;
+	  break;
+	case game::Tile::OBSTACLE :
+	  getMap.tile[i] = arcade::TileType::BLOCK;
+	  break;
+	case game::Tile::PACMAN :
+	  getMap.tile[i] = arcade::TileType::EMPTY;
+	  break;
+	case game::Tile::POWERUP :
+	  getMap.tile[i] = arcade::TileType::POWERUP;
+	  break;
+	default :
+	  break;
+	}
+    }
+  std::cout.write((char*)(&getMap), sizeof(getMap));
+}
+
+void				Pacman::whereAmI()
+{
+  struct WhereAmI		whereAmI;
+
+  whereAmI.type = arcade::CommandType::WHERE_AM_I;
+  whereAmI.length = 1;
+  whereAmI.position[0].x = this->_player.getPosition().x;
+  whereAmI.position[0].y = this->_player.getPosition().y;
+  std::cout.write((char*)&whereAmI, sizeof(whereAmI));
+}
 
 extern "C" Pacman		*create()
 {

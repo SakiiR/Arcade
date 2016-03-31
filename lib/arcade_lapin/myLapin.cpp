@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:59 2016 Erwan Dupard
-// Last update Wed Mar 30 11:36:58 2016 Erwan Dupard
+// Last update Thu Mar 31 11:13:50 2016 Barthelemy Gouby
 //
 
 #include "myLapin.hh"
@@ -74,7 +74,7 @@ void				myLapin::renderMap(const game::Map &map)
 {
   game::Position	tileSize(SCREEN_X / map.getWidth(), SCREEN_Y / map.getHeight());
   unsigned int		i = 0;
-  game::Tile		*tiles = map.getTiles();
+  const game::Tile	*tiles = map.getTiles();
   game::Position	p(0, 0);
 
   while (i < map.getWidth() * map.getHeight())

@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Fri Mar 25 17:29:58 2016 Barthelemy Gouby
+// Last update Thu Mar 31 11:12:31 2016 Barthelemy Gouby
 //
 
 #include <stdlib.h>
@@ -34,22 +34,22 @@ void			ArcadeCore::executeInput(char input, bool &gameIsOn)
 {
   switch (input)
     {
-    case '2':
+    case 'e':
       this->_loader.loadPreviousGraphicLibrary();
       break;
-    case '3':
+    case 'r':
       this->_loader.loadNextGraphicLibrary();
       break;
-    case '4':
+    case 't':
       this->_loader.loadPreviousGameLibrary();
       break;
-    case '5':
+    case 'y':
       this->_loader.loadNextGameLibrary();
       break;
-    case '8':
+    case 'u':
       this->_loader.getGame()->resetGame();
       break;
-    case '9':
+    case 'i':
       gameIsOn = false;
       break;
     case 0:
@@ -70,7 +70,7 @@ Loader				&ArcadeCore::getLoader()
 
 void			displayMapTerm(const game::Map &map)
 {
-  game::Tile		*tiles = map.getTiles();
+  const game::Tile		*tiles = map.getTiles();
   system("clear");
   for(unsigned int i = 0; i < map.getHeight() * map.getWidth(); i++)
     {

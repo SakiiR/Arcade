@@ -5,14 +5,14 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 17:55:00 2016 Erwan Dupard
-// Last update Wed Mar 30 11:37:10 2016 Erwan Dupard
+// Last update Thu Mar 31 11:59:27 2016 Barthelemy Gouby
 //
 
 #ifndef MYCACA_HH_
 # define MYCACA_HH_
 
 # include <iostream>
-# include <caca.h>
+# include "caca.h"
 # include "../../IDisplay.hh"
 
 class				myCaca : public IDisplay

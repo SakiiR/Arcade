@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:37:14 2016 Erwan Dupard
-// Last update Wed Mar 30 17:47:51 2016 Barthelemy Gouby
+// Last update Thu Mar 31 10:41:42 2016 Barthelemy Gouby
 //
 
 #ifndef IGAME_HH_
@@ -47,9 +47,10 @@ namespace			game
 	EVIL_SHOOT = 6,
 	MY_SHOOT = 7,
 	POWERUP = 8,
-	PLAYER = 9,
-	SNAKE = 10,
-	PACMAN = 11
+	PACGUM = 9,
+	PLAYER = 10,
+	SNAKE = 11,
+	PACMAN = 12
 	};
 
   struct			Position

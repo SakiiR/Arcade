@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:25:15 2016 Erwan Dupard
-// Last update Tue Mar 29 19:09:52 2016 Barthelemy Gouby
+// Last update Thu Mar 31 10:48:57 2016 Barthelemy Gouby
 //
 
 #ifndef PACMAN_HH_
@@ -32,7 +32,10 @@ public:
   virtual void			sendLastInput(const char &input);
   virtual const game::Map	&refreshAndGetMap();
   virtual const bool		&getIfGameIsOver() const;
-  virtual void			Play();
+  void				testIfVictory();
+  void				whereAmI();
+  void				getMap();
+
 private:
   std::string			_name;
   std::string			_instructions;
@@ -42,8 +45,25 @@ private:
   PacmanPlayer			_player;
   game::Direction		_lastCommand;
   bool				_gameIsOver;
+  bool				_victory;
   std::vector<Ghost>		_ghosts;
   bool				_pacmanHunted;
 };
+
+struct		GetMap
+  {
+    arcade::CommandType		type;
+    uint16_t			width;
+    uint16_t			height;
+    arcade::TileType		tile[PACMAN_MAP_WIDTH * PACMAN_MAP_HEIGHT];
+} __attribute__((packed));
+
+struct		WhereAmI
+{
+  arcade::CommandType		type;
+  uint16_t			length;
+  arcade::Position		position[1];
+} __attribute__((packed));
+
 
 #endif /* ! PACMAN_HH_ */

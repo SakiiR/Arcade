@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:27:46 2016 Erwan Dupard
-// Last update Wed Mar 30 18:56:25 2016 Barthelemy Gouby
+// Last update Thu Mar 31 10:40:31 2016 Barthelemy Gouby
 //
 
 #include "Snake.hh"
@@ -165,7 +165,7 @@ void				Snake::getMap()
 	  getMap.tile[i] = arcade::TileType::EMPTY;
 	  break;
 	case game::Tile::OBSTACLE :
-	  getMap.tile[i] = arcade::TileType::OBSTACLE;
+	  getMap.tile[i] = arcade::TileType::BLOCK;
 	  break;
 	case game::Tile::SNAKE :
 	  getMap.tile[i] = arcade::TileType::EMPTY;
