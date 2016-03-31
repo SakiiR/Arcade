@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:20:17 2016 Erwan Dupard
-// Last update Wed Mar 30 11:37:19 2016 Erwan Dupard
+// Last update Thu Mar 31 14:27:38 2016 Erwan Dupard
 //
 
 #include "myCaca.hh"
@@ -59,7 +59,7 @@ void		myCaca::renderTitleScreen(const std::string &gameTitle, const std::string 
 void		myCaca::renderMap(const game::Map &map)
 {
   unsigned int		i = 0;
-  game::Tile		*tiles = map.getTiles();
+  const game::Tile	*tiles = map.getTiles();
   game::Position	p(0, 0);
 
   while (i < map.getWidth() * map.getHeight())
@@ -75,8 +75,17 @@ void		myCaca::renderMap(const game::Map &map)
 	  caca_set_color_ansi(this->_canvas, CACA_BLUE, CACA_BLACK);
   	  break;
 	case game::Tile::OBSTACLE:
-	  caca_set_color_ansi(this->_canvas, CACA_BLACK, CACA_BLUE);
+	  caca_set_color_ansi(this->_canvas, CACA_GREEN, CACA_BLUE);
   	  break;
+	case game::Tile::PACMAN:
+	  caca_set_color_ansi(this->_canvas, CACA_BLUE, CACA_GREEN);
+  	  break;
+	case game::Tile::GHOST:
+	  caca_set_color_ansi(this->_canvas, CACA_RED, CACA_WHITE);
+  	  break;
+ 	case game::Tile::HUNTED_GHOST:
+	  caca_set_color_ansi(this->_canvas, CACA_GREEN, CACA_GREEN);
+	  break;
   	default:
 	  caca_set_color_ansi(this->_canvas, CACA_LIGHTGREEN, CACA_LIGHTRED);
 	  break;
