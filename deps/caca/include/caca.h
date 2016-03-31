@@ -21,7 +21,7 @@
 #ifndef __CACA_H__
 #define __CACA_H__
 
-#include <caca_types.h>
+#include "caca_types.h"
 
 #if !defined(__KERNEL__)
 #   include <stdarg.h>
