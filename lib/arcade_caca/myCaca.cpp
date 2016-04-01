@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:20:17 2016 Erwan Dupard
-// Last update Fri Apr  1 14:07:59 2016 Erwan Dupard
+// Last update Fri Apr  1 14:17:02 2016 Erwan Dupard
 //
 
 #include "myCaca.hh"
@@ -20,28 +20,33 @@ const std::string	&myCaca::getName() const
   return (this->_name);
 }
 
+void		myCaca::_drawShit()
+{
+  caca_set_color_ansi(this->_canvas, CACA_LIGHTGREEN, CACA_LIGHTRED);
+  caca_put_str(this->_canvas, 37, 8,  "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
+  caca_put_str(this->_canvas, 37, 9,  "░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░");
+  caca_put_str(this->_canvas, 37, 10, "░░▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░");
+  caca_put_str(this->_canvas, 37, 11, "░░▒▒▓▓▓███████████████████████▓▓▓▒▒░░");
+  caca_put_str(this->_canvas, 37, 12, "░░▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░");
+  caca_put_str(this->_canvas, 37, 13, "░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░");
+  caca_put_str(this->_canvas, 37, 14, "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
+  caca_put_str(this->_canvas, 37, 15, "░ Arcade libcaca by Barthe && Erwan ░");
+  caca_put_str(this->_canvas, 37, 16, "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
+  caca_put_str(this->_canvas, 37, 17, "░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░");
+  caca_put_str(this->_canvas, 37, 18, "░░▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░");
+  caca_put_str(this->_canvas, 37, 19, "░░▒▒▓▓▓███████████████████████▓▓▓▒▒░░");
+  caca_put_str(this->_canvas, 37, 20, "░░▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░");
+  caca_put_str(this->_canvas, 37, 21, "░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░");
+  caca_put_str(this->_canvas, 37, 22, "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
+}
+
 void		myCaca::initDisplay()
 {
   if ((this->_display = caca_create_display(NULL)) != NULL)
     {
       this->_canvas = caca_get_canvas(this->_display);      
       caca_set_display_title(this->_display, "Arcade ! C++ LibCaca");
-      caca_set_color_ansi(this->_canvas, CACA_LIGHTGREEN, CACA_LIGHTRED);
-      caca_put_str(this->_canvas, 37, 8,  "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
-      caca_put_str(this->_canvas, 37, 9,  "░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░");
-      caca_put_str(this->_canvas, 37, 10, "░░▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░");
-      caca_put_str(this->_canvas, 37, 11, "░░▒▒▓▓▓███████████████████████▓▓▓▒▒░░");
-      caca_put_str(this->_canvas, 37, 12, "░░▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░");
-      caca_put_str(this->_canvas, 37, 13, "░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░");
-      caca_put_str(this->_canvas, 37, 14, "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
-      caca_put_str(this->_canvas, 37, 15, "░ Arcade libcaca by Barthe && Erwan ░");
-      caca_put_str(this->_canvas, 37, 16, "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
-      caca_put_str(this->_canvas, 37, 17, "░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░");
-      caca_put_str(this->_canvas, 37, 18, "░░▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░");
-      caca_put_str(this->_canvas, 37, 19, "░░▒▒▓▓▓███████████████████████▓▓▓▒▒░░");
-      caca_put_str(this->_canvas, 37, 20, "░░▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░");
-      caca_put_str(this->_canvas, 37, 21, "░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░");
-      caca_put_str(this->_canvas, 37, 22, "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
+      this->_drawShit();
     }
 }
 
@@ -125,6 +130,7 @@ void		myCaca::cleanScreen()
 	}
       ++x;
     }
+  this->_drawShit();
 }
 
 extern "C" myCaca	*create()
