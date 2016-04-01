@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:20:17 2016 Erwan Dupard
-// Last update Fri Apr  1 14:15:58 2016 Erwan Dupard
+// Last update Fri Apr  1 14:17:02 2016 Erwan Dupard
 //
 
 #include "myCaca.hh"
@@ -130,7 +130,7 @@ void		myCaca::cleanScreen()
 	}
       ++x;
     }
-  this->
+  this->_drawShit();
 }
 
 extern "C" myCaca	*create()
