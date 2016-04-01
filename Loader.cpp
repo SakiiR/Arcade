@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Fri Apr  1 11:55:01 2016 Barthelemy Gouby
+// Last update Fri Apr  1 12:38:43 2016 Barthelemy Gouby
 //
 
 #include "Loader.hh"
@@ -19,22 +19,33 @@ Loader::~Loader()
 bool				Loader::loadGraphicLibrary(const std::string &filePath)
 {
   display_create_t		*create_display;
+  void				*oldGraphicHandle = NULL;
+  void				*newGraphicHandle = NULL;
+  IDisplay			*oldDisplay = NULL;
 
   if (this->_graphicHandle)
     {
-      this->_display->closeDisplay();
-      delete this->_display;
-      dlclose(this->_graphicHandle);
+      oldGraphicHandle = this->_graphicHandle;
+      oldDisplay = this->_display;
     }
-  if ((this->_graphicHandle = dlopen(filePath.c_str(), RTLD_NOW)) == NULL)
+  if ((newGraphicHandle = dlopen(filePath.c_str(), RTLD_NOW)) == NULL)
     {
       std::cerr << "[-] Failed To Open Library : " << dlerror() << std::endl;
       return (false);
     }
-  if ((create_display = (display_create_t *)dlsym(this->_graphicHandle, "create")) == NULL)
+  
+  if ((create_display = (display_create_t *)dlsym(newGraphicHandle, "create")) == NULL)
     {
+      dlclose(newGraphicHandle);
       std::cerr << "[-] Failed To Load Symbol : " << dlerror() << std::endl;
       return (false);
+    }
+  this->_graphicHandle = newGraphicHandle;
+  if (oldGraphicHandle)
+    {
+      oldDisplay->closeDisplay();
+      delete oldDisplay;
+      dlclose(oldGraphicHandle);
     }
   this->_display = create_display();
   return (true);
@@ -45,7 +56,10 @@ bool				Loader::loadGameLibrary(const std::string &filePath)
   game_create_t			*create_game;
 
   if (this->_gameHandle)
-    dlclose(this->_gameHandle);
+    {
+      this->_display->cleanScreen();
+      dlclose(this->_gameHandle);
+    }
   if ((this->_gameHandle = dlopen(filePath.c_str(), RTLD_NOW)) == NULL)
     {
       std::cerr << "[-] Failed To Open Library : " << dlerror() << std::endl;
