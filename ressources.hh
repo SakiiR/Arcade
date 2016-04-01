@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 15:08:07 2016 Erwan Dupard
-// Last update Wed Mar 30 11:32:29 2016 Barthelemy Gouby
+// Last update Fri Apr  1 18:17:04 2016 Erwan Dupard
 //
 
 #ifndef RESSOURCES_HH_
@@ -35,8 +35,6 @@ struct					MenuState
 };
 
 typedef IGame				*game_create_t();
-typedef void				game_destroy_t(IGame *);
 typedef IDisplay			*display_create_t();
-typedef void				display_destroy_t(IDisplay *);
 
 #endif /* ! RESSOURCES_HH_ */
