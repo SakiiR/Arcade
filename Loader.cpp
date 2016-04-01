@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Thu Mar 31 15:31:09 2016 Barthelemy Gouby
+// Last update Fri Apr  1 10:11:20 2016 Barthelemy Gouby
 //
 
 #include "Loader.hh"
@@ -96,7 +96,8 @@ void				Loader::loadNextGraphicLibrary()
     this->_selectedDisplay = this->_displaysPaths.begin();
   else
     this->_selectedDisplay++;
-  loadGraphicLibrary(*this->_selectedDisplay);
+  if (loadGraphicLibrary(*this->_selectedDisplay))
+    this->_display->initDisplay();
 }
 
 void				Loader::loadNextGameLibrary()
@@ -105,7 +106,8 @@ void				Loader::loadNextGameLibrary()
     this->_selectedGame = this->_gamesPaths.begin();
   else
     this->_selectedGame++;
-  loadGameLibrary(*this->_selectedGame);
+  if (loadGameLibrary(*this->_selectedGame))
+    this->_game->startGame();
 }
 
 void				Loader::loadPreviousGraphicLibrary()
@@ -114,7 +116,8 @@ void				Loader::loadPreviousGraphicLibrary()
     this->_selectedDisplay = std::prev(this->_displaysPaths.end());
   else
     this->_selectedDisplay--;
-  loadGraphicLibrary(*(this->_selectedDisplay));
+  if (loadGraphicLibrary(*(this->_selectedDisplay)))
+    this->_display->initDisplay();
 }
 
 void				Loader::loadPreviousGameLibrary()
@@ -123,7 +126,8 @@ void				Loader::loadPreviousGameLibrary()
     this->_selectedGame = std::prev(this->_gamesPaths.end());
   else
     this->_selectedGame--;
-  loadGameLibrary(*this->_selectedGame);
+  if (loadGameLibrary(*this->_selectedGame))
+    this->_game->startGame();
 }
 
 IGame				*Loader::getGame() const
@@ -141,16 +145,24 @@ void				Loader::retrieveFilesNames(std::string directoryPath,
 {
   DIR				*dir;
   dirent			*entry;
+  std::regex			isLibrary(".*\\.so");
 
   if ((dir = opendir(directoryPath.c_str())) == NULL)
     throw std::runtime_error("Failed to open directory");
   while ((entry = readdir(dir)) != NULL)
-    pathsTab.push_back(directoryPath + std::string(entry->d_name));
+    {
+      if (std::regex_match(entry->d_name, isLibrary))
+	pathsTab.push_back(directoryPath + std::string(entry->d_name));
+    }
   closedir(dir);
 }
 
 void				Loader::loadFilesNames()
 {
-  retrieveFilesNames("./lib/", this->_displaysPaths);
-  retrieveFilesNames("./games/", this->_gamesPaths);
+  retrieveFilesNames("lib/", this->_displaysPaths);
+  retrieveFilesNames("games/", this->_gamesPaths);
+  for (std::vector<std::string>::iterator it = this->_gamesPaths.begin(); it < this->_gamesPaths.end(); it++)
+    std::cout << *it << std::endl;
+  for (std::vector<std::string>::iterator it = this->_displaysPaths.begin(); it < this->_displaysPaths.end(); it++)
+    std::cout << *it << std::endl;
 }

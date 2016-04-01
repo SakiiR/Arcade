@@ -5,12 +5,13 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:36:22 2016 Erwan Dupard
-// Last update Thu Mar 31 15:29:35 2016 Barthelemy Gouby
+// Last update Fri Apr  1 09:44:46 2016 Barthelemy Gouby
 //
 
 #ifndef LOADER_HH_
 # define LOADER_HH_
 
+# include <regex>
 # include <dirent.h>
 # include "ressources.hh"
 

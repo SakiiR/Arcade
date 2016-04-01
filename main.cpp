@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Thu Mar 31 16:02:52 2016 Barthelemy Gouby
+// Last update Thu Mar 31 17:05:59 2016 Barthelemy Gouby
 //
 
 #include "ressources.hh"
@@ -37,8 +37,8 @@ int			main(int argc, char **argv)
       return (RETURN_FAILURE);
     }
   arcade.getLoader().loadFilesNames();
-  arcade.getLoader().loadGameLibrary("./games/lib_arcade_pacman.so");
-  arcade.getLoader().loadGraphicLibrary(argv[1]);
+  arcade.getLoader().loadInitialGameLibrary("games/lib_arcade_pacman.so");
+  arcade.getLoader().loadInitialGraphicLibrary(argv[1]);
   arcade.getLoader().getDisplay()->initDisplay();
   arcade.startGame();
   return (RETURN_SUCCESS);
