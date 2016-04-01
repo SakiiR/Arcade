@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Fri Apr  1 10:11:34 2016 Barthelemy Gouby
+// Last update Fri Apr  1 11:42:55 2016 Barthelemy Gouby
 //
 
 #include <stdlib.h>
@@ -25,10 +25,21 @@ ArcadeCore::~ArcadeCore()
 //   this->startMenu();
 // }
 
-void			ArcadeCore::startMenu()
-{
-  
-}
+// char			menuInput()
+// {
+
+// }
+
+// void			ArcadeCore::startMenu()
+// {
+//   bool			arcadeIsOn = true;
+//   char			lastInput;
+
+//   while (arcadeIsOn)
+//     {
+      
+//     }
+// }
 
 void			ArcadeCore::executeInput(char input, bool &gameIsOn)
 {

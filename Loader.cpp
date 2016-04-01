@@ -5,12 +5,12 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Fri Apr  1 10:11:20 2016 Barthelemy Gouby
+// Last update Fri Apr  1 11:42:40 2016 Barthelemy Gouby
 //
 
 #include "Loader.hh"
 
-Loader::Loader() : _game(0), _display(0)
+Loader::Loader() : _game(0), _display(0), _graphicHandle(0), _gameHandle(0)
 {}
 
 Loader::~Loader()
@@ -18,15 +18,20 @@ Loader::~Loader()
 
 bool				Loader::loadGraphicLibrary(const std::string &filePath)
 {
-  void				*handle;
   display_create_t		*create_display;
 
-  if ((handle = dlopen(filePath.c_str(), RTLD_NOW)) == NULL)
+  if (this->_graphicHandle)
+    {
+      this->_display->closeDisplay();
+      dlclose(this->_graphicHandle);
+      delete this->_display;
+    }
+  if ((this->_graphicHandle = dlopen(filePath.c_str(), RTLD_NOW)) == NULL)
     {
       std::cerr << "[-] Failed To Open Library : " << dlerror() << std::endl;
       return (false);
     }
-  if ((create_display = (display_create_t *)dlsym(handle, "create")) == NULL)
+  if ((create_display = (display_create_t *)dlsym(this->_graphicHandle, "create")) == NULL)
     {
       std::cerr << "[-] Failed To Load Symbol : " << dlerror() << std::endl;
       return (false);
@@ -37,15 +42,16 @@ bool				Loader::loadGraphicLibrary(const std::string &filePath)
 
 bool				Loader::loadGameLibrary(const std::string &filePath)
 {
-  void				*handle;
   game_create_t			*create_game;
 
-  if ((handle = dlopen(filePath.c_str(), RTLD_NOW)) == NULL)
+  if (this->_gameHandle)
+    dlclose(this->_gameHandle);
+  if ((this->_gameHandle = dlopen(filePath.c_str(), RTLD_NOW)) == NULL)
     {
       std::cerr << "[-] Failed To Open Library : " << dlerror() << std::endl;
       return (false);
     }
-  if ((create_game = (game_create_t *)dlsym(handle, "create")) == NULL)
+  if ((create_game = (game_create_t *)dlsym(this->_gameHandle, "create")) == NULL)
     {
       std::cerr << "[-] Failed To Load Symbol : " << dlerror() << std::endl;
       return (false);
@@ -96,18 +102,21 @@ void				Loader::loadNextGraphicLibrary()
     this->_selectedDisplay = this->_displaysPaths.begin();
   else
     this->_selectedDisplay++;
-  if (loadGraphicLibrary(*this->_selectedDisplay))
+  if (loadGraphicLibrary(*(this->_selectedDisplay)))
     this->_display->initDisplay();
 }
 
 void				Loader::loadNextGameLibrary()
 {
+
   if (std::next(this->_selectedGame) == this->_gamesPaths.end())
     this->_selectedGame = this->_gamesPaths.begin();
   else
     this->_selectedGame++;
-  if (loadGameLibrary(*this->_selectedGame))
-    this->_game->startGame();
+  if (loadGameLibrary(*(this->_selectedGame)))
+    {
+      this->_game->startGame();
+    }
 }
 
 void				Loader::loadPreviousGraphicLibrary()

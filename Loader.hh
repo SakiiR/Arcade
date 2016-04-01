@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:36:22 2016 Erwan Dupard
-// Last update Fri Apr  1 09:44:46 2016 Barthelemy Gouby
+// Last update Fri Apr  1 10:29:19 2016 Barthelemy Gouby
 //
 
 #ifndef LOADER_HH_
@@ -42,6 +42,8 @@ private:
   IDisplay				*_display;
   std::vector<std::string>		_displaysPaths;
   std::vector<std::string>::iterator	_selectedDisplay;
+  void					*_graphicHandle;
+  void					*_gameHandle;
 };
 
 #endif /* ! LOADER_HH_ */
