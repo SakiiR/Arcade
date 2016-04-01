@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Fri Apr  1 11:42:40 2016 Barthelemy Gouby
+// Last update Fri Apr  1 11:55:01 2016 Barthelemy Gouby
 //
 
 #include "Loader.hh"
@@ -23,8 +23,8 @@ bool				Loader::loadGraphicLibrary(const std::string &filePath)
   if (this->_graphicHandle)
     {
       this->_display->closeDisplay();
-      dlclose(this->_graphicHandle);
       delete this->_display;
+      dlclose(this->_graphicHandle);
     }
   if ((this->_graphicHandle = dlopen(filePath.c_str(), RTLD_NOW)) == NULL)
     {
