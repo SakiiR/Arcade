@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Fri Apr  1 12:38:43 2016 Barthelemy Gouby
+// Last update Fri Apr  1 14:22:40 2016 Barthelemy Gouby
 //
 
 #include "Loader.hh"
@@ -188,4 +188,14 @@ void				Loader::loadFilesNames()
     std::cout << *it << std::endl;
   for (std::vector<std::string>::iterator it = this->_displaysPaths.begin(); it < this->_displaysPaths.end(); it++)
     std::cout << *it << std::endl;
+}
+
+const std::vector<std::string>	&Loader::getGamesPaths() const
+{
+  return (this->_gamesPaths);
+}
+
+const std::vector<std::string>	&Loader::getDisplaysPaths() const
+{
+  return (this->_displaysPaths);
 }

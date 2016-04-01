@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Fri Apr  1 11:52:29 2016 Barthelemy Gouby
+// Last update Fri Apr  1 15:38:46 2016 Barthelemy Gouby
 //
 
 #include <stdlib.h>
@@ -18,28 +18,109 @@ ArcadeCore::ArcadeCore()
 ArcadeCore::~ArcadeCore()
 {}
 
-// void			ArcadeCore::startArcade(const char *displayName);
+// void			ArcadeCore::startArcade(const char *displayName)
 // {
 //   this->_loader->loadGraphicLibrary(displayName);
 //   this->_loader->getDisplay()->initDisplay();
 //   this->startMenu();
 // }
 
-// char			menuInput()
-// {
+void			displayMenu(unsigned int menuIndex, std::vector<std::string> games,
+				    std::vector<std::string> displays)
+{
+  unsigned int			i = 0;
 
-// }
+  system("clear");
+  for (std::vector<std::string>::iterator it = games.begin(); it != games.end(); it++)
+    {
+      std::cout << *it;
+      if (i == menuIndex)
+	std::cout << " <";
+      std::cout << std::endl;
+      i++;
+    }
+  for (std::vector<std::string>::iterator it = displays.begin(); it != displays.end(); it++)
+    {
+      std::cout << *it;
+      if (i == menuIndex)
+	std::cout << " <";
+      std::cout << std::endl;
+      i++;
+    }
+}
 
-// void			ArcadeCore::startMenu()
-// {
-//   bool			arcadeIsOn = true;
-//   char			lastInput;
+void			ArcadeCore::menuStartLibrary(unsigned int menuIndex)
+{
+  std::string		libraryPath("");
+  std::regex		isGameLibrary(".*games.*");
+  std::regex		isGraphicLibrary(".*lib.*");
+  unsigned int		i = 0;
 
-//   while (arcadeIsOn)
-//     {
-      
-//     }
-// }
+  for (std::vector<std::string>::const_iterator it = this->_loader.getGamesPaths().begin();
+       it != this->_loader.getGamesPaths().end(); it++)
+    {
+      if (i == menuIndex)
+	libraryPath = *it;
+      i++;
+    }
+  if (libraryPath == "")
+    {
+      for (std::vector<std::string>::const_iterator it = this->_loader.getDisplaysPaths().begin();
+	   it != this->_loader.getDisplaysPaths().end(); it++)
+	{
+	  if (i == menuIndex)
+	    libraryPath = *it;
+	  i++;
+	}
+    }
+  if (regex_match(libraryPath, isGameLibrary))
+    {
+      this->_loader.loadGameLibrary(libraryPath);
+      this->startGame();
+    }
+  else if (regex_match(libraryPath, isGraphicLibrary))
+    {
+      this->_loader.loadGraphicLibrary(libraryPath);
+      this->_loader.getDisplay()->initDisplay();
+    }
+}
+
+void			ArcadeCore::startMenu()
+{
+  bool			arcadeIsOn = true;
+  char			lastInput;
+  unsigned int		menuIndex = 0;
+
+  while (arcadeIsOn)
+    {
+      lastInput = this->_loader.getDisplay()->getLastInput();
+      switch (lastInput)
+	{
+	case 'z' :
+	  if (menuIndex > 0)
+	    menuIndex--;
+	  break;
+	case 's' :
+	  if (menuIndex < this->_loader.getGamesPaths().size() +
+	      this->_loader.getDisplaysPaths().size() - 1) 
+	    menuIndex++;
+	  break;
+	case '\r' :
+	  this->menuStartLibrary(menuIndex);
+	  break;
+	case 0:
+	  arcadeIsOn = false;
+	  break;
+	case 0x1b:
+	  arcadeIsOn = false;
+	  break;
+	default:
+	  break;
+	}
+      displayMenu(menuIndex, this->_loader.getGamesPaths(), this->_loader.getDisplaysPaths());
+      usleep(50000);
+    }
+}
 
 void			ArcadeCore::executeInput(char input, bool &gameIsOn)
 {
@@ -68,6 +149,7 @@ void			ArcadeCore::executeInput(char input, bool &gameIsOn)
       break;
     case 0x1b:
       gameIsOn = false;
+      break;
     default:
       this->_loader.getGame()->sendLastInput(input);
       break;

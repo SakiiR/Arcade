@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Wed Mar  9 16:23:56 2016 Barthelemy Gouby
-// Last update Wed Mar 16 15:50:28 2016 Barthelemy Gouby
+// Last update Fri Apr  1 15:17:26 2016 Barthelemy Gouby
 //
 
 #ifndef __ARCADECORE_HH__
@@ -23,6 +23,7 @@ public:
   ~ArcadeCore();
   // void					startArcade(const char *displayName);
   void					startMenu();
+  void					menuStartLibrary(unsigned int menuIndex);
   void					startGame();
   void					executeInput(char input, bool &gameIsOn);
   Loader				&getLoader();

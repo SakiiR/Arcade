@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:36:22 2016 Erwan Dupard
-// Last update Fri Apr  1 10:29:19 2016 Barthelemy Gouby
+// Last update Fri Apr  1 14:20:08 2016 Barthelemy Gouby
 //
 
 #ifndef LOADER_HH_
@@ -35,6 +35,8 @@ public:
   void					retrieveFilesNames(std::string directoryPath,
 							   std::vector<std::string> &pathsTab);
   void					loadFilesNames();
+  const std::vector<std::string>	&getGamesPaths() const;
+  const std::vector<std::string>	&getDisplaysPaths() const;
 private:
   IGame					*_game;
   std::vector<std::string>		_gamesPaths;
