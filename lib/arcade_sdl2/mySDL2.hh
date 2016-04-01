@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:17:38 2016 Erwan Dupard
-// Last update Thu Mar 31 15:19:30 2016 Erwan Dupard
+// Last update Fri Apr  1 14:00:09 2016 Erwan Dupard
 //
 
 #ifndef MYSDL_HH_
@@ -32,6 +32,7 @@ public:
   virtual void			renderMap(const game::Map &map);
   virtual void			renderMenu(const MenuState &menuState);
   virtual char			getLastInput();
+  virtual void			cleanScreen();
 private:
   void				writeTile(const game::Position &position, const game::Position &size, Uint32 color);
   void				updateSurface() const;

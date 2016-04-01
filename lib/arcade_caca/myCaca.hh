@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 17:55:00 2016 Erwan Dupard
-// Last update Thu Mar 31 11:59:27 2016 Barthelemy Gouby
+// Last update Fri Apr  1 14:05:34 2016 Erwan Dupard
 //
 
 #ifndef MYCACA_HH_
@@ -27,6 +27,7 @@ public:
   virtual void			renderMap(const game::Map &map);
   virtual void			renderMenu(const MenuState &menuState);
   virtual char			getLastInput();
+  virtual void			cleanScreen();
 private:
   std::string			_name;
   caca_canvas_t			*_canvas;

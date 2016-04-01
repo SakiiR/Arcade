@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:20:17 2016 Erwan Dupard
-// Last update Thu Mar 31 14:27:38 2016 Erwan Dupard
+// Last update Fri Apr  1 14:07:59 2016 Erwan Dupard
 //
 
 #include "myCaca.hh"
@@ -107,6 +107,24 @@ char		myCaca::getLastInput()
   if (caca_get_event_type(&this->_event) & CACA_EVENT_KEY_PRESS)
     return (caca_get_event_key_ch(&this->_event));
   return (0x1);
+}
+
+void		myCaca::cleanScreen()
+{
+  unsigned int	x = 0;
+  unsigned int	y;
+
+  caca_set_color_ansi(this->_canvas, CACA_LIGHTGREEN, CACA_LIGHTRED);
+  while (x < 80)
+    {
+      y = 0;
+      while (y < 80)
+	{
+	  caca_put_str(this->_canvas, x, y, " ");
+	  y++;
+	}
+      ++x;
+    }
 }
 
 extern "C" myCaca	*create()

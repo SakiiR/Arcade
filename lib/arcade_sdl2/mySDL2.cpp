@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Fri Apr  1 13:57:08 2016 Erwan Dupard
+// Last update Fri Apr  1 14:04:47 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -140,6 +140,19 @@ void			mySDL2::writeTile(const game::Position &position, const game::Position &s
       	}
     }
   SDL_UnlockSurface(this->_screen);
+}
+
+void			mySDL2::cleanScreen()
+{
+  Uint32		i = 0;
+  Uint32		*pixels = (Uint32 *)this->_screen->pixels;
+  
+  while (i < SCREEN_X * SCREEN_Y)
+    {
+      pixels[i] = 0x00FFFFFF;
+      ++i;
+    }
+  this->updateSurface();
 }
 
 void			mySDL2::updateSurface() const

@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 16:36:09 2016 Erwan Dupard
-// Last update Wed Mar 30 11:36:15 2016 Erwan Dupard
+// Last update Fri Apr  1 13:59:49 2016 Erwan Dupard
 //
 
 #ifndef IDISPLAY_HH_
@@ -30,6 +30,7 @@ public:
   virtual void			renderMap(const game::Map &map) = 0;
   virtual void			renderMenu(const MenuState &menuState) = 0;
   virtual char			getLastInput() = 0;
+  virtual void			cleanScreen() = 0;
 };
 
 #endif /* ! IDISPLAY_HH_ */

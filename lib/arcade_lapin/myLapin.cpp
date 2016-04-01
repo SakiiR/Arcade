@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:59 2016 Erwan Dupard
-// Last update Thu Mar 31 14:31:33 2016 Erwan Dupard
+// Last update Fri Apr  1 14:09:31 2016 Erwan Dupard
 //
 
 #include "myLapin.hh"
@@ -137,6 +137,19 @@ void		        myLapin::_writeTile(const game::Position &position, const game::Po
 void			myLapin::renderMenu(const MenuState &menuState)
 {
   (void)menuState;
+}
+
+void			myLapin::cleanScreen()
+{
+  unsigned		*pixels = (unsigned *)this->_screen->pixels;
+  unsigned int		i = 0;
+
+  while (i < SCREEN_X * SCREEN_Y)
+    {
+      pixels[i] = VOID_COLOR;
+      ++i;
+    }
+  this->_updateWindow();
 }
 
 char			myLapin::getLastInput()
