@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Fri Apr  1 17:49:10 2016 Erwan Dupard
+// Last update Fri Apr  1 18:15:47 2016 Erwan Dupard
 //
 
 #include "Loader.hh"
@@ -33,7 +33,6 @@ bool				Loader::loadGraphicLibrary(const std::string &filePath)
       std::cerr << "[-] Failed To Open Library : " << dlerror() << std::endl;
       return (false);
     }
-  
   if ((create_display = (display_create_t *)dlsym(newGraphicHandle, "create")) == NULL)
     {
       dlclose(newGraphicHandle);

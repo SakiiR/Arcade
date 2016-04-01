@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Fri Apr  1 14:43:48 2016 Barthelemy Gouby
+// Last update Fri Apr  1 18:13:48 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -16,11 +16,6 @@ mySDL2::mySDL2()
   this->_name = "libsdl2";
   this->_window = NULL;
   this->_screen = NULL;
-}
-
-const std::string	&mySDL2::getName() const
-{
-  return (this->_name);
 }
 
 void			mySDL2::initDisplay()
