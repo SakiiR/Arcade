@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Fri Apr  1 18:13:48 2016 Erwan Dupard
+// Last update Sat Apr  2 12:21:36 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -13,7 +13,6 @@
 
 mySDL2::mySDL2()
 {
-  this->_name = "libsdl2";
   this->_window = NULL;
   this->_screen = NULL;
 }
@@ -45,8 +44,9 @@ void			mySDL2::renderTitleScreen(const std::string &gameTitle, const std::string
   (void)instructions;
 }
 
-void			mySDL2::renderMap(const game::Map &map)
+void			mySDL2::renderMap(const game::Map &map, char c)
 {
+  (void)c;
   game::Position	tileSize(SCREEN_X / map.getWidth(), SCREEN_Y / map.getHeight());
   unsigned int		i = 0;
   const game::Tile	*tiles = map.getTiles();

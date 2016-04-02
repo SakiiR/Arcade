@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:59 2016 Erwan Dupard
-// Last update Fri Apr  1 17:48:05 2016 Erwan Dupard
+// Last update Sat Apr  2 12:22:16 2016 Erwan Dupard
 //
 
 #include "myLapin.hh"
@@ -27,16 +27,10 @@ t_bunny_response		my_loop(void *data)
 
 myLapin::myLapin()
 {
-  this->_name = "liblapin";
   this->_window = NULL;
   this->_lastKey = 0x10;
   bunny_set_loop_main_function(&my_loop);
   bunny_set_key_response(&my_keyevent);
-}
-
-const std::string		&myLapin::getName() const
-{
-  return (this->_name);
 }
 
 void				myLapin::initDisplay()
@@ -70,8 +64,9 @@ void				myLapin::_updateWindow()
   bunny_display(this->_window);
 }
 
-void				myLapin::renderMap(const game::Map &map)
+void				myLapin::renderMap(const game::Map &map, char c)
 {
+  (void)c;
   game::Position	tileSize(SCREEN_X / map.getWidth(), SCREEN_Y / map.getHeight());
   unsigned int		i = 0;
   const game::Tile	*tiles = map.getTiles();

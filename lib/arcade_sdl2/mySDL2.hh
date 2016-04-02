@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:17:38 2016 Erwan Dupard
-// Last update Fri Apr  1 14:00:09 2016 Erwan Dupard
+// Last update Sat Apr  2 12:21:27 2016 Erwan Dupard
 //
 
 #ifndef MYSDL_HH_
@@ -25,11 +25,10 @@ class			        mySDL2 : public IDisplay
 public:
   mySDL2();
   virtual ~mySDL2() {  };
-  virtual const std::string	&getName() const;
   virtual void			initDisplay();
   virtual void			closeDisplay();
   virtual void			renderTitleScreen(const std::string &gameTitle, const std::string &Instructions);
-  virtual void			renderMap(const game::Map &map);
+  virtual void			renderMap(const game::Map &map, char c);
   virtual void			renderMenu(const MenuState &menuState);
   virtual char			getLastInput();
   virtual void			cleanScreen();

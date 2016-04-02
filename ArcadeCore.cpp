@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Fri Apr  1 15:38:46 2016 Barthelemy Gouby
+// Last update Sat Apr  2 12:23:12 2016 Erwan Dupard
 //
 
 #include <stdlib.h>
@@ -191,7 +191,7 @@ void			ArcadeCore::startGame()
       if (!this->_loader.getGame()->getIfGameIsOver())
 	{
 	  this->executeInput(this->_loader.getDisplay()->getLastInput(), gameIsOn);
-	  this->_loader.getDisplay()->renderMap(this->_loader.getGame()->refreshAndGetMap());
+	  this->_loader.getDisplay()->renderMap(this->_loader.getGame()->refreshAndGetMap(), 0);
 	  usleep(100000);
 	}
       else

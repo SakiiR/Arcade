@@ -5,20 +5,13 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:20:17 2016 Erwan Dupard
-// Last update Fri Apr  1 14:17:02 2016 Erwan Dupard
+// Last update Sat Apr  2 12:20:50 2016 Erwan Dupard
 //
 
 #include "myCaca.hh"
 
 myCaca::myCaca()
-{
-  this->_name = "libcaca";
-}
-
-const std::string	&myCaca::getName() const
-{
-  return (this->_name);
-}
+{}
 
 void		myCaca::_drawShit()
 {
@@ -61,8 +54,9 @@ void		myCaca::renderTitleScreen(const std::string &gameTitle, const std::string 
   (void)instructions;
 }
 
-void		myCaca::renderMap(const game::Map &map)
+void		myCaca::renderMap(const game::Map &map, char c)
 {
+  (void)c;
   unsigned int		i = 0;
   const game::Tile	*tiles = map.getTiles();
   game::Position	p(0, 0);
