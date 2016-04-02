@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Sat Apr  2 13:17:06 2016 Erwan Dupard
+// Last update Sat Apr  2 23:16:06 2016 Erwan Dupard
 //
 
 #include <stdlib.h>
@@ -18,15 +18,7 @@ ArcadeCore::ArcadeCore()
 ArcadeCore::~ArcadeCore()
 {}
 
-// void			ArcadeCore::startArcade(const char *displayName)
-// {
-//   this->_loader->loadGraphicLibrary(displayName);
-//   this->_loader->getDisplay()->initDisplay();
-//   this->startMenu();
-// }
-
-void			displayMenu(unsigned int menuIndex, std::vector<std::string> games,
-				    std::vector<std::string> displays)
+void			displayMenu(unsigned int menuIndex, std::vector<std::string> games, std::vector<std::string> displays)
 {
   unsigned int			i = 0;
 
@@ -182,9 +174,7 @@ void			displayMapTerm(const game::Map &map)
 void			ArcadeCore::startGame()
 {
   bool			gameIsOn = true;
-  // while (this->_loader.getDisplay()->getLastInput() == 0)
-  //   this->_loader.getDisplay()->renderTitleScreen(this->_loader.getGame()->getName(),
-  // 						   this->_loader.getGame()->getInstructions());
+
   this->_loader.getGame()->startGame();
   while (gameIsOn)
     {
