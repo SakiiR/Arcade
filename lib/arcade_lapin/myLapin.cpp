@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:59 2016 Erwan Dupard
-// Last update Sat Apr  2 13:16:24 2016 Erwan Dupard
+// Last update Sat Apr  2 13:37:43 2016 Erwan Dupard
 //
 
 #include "myLapin.hh"
@@ -45,7 +45,7 @@ myLapin::myLapin()
 
 void				myLapin::initDisplay()
 {
-  if ((this->_window = bunny_start(SCREEN_X, SCREEN_Y, false, this->_name.c_str())) != NULL)
+  if ((this->_window = bunny_start_style(SCREEN_X, SCREEN_Y, (t_bunny_window_style)(TITLEBAR | CLOSE_BUTTON), "liblapin barthe_g, dupard_e !! :p")) != NULL)
     {
       bunny_display(this->_window);
       this->_screen = bunny_new_pixelarray(SCREEN_X, SCREEN_Y);

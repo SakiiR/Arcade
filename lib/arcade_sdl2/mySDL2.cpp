@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Sat Apr  2 12:51:58 2016 Erwan Dupard
+// Last update Sat Apr  2 13:31:23 2016 Erwan Dupard
 //
 
 #include "mySDL2.hh"
@@ -27,14 +27,15 @@ void			mySDL2::initDisplay()
 	  this->_screen = SDL_GetWindowSurface(this->_window);
   	  SDL_FillRect(this->_screen, NULL, SDL_MapRGB(this->_screen->format, 0xFF, 0xFF, 0xFF));
   	  SDL_UpdateWindowSurface(this->_window);
-  	}
+	  SDL_SetWindowPosition(this->_window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+	}
     }
 }
 
 void			mySDL2::closeDisplay()
 {
-  // SDL_DestroyRenderer(this->_renderer);
-  // SDL_DestroyWindow(this->_window);
+  SDL_DestroyRenderer(this->_renderer);
+  SDL_DestroyWindow(this->_window);
   SDL_Quit();
 }
 

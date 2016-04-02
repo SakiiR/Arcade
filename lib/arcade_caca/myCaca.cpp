@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:20:17 2016 Erwan Dupard
-// Last update Sat Apr  2 12:20:50 2016 Erwan Dupard
+// Last update Sat Apr  2 13:25:15 2016 Erwan Dupard
 //
 
 #include "myCaca.hh"
@@ -89,7 +89,7 @@ void		myCaca::renderMap(const game::Map &map, char c)
 	  caca_set_color_ansi(this->_canvas, CACA_LIGHTGREEN, CACA_LIGHTRED);
 	  break;
   	}
-      caca_put_str(this->_canvas, p.x, p.y, " ");
+      caca_put_str(this->_canvas, p.x, p.y, "°");
       ++i;
     }
   caca_refresh_display(this->_display);
