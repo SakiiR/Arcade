@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:59 2016 Erwan Dupard
-// Last update Sat Apr  2 12:22:16 2016 Erwan Dupard
+// Last update Sat Apr  2 13:08:00 2016 Erwan Dupard
 //
 
 #include "myLapin.hh"
@@ -15,7 +15,12 @@ t_bunny_response		my_keyevent(t_bunny_event_state state, t_bunny_keysym key, voi
   myLapin			*lapin = (myLapin *)data;
 
   (void)state;
-  lapin->setLastKey((char)key);
+  if (key >= BKS_A && key <= BKS_Z)
+    lapin->setLastKey((char)key + 0x61);
+  else if (key == BKS_RETURN)
+    lapin->setLastKey(0x0d);
+  else
+    lapin->setLastKey((char)key);
   return (EXIT_ON_SUCCESS);
 }
 
@@ -150,7 +155,7 @@ void			myLapin::cleanScreen()
 char			myLapin::getLastInput()
 {
   bunny_loop(this->_window, 100, (void *)this);
-  return (this->_lastKey + 0x61);
+  return (this->_lastKey);
 }
 
 void			myLapin::setLastKey(char c)
