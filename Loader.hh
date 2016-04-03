@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:36:22 2016 Erwan Dupard
-// Last update Sun Apr  3 21:54:37 2016 Barthelemy Gouby
+// Last update Sun Apr  3 22:55:21 2016 Barthelemy Gouby
 //
 
 #ifndef LOADER_HH_
@@ -24,7 +24,7 @@ public:
   ~Loader();
   bool					loadGraphicLibrary(const std::string &filePath);
   bool					loadGameLibrary(const std::string &filePath);
-  void					loadInitialGraphicLibrary(const std::string &filePath);
+  bool					loadInitialGraphicLibrary(const std::string &filePath);
   void					loadInitialGameLibrary(const std::string &filePath); //peut etre pas besoin --> ok mais n'oubli pas le & ;)
   void					loadNextGraphicLibrary();
   void					loadNextGameLibrary();
@@ -37,6 +37,8 @@ public:
   void					loadFilesNames();
   const std::vector<std::string>	&getGamesPaths() const;
   const std::vector<std::string>	&getDisplaysPaths() const;
+  void					changeSelectedGame(const std::vector<std::string>::const_iterator &it);
+  void					changeSelecteddisplay(const std::vector<std::string>::const_iterator &it);
 private:
   IGame					*_game;
   std::vector<std::string>		_gamesPaths;

@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Sun Apr  3 21:28:35 2016 Barthelemy Gouby
+// Last update Sun Apr  3 22:46:32 2016 Barthelemy Gouby
 //
 
 #include <stdlib.h>
@@ -111,7 +111,6 @@ void			ArcadeCore::startMenu()
 	  break;
 	}
       displayMenu(menuIndex, this->_loader.getGamesPaths(), this->_loader.getDisplaysPaths());
-      this->_loader.getDisplay()->renderMenu(menuState);
       usleep(50000);
     }
 }

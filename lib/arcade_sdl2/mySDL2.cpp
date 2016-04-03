@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Sun Apr  3 21:29:19 2016 Barthelemy Gouby
+// Last update Sun Apr  3 22:51:32 2016 Barthelemy Gouby
 //
 
 #include "mySDL2.hh"
@@ -34,8 +34,6 @@ void			mySDL2::initDisplay()
 
 void			mySDL2::closeDisplay()
 {
-  SDL_DestroyRenderer(this->_renderer);
-  SDL_DestroyWindow(this->_window);
   SDL_Quit();
 }
 

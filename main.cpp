@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Tue Mar  8 14:40:10 2016 Erwan Dupard
-// Last update Sun Apr  3 21:51:58 2016 Barthelemy Gouby
+// Last update Sun Apr  3 22:56:07 2016 Barthelemy Gouby
 //
 
 #include "ressources.hh"
@@ -37,7 +37,8 @@ int			main(int argc, char **argv)
       return (RETURN_FAILURE);
     }
   arcade.getLoader().loadFilesNames();
-  arcade.getLoader().loadInitialGraphicLibrary(argv[1]);
+  if (!arcade.getLoader().loadInitialGraphicLibrary(argv[1]))
+    return (RETURN_FAILURE);
   arcade.getLoader().getDisplay()->initDisplay();
   arcade.startMenu();
   return (RETURN_SUCCESS);

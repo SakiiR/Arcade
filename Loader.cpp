@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Sun Apr  3 21:54:23 2016 Barthelemy Gouby
+// Last update Sun Apr  3 22:55:30 2016 Barthelemy Gouby
 //
 
 #include "Loader.hh"
@@ -73,7 +73,7 @@ bool				Loader::loadGameLibrary(const std::string &filePath)
   return (true);
 }
 
-void				Loader::loadInitialGraphicLibrary(const std::string &filePath)
+bool				Loader::loadInitialGraphicLibrary(const std::string &filePath)
 {
   std::vector<std::string>::iterator it = this->_displaysPaths.begin();
 
@@ -81,7 +81,8 @@ void				Loader::loadInitialGraphicLibrary(const std::string &filePath)
     {
       if (*it == filePath)
 	{
-	  this->loadGraphicLibrary(filePath);
+	  if (!this->loadGraphicLibrary(filePath))
+	    return (false);
 	  this->_selectedDisplay = it;
 	  break;
 	}
@@ -89,6 +90,7 @@ void				Loader::loadInitialGraphicLibrary(const std::string &filePath)
     }
   if (it == this->_displaysPaths.end())
     throw std::runtime_error("Library not found");
+  return (true);
 }
 
 void				Loader::loadInitialGameLibrary(const std::string &filePath)
@@ -183,10 +185,8 @@ void				Loader::loadFilesNames()
 {
   retrieveFilesNames("lib/", this->_displaysPaths);
   retrieveFilesNames("games/", this->_gamesPaths);
-  for (std::vector<std::string>::iterator it = this->_gamesPaths.begin(); it < this->_gamesPaths.end(); it++)
-    std::cout << *it << std::endl;
-  for (std::vector<std::string>::iterator it = this->_displaysPaths.begin(); it < this->_displaysPaths.end(); it++)
-    std::cout << *it << std::endl;
+  this->_selectedGame = this->_gamesPaths.begin();
+  this->_selectedDisplay = this->_displaysPaths.begin();
 }
 
 const std::vector<std::string>	&Loader::getGamesPaths() const
@@ -197,4 +197,16 @@ const std::vector<std::string>	&Loader::getGamesPaths() const
 const std::vector<std::string>	&Loader::getDisplaysPaths() const
 {
   return (this->_displaysPaths);
+}
+
+void				Loader::changeSelectedGame(const std::vector<std::string>::const_iterator &it)
+{
+  (void)it;
+  // this->_selectedGame = it;
+}
+
+void				Loader::changeSelecteddisplay(const std::vector<std::string>::const_iterator &it)
+{
+  (void)it;
+  // this->_selectedDisplay = it;
 }
