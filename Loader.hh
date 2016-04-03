@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:36:22 2016 Erwan Dupard
-// Last update Fri Apr  1 14:20:08 2016 Barthelemy Gouby
+// Last update Sun Apr  3 21:54:37 2016 Barthelemy Gouby
 //
 
 #ifndef LOADER_HH_
