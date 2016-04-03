@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:18:51 2016 Erwan Dupard
-## Last update Fri Apr  1 18:18:48 2016 Barthelemy Gouby
+## Last update Sun Apr  3 21:30:34 2016 Barthelemy Gouby
 ##
 
 CC			= g++
@@ -14,7 +14,7 @@ RM			= rm -f
 
 CXXFLAGS		= -shared -W -Wall -Werror -Wextra -std=c++11
 
-CPPFLAGS		= -shared -fPIC -I../../deps/SDL2/include -L../../deps/SDL2/ -Wl,--whole-archive ../../deps/SDL2/libSDL2_ttf.a -Wl,--no-whole-archive -lSDL2
+CPPFLAGS		= -shared -fPIC -I../../deps/SDL2/include -L../../deps/SDL2/ -lSDL2
 
 NAME			= ../../lib/lib_arcade_sdl2.so
 

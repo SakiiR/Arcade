@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:59 2016 Erwan Dupard
-// Last update Fri Apr  1 14:09:31 2016 Erwan Dupard
+// Last update Sat Apr  2 13:37:43 2016 Erwan Dupard
 //
 
 #include "myLapin.hh"
@@ -15,7 +15,17 @@ t_bunny_response		my_keyevent(t_bunny_event_state state, t_bunny_keysym key, voi
   myLapin			*lapin = (myLapin *)data;
 
   (void)state;
-  lapin->setLastKey((char)key);
+  if (state == 0x1)
+    lapin->setLastKey(0x10);
+  else
+    {
+      if (key >= BKS_A && key <= BKS_Z)
+	lapin->setLastKey((char)key + 0x61);
+      else if (key == BKS_RETURN)
+	lapin->setLastKey(0x0d);
+      else
+	lapin->setLastKey((char)key);
+    }
   return (EXIT_ON_SUCCESS);
 }
 
@@ -27,21 +37,15 @@ t_bunny_response		my_loop(void *data)
 
 myLapin::myLapin()
 {
-  this->_name = "liblapin";
   this->_window = NULL;
   this->_lastKey = 0x10;
   bunny_set_loop_main_function(&my_loop);
   bunny_set_key_response(&my_keyevent);
 }
 
-const std::string		&myLapin::getName() const
-{
-  return (this->_name);
-}
-
 void				myLapin::initDisplay()
 {
-  if ((this->_window = bunny_start(SCREEN_X, SCREEN_Y, false, this->_name.c_str())) != NULL)
+  if ((this->_window = bunny_start_style(SCREEN_X, SCREEN_Y, (t_bunny_window_style)(TITLEBAR | CLOSE_BUTTON), "liblapin barthe_g, dupard_e !! :p")) != NULL)
     {
       bunny_display(this->_window);
       this->_screen = bunny_new_pixelarray(SCREEN_X, SCREEN_Y);
@@ -70,8 +74,9 @@ void				myLapin::_updateWindow()
   bunny_display(this->_window);
 }
 
-void				myLapin::renderMap(const game::Map &map)
+void				myLapin::renderMap(const game::Map &map, char c)
 {
+  (void)c;
   game::Position	tileSize(SCREEN_X / map.getWidth(), SCREEN_Y / map.getHeight());
   unsigned int		i = 0;
   const game::Tile	*tiles = map.getTiles();
@@ -93,7 +98,7 @@ void				myLapin::renderMap(const game::Map &map)
 	  this->_writeTile(p, tileSize, OBSTACLE_COLOR);
   	  break;
 	case game::Tile::PACMAN:
-	  this->_writeTile(p, tileSize, OBSTACLE_COLOR);
+	  this->_writeTile(p, tileSize, PACMAN_COLOR);
 	  break;
 	case game::Tile::GHOST:
 	  this->_writeTile(p, tileSize, GHOST_COLOR);
@@ -155,7 +160,7 @@ void			myLapin::cleanScreen()
 char			myLapin::getLastInput()
 {
   bunny_loop(this->_window, 100, (void *)this);
-  return (this->_lastKey + 0x61);
+  return (this->_lastKey);
 }
 
 void			myLapin::setLastKey(char c)

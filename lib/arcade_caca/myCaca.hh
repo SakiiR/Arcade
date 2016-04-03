@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 17:55:00 2016 Erwan Dupard
-// Last update Fri Apr  1 14:15:16 2016 Erwan Dupard
+// Last update Sat Apr  2 12:21:16 2016 Erwan Dupard
 //
 
 #ifndef MYCACA_HH_
@@ -20,11 +20,10 @@ class				myCaca : public IDisplay
 public:
   myCaca();
   virtual ~myCaca() {  };
-  virtual const std::string	&getName() const;
   virtual void			initDisplay();
   virtual void			closeDisplay();
   virtual void			renderTitleScreen(const std::string &gameTitle, const std::string &instructions);
-  virtual void			renderMap(const game::Map &map);
+  virtual void			renderMap(const game::Map &map, char c);
   virtual void			renderMenu(const MenuState &menuState);
   virtual char			getLastInput();
   virtual void			cleanScreen();

@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:21:51 2016 Erwan Dupard
-// Last update Fri Apr  1 14:08:17 2016 Erwan Dupard
+// Last update Sat Apr  2 13:36:46 2016 Erwan Dupard
 //
 
 #ifndef MYLAPIN_HH_
@@ -31,11 +31,10 @@ class			        myLapin : public IDisplay
 public:
   myLapin();
   virtual ~myLapin() {  };
-  virtual const std::string	&getName() const;
   virtual void			initDisplay();
   virtual void			closeDisplay();
   virtual void			renderTitleScreen(const std::string &gameTitle, const std::string &instructions);
-  virtual void			renderMap(const game::Map &map);
+  virtual void			renderMap(const game::Map &map, char c);
   virtual void			renderMenu(const MenuState &menuState);
   virtual char			getLastInput();
   virtual void			cleanScreen();

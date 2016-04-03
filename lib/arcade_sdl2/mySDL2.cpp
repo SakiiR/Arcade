@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Fri Apr  1 17:54:24 2016 Barthelemy Gouby
+// Last update Sun Apr  3 21:29:19 2016 Barthelemy Gouby
 //
 
 #include "mySDL2.hh"
@@ -13,14 +13,8 @@
 
 mySDL2::mySDL2()
 {
-  this->_name = "libsdl2";
   this->_window = NULL;
   this->_screen = NULL;
-}
-
-const std::string	&mySDL2::getName() const
-{
-  return (this->_name);
 }
 
 void			mySDL2::initDisplay()
@@ -33,16 +27,15 @@ void			mySDL2::initDisplay()
 	  this->_screen = SDL_GetWindowSurface(this->_window);
   	  SDL_FillRect(this->_screen, NULL, SDL_MapRGB(this->_screen->format, 0xFF, 0xFF, 0xFF));
   	  SDL_UpdateWindowSurface(this->_window);
-  	}
+	  SDL_SetWindowPosition(this->_window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+	}
     }
-  TTF_Init();
 }
 
 void			mySDL2::closeDisplay()
 {
-  // SDL_DestroyRenderer(this->_renderer);
-  // SDL_DestroyWindow(this->_window);
-  TTF_Quit();
+  SDL_DestroyRenderer(this->_renderer);
+  SDL_DestroyWindow(this->_window);
   SDL_Quit();
 }
 
@@ -52,8 +45,9 @@ void			mySDL2::renderTitleScreen(const std::string &gameTitle, const std::string
   (void)instructions;
 }
 
-void			mySDL2::renderMap(const game::Map &map)
+void			mySDL2::renderMap(const game::Map &map, char c)
 {
+  (void)c;
   game::Position	tileSize(SCREEN_X / map.getWidth(), SCREEN_Y / map.getHeight());
   unsigned int		i = 0;
   const game::Tile	*tiles = map.getTiles();
@@ -94,18 +88,6 @@ void			mySDL2::renderMap(const game::Map &map)
 
 void			mySDL2::renderMenu(const MenuState &menuState)
 {
-  SDL_Renderer *renderer = SDL_CreateRenderer(this->_window, -1, 0);
-  TTF_Font *font = TTF_OpenFont("arial.ttf", 25);
-  SDL_Color textColor = {0xFF, 0xFF, 0xFF, 0xFF};
-  SDL_Surface *textSurface = TTF_RenderText_Solid(font, "test test test test test", textColor);
-  SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, textSurface);
-  int texW = 0;
-  int texH = 0;
-  SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);
-  SDL_Rect dstrect = {0, 0, texW, texH};
-
-  SDL_RenderCopy(renderer, texture, NULL, &dstrect);
-
   (void) menuState;
 }
 
