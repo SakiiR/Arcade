@@ -5,10 +5,10 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:21:25 2016 Erwan Dupard
-## Last update Fri Apr  1 13:01:30 2016 Erwan Dupard
+## Last update Sun Apr  3 21:33:09 2016 Erwan Dupard
 ##
 
-CC			= clang++
+CC			= g++
 
 RM			= rm -f
 
