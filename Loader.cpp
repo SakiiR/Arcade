@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 15:53:55 2016 Erwan Dupard
-// Last update Sun Apr  3 22:55:30 2016 Barthelemy Gouby
+// Last update Sun Apr  3 23:17:38 2016 Barthelemy Gouby
 //
 
 #include "Loader.hh"
@@ -197,16 +197,4 @@ const std::vector<std::string>	&Loader::getGamesPaths() const
 const std::vector<std::string>	&Loader::getDisplaysPaths() const
 {
   return (this->_displaysPaths);
-}
-
-void				Loader::changeSelectedGame(const std::vector<std::string>::const_iterator &it)
-{
-  (void)it;
-  // this->_selectedGame = it;
-}
-
-void				Loader::changeSelecteddisplay(const std::vector<std::string>::const_iterator &it)
-{
-  (void)it;
-  // this->_selectedDisplay = it;
 }
