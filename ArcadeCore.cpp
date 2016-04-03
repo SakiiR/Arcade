@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Sun Apr  3 22:46:32 2016 Barthelemy Gouby
+// Last update Sun Apr  3 22:59:43 2016 Barthelemy Gouby
 //
 
 #include <stdlib.h>
@@ -67,13 +67,13 @@ void			ArcadeCore::menuStartLibrary(unsigned int menuIndex)
     }
   if (regex_match(libraryPath, isGameLibrary))
     {
-      this->_loader.loadGameLibrary(libraryPath);
-      this->startGame();
+      if (this->_loader.loadGameLibrary(libraryPath))
+	this->startGame();
     }
   else if (regex_match(libraryPath, isGraphicLibrary))
     {
-      this->_loader.loadGraphicLibrary(libraryPath);
-      this->_loader.getDisplay()->initDisplay();
+      if (this->_loader.loadGraphicLibrary(libraryPath))
+	this->_loader.getDisplay()->initDisplay();
     }
 }
 
