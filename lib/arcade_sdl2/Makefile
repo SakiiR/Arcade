@@ -5,7 +5,7 @@
 ## Login   <dupard_e@epitech.net>
 ## 
 ## Started on  Wed Mar  9 18:18:51 2016 Erwan Dupard
-## Last update Thu Mar 31 15:18:57 2016 Erwan Dupard
+## Last update Fri Apr  1 18:18:48 2016 Barthelemy Gouby
 ##
 
 CC			= g++
@@ -14,7 +14,7 @@ RM			= rm -f
 
 CXXFLAGS		= -shared -W -Wall -Werror -Wextra -std=c++11
 
-CPPFLAGS		= -fPIC -I../../deps/SDL2/include -L../../deps/SDL2/ -lSDL2
+CPPFLAGS		= -shared -fPIC -I../../deps/SDL2/include -L../../deps/SDL2/ -Wl,--whole-archive ../../deps/SDL2/libSDL2_ttf.a -Wl,--no-whole-archive -lSDL2
 
 NAME			= ../../lib/lib_arcade_sdl2.so
 
@@ -25,7 +25,7 @@ OBJS			= $(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) $(CXXFLAGS) $(CPPFLAGS)
+	$(CC) -o $(NAME) $(OBJS) $(CXXFLAGS) $(CPPFLAGS) 
 
 clean:
 	$(RM) $(OBJS)

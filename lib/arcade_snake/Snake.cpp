@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:27:46 2016 Erwan Dupard
-// Last update Thu Mar 31 10:40:31 2016 Barthelemy Gouby
+// Last update Fri Apr  1 16:04:39 2016 Barthelemy Gouby
 //
 
 #include "Snake.hh"
@@ -116,7 +116,7 @@ extern "C" void				Play()
   Snake				snake;
 
   snake.startGame();
-  while (!std::cin.eof())
+  while (!std::cout.eof())
     {
       lastInput = (arcade::CommandType)std::cin.get();
       switch(lastInput)

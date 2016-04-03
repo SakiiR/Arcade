@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Fri Apr  1 15:38:46 2016 Barthelemy Gouby
+// Last update Fri Apr  1 17:44:48 2016 Barthelemy Gouby
 //
 
 #include <stdlib.h>
@@ -90,6 +90,7 @@ void			ArcadeCore::startMenu()
   bool			arcadeIsOn = true;
   char			lastInput;
   unsigned int		menuIndex = 0;
+  MenuState		menuState;
 
   while (arcadeIsOn)
     {
@@ -118,6 +119,7 @@ void			ArcadeCore::startMenu()
 	  break;
 	}
       displayMenu(menuIndex, this->_loader.getGamesPaths(), this->_loader.getDisplaysPaths());
+      this->_loader.getDisplay()->renderMenu(menuState);
       usleep(50000);
     }
 }

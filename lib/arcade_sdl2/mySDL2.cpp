@@ -5,7 +5,7 @@
 // Login   <dupard_e@epitech.net>
 // 
 // Started on  Wed Mar  9 18:16:43 2016 Erwan Dupard
-// Last update Fri Apr  1 14:43:48 2016 Barthelemy Gouby
+// Last update Fri Apr  1 17:54:24 2016 Barthelemy Gouby
 //
 
 #include "mySDL2.hh"
@@ -35,12 +35,14 @@ void			mySDL2::initDisplay()
   	  SDL_UpdateWindowSurface(this->_window);
   	}
     }
+  TTF_Init();
 }
 
 void			mySDL2::closeDisplay()
 {
   // SDL_DestroyRenderer(this->_renderer);
   // SDL_DestroyWindow(this->_window);
+  TTF_Quit();
   SDL_Quit();
 }
 
@@ -92,7 +94,19 @@ void			mySDL2::renderMap(const game::Map &map)
 
 void			mySDL2::renderMenu(const MenuState &menuState)
 {
-  (void)menuState;
+  SDL_Renderer *renderer = SDL_CreateRenderer(this->_window, -1, 0);
+  TTF_Font *font = TTF_OpenFont("arial.ttf", 25);
+  SDL_Color textColor = {0xFF, 0xFF, 0xFF, 0xFF};
+  SDL_Surface *textSurface = TTF_RenderText_Solid(font, "test test test test test", textColor);
+  SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, textSurface);
+  int texW = 0;
+  int texH = 0;
+  SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);
+  SDL_Rect dstrect = {0, 0, texW, texH};
+
+  SDL_RenderCopy(renderer, texture, NULL, &dstrect);
+
+  (void) menuState;
 }
 
 char			mySDL2::getLastInput()
