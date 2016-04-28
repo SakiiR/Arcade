@@ -5,7 +5,7 @@
 // Login   <barthe_g@epitech.net>
 // 
 // Started on  Thu Mar 10 16:05:44 2016 Barthelemy Gouby
-// Last update Sun Apr  3 22:59:43 2016 Barthelemy Gouby
+// Last update Thu Apr 28 09:10:35 2016 Barthelemy Gouby
 //
 
 #include <stdlib.h>
@@ -23,22 +23,27 @@ void			displayMenu(unsigned int menuIndex, std::vector<std::string> games, std::
   unsigned int			i = 0;
 
   system("clear");
+  std::cout << "\n\tMove around with zqsd keys.\n" << std::endl;
+  std::cout << "\tGames:" << std::endl;
   for (std::vector<std::string>::iterator it = games.begin(); it != games.end(); it++)
     {
-      std::cout << *it;
+      std::cout << '\t' << *it;
       if (i == menuIndex)
 	std::cout << " <";
       std::cout << std::endl;
       i++;
     }
+  std::cout << "\n\tGraphic Libraries:" << std::endl;
   for (std::vector<std::string>::iterator it = displays.begin(); it != displays.end(); it++)
     {
-      std::cout << *it;
+      std::cout << '\t' << *it;
       if (i == menuIndex)
 	std::cout << " <";
       std::cout << std::endl;
       i++;
     }
+  std::cout << "\n\tIn game, you can change of game with e(next) or r(previous)" << std::endl;
+  std::cout << "\tor of graphic library with t(next) or y(previous) on the fly." << std::endl;
 }
 
 void			ArcadeCore::menuStartLibrary(unsigned int menuIndex)
